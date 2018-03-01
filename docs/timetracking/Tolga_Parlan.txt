@@ -5,3 +5,9 @@
   14.30 - Registered for Instagram API, reading docs
   15.00 - Build a demo connecting to the instagram API
   15.30 - Build a demo connecting to the instagram API
+  19.00 - Investigate how to download images through instagram api
+  19.30 - Building the image download demo
+  20.00 - Building the image download demo
+  20.30 - Building the image download demo
+  21.00 - Building the image download demo
+  21.30 - Building the image download demo
