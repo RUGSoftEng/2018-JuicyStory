@@ -11,3 +11,11 @@
   20.30 - Building the image download demo
   21.00 - Building the image download demo
   21.30 - Building the image download demo
+
+07.03.2018
+  15.00 - Group meeting
+  17.00 - Learn django
+  17.30 - Learn django
+  18.00 - Learn django
+  18.30 - Learn django
+  19.00 - Learn django
