@@ -3,6 +3,11 @@ body {
   background-image: url(https://i.pinimg.com/originals/5e/52/b6/5e52b62bad58f49c6d0059e23dd3ffb4.jpg);
   opacity: 2.0;
 }
+
+.page-wrap {
+  width: 960px;
+  margin: 0 auto;
+}
 /* Full-width inputs */
 input[type=text], input[type=password], button{
     width: 100%;
@@ -13,7 +18,7 @@ input[type=text], input[type=password], button{
 }
 
 .opt1 {
-  position: absolute;
+/*  position: absolute;*/
   top: 95%;
   left: 55.6%;
   margin: -150px 0 0 -150px;
@@ -24,7 +29,7 @@ input[type=text], input[type=password], button{
 }
 
 .opt2 {
-  position: absolute;
+/*  position: absolute;*/
   top: 100%;
   left: 54.3%;
   margin: -150px 0 0 -150px;
@@ -35,8 +40,15 @@ input[type=text], input[type=password], button{
   /*color: #F0F8FF;*/
 }
 
+.center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 100px;
+}
+
 .login {
-  position: absolute;
+/*  position: absolute;*/
   top: 70%;
   left: 50%;
   margin: -150px 0 0 -150px;
