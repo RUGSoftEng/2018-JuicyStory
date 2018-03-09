@@ -25,7 +25,7 @@ SECRET_KEY = '73r)jce5=ab+sc)fd3dc^@#-mxb4)b)*j!+z^qr4virtm@l0me'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['80.114.178.251','localhost']
+ALLOWED_HOSTS = ['80.114.178.251','localhost','127.0.0.1','juicy-story.herokuapp.com']
 
 
 # Application definition
