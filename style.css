@@ -9,12 +9,12 @@ body {
   margin: 0 auto;
 }
 /* Full-width inputs */
-input[type=text], input[type=password], button{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+input[type=text], input[type=password], input[type=email], button{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
 .opt1 {
@@ -41,10 +41,16 @@ input[type=text], input[type=password], button{
 }
 
 .center {
-    margin: auto;
-    width: 50%;
-    border: 3px solid green;
-    padding: 100px;
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 100px;
+}
+
+.center h1, h2, h3, h4 {
+  text-align: center;
+  color: white;
+  font-family: sans-serif;
 }
 
 .login {
@@ -92,12 +98,13 @@ a:visited {
 
 /* mouse over link */
 a:hover {
-    color: hotpink;
+  color: hotpink;
 }
 
 /* selected link */
 a:active {
-    color: blue;
+  color: blue;
+  color: blue;
 }
 
 a {
