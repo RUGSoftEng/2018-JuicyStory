@@ -19,3 +19,10 @@
   18.00 - Learn django
   18.30 - Learn django
   19.00 - Learn django
+
+08.03.2018
+  20.00 - Learn django
+  20.30 - learn django
+  21.00 - Investigate django-apache integration
+  21.00 - Investigate django-apache integration
+  21.30 - Configured opening django server to internet via port forwarding
