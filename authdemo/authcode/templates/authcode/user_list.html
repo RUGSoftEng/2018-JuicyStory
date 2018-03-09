@@ -1,0 +1,11 @@
+{% for user in user_list %}
+    <h3>{{ user.client_id }}</h3>
+    <p>{{ user.redirect_uri }}</p>
+  </a>
+  <form action="https://api.instagram.com/oauth/authorize" method="get">
+    <input type="hidden" name="client_id" value={{user.client_id}}>
+    <input type="hidden" name="redirect_uri" value="{{user.redirect_uri}}">
+    <input type="hidden" name="response_type" value="code">
+    <input type="submit" value="Submit">
+  </form>
+{% endfor %}

@@ -1,0 +1,32 @@
+01.03.2018
+  11.00 - Meeting with the client
+  11.30 - Meeting with the client
+  14.00 - Creating a test instagram account and reading API Docs
+  14.30 - Registered for Instagram API, reading docs
+  15.00 - Build a demo connecting to the instagram API
+  15.30 - Build a demo connecting to the instagram API
+  19.00 - Investigate how to download images through instagram api
+  19.30 - Building the image download demo
+  20.00 - Building the image download demo
+  20.30 - Building the image download demo
+  21.00 - Building the image download demo
+  21.30 - Building the image download demo
+
+07.03.2018
+  15.00 - Group meeting
+  17.00 - Learn django
+  17.30 - Learn django
+  18.00 - Learn django
+  18.30 - Learn django
+  19.00 - Learn django
+
+08.03.2018
+  20.00 - Learn django
+  20.30 - learn django
+  21.00 - Investigate django-apache integration
+  21.00 - Investigate django-apache integration
+  21.30 - Configured opening django server to internet via port forwarding
+
+09.03.2018
+  10.00 - Porting previously built demos to django
+  10.30 - Making an api endpoint to receive the authentication key

@@ -1,0 +1,7 @@
+{% if code %}
+  <p>{{ code }}</p>
+{% elif error_message %}
+  <p>{{ error_message }}</p>
+{% else %}
+  <p>No input</p>
+{% endif %}

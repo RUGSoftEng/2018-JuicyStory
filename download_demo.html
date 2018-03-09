@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Download</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+  <h3>Demo for getting an image through it's url or through it's media-id</h3>
+
+  <h4>By URL (simple)</h4>
+  <div>
+    url
+    <input name="url" id="url" value="https://www.instagram.com/p/Bfy0Pl2FNO8/" size = "100" >
+  </div>  
+  <div>
+    <button id = "button">Get image by url</button>
+  </div>
+
+  <h4>By media-id (requires first getting a code)</h4>
+    <div>
+      media-id
+      <input name="media-id" id="media-id" value="1725671377082831804_7199328359" size = "100" >
+    </div>  
+    <div>
+      code 
+      <input name="code" id="code" value="" size = "100" >
+    </div>
+    <div>
+      <label for="client_id">client_id</label>
+      <input name="client_id" id="client_id" value="a81a42fcf5eb4194b4905822fc05f56a">
+    </div>
+    <div>
+      <label for="redirect_uri">redirect_uri</label>
+      <input name="redirect_uri" id="redirect_uri" value="http://www.juicystory.nl/">
+    </div>
+    <div>
+      <label for="client_secret">client_secret</label>
+      <input name="client_secret" id="client_secret" value="0d2e5ce1664b477d8aca11201b5dd779">
+    </div>
+    <input name="grant_type" id="grant_type" value="authorization_code">
+    <div>
+      <button id = "button2">Get image by media-id</button>
+    </div>
+
+
+  <img id ="image"></img>
+
+<script>
+  $("#button").click(function(){
+    $.get( "https://api.instagram.com/oembed", {url:$("#url").val()}).done(function( data ) {
+      console.log(data);
+      $('#image').attr("src", data["thumbnail_url"]);
+    });
+  });
+
+  $("#button2").click(function(){
+    //first get acces_token
+    data = {client_id:$("#client_id").val(), client_secret:$("#client_secret").val(), grant_type:$("#grant_type").val(), redirect_uri:$("#redirect_uri").val(), code:$("#code").val()};
+
+    $.post("https://api.instagram.com/oauth/access_token", data)
+      .done(function(res){
+        access_token = res.access_token;
+        console.log($("#media-id").val());
+        $.get( "https://api.instagram.com/v1/media/" + $("#media-id").val(), {access_token:access_token})
+          .done(function( imageData ) {
+            console.log(imageData);  
+            $('#image').attr("src", imageData.data.images.standard_resolution.url);
+          })
+          .fail(function(data){
+            console.log("FAIL");
+            console.log(data);
+          });
+      })
+      .fail(function(res){
+        console.log(res.responseJSON);
+      });
+  });
+</script>
+</body>
+</html>
