@@ -1,9 +1,9 @@
-% extends 'base_layout.html' %
-% block content %
+{% extends 'base_layout.html' %}
+{% block content %}
 	<h1>LogIn</h1>
 	<form class="site-form" action="{% url 'users:login' %}" method="post">
 		{% csrf_token %}
 		{{ form }}
 		<input type="submit" value="Login">
 	</form>
-% endblock %
+{% endblock %}

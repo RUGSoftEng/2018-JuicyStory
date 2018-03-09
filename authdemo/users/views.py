@@ -3,14 +3,16 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login
 
-
 def sign_up(request):
 	if request.method == 'POST':
 		form = UserCreationForm(request.POST)
 		if form.is_valid():
 			form.save()
-			#log the user
-			return redirect('authcode:get_auth_code')
+			#log the user in
+			user = form.get_user()
+			login(request, user)
+			#bad way to redirect
+			return redirect('http://127.0.0.1:8000/home/')
 			#return HttpResponse("User logged in!")
 	else:
 		form = UserCreationForm()
@@ -21,13 +23,10 @@ def log_in(request):
 		form = AuthenticationForm(data=request.POST)
 		if form.is_valid():
 			#log in the user
-			login_request(form, request)
-			return redirect('authcode:get_auth_code')
+			user = form.get_user()
+			login(request, user)
+			#bad way to redirect.
+			return redirect('http://127.0.0.1:8000/home/')
 	else:
 		form = AuthenticationForm()
 	return render(request, "users/log-in.html", {'form': form})
-
-
-def login_request(form, request):
-	user = form.get_user()
-	login(request, user)
