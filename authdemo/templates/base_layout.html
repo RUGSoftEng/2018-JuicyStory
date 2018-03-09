@@ -8,7 +8,23 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<h1><a href="{% url 'users:login'%}">Juicy Story</a></h1>
+			<h1><a href="{% url 'home'%}">Juicy Story</a></h1>
+			<nav>
+				<ul>
+					<li><form action="{% url 'users:login' %}" method="post">
+						{% csrf_token %}
+						<button type="submit">login</button>
+					</form></li>
+					<li><form action="{% url 'users:signup' %}" method="post">
+						{% csrf_token %}
+						<button type="submit">signup</button>
+					</form></li>
+					<li><form action="{% url 'users:logout' %}" method="post">
+						{% csrf_token %}
+						<button type="submit">logout</button>
+					</form></li>
+				</ul>
+			</nav>
 			{% block content %}
 			{% endblock %}
 		</div>
