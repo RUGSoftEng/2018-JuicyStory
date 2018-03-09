@@ -1,0 +1,11 @@
+- Find out your local ip address (ipconfig on windows, ifconfig on linux. It's the one that goes 192....)
+
+- Forward the port to your local ip address through your router interface (google port forwarding, it's easy)
+
+- Start django server with python3 manage.py runserver 0.0.0.0:[PORT]. Use the port that you have forwarded. 8000 works alright. 0.0.0.0 part is important!!
+
+- Add your ip adddress (external ip address. google to find) to the allowed hosts in django settings file.
+
+- Go to [IP]:[PORT] on your browser, should be working.
+
+- Voila! Don't forget to stop routing the port after you are done developing.
