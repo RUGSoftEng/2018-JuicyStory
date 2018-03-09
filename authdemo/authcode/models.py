@@ -1,10 +1,12 @@
 from django.db import models
 
-# Create your models here.
+# We currently have only one client
 class InstagramClient(models.Model):
-  client_id = models.CharField(max_length=35)
+  client_id = models.CharField(max_length=50)
+  client_secret = models.CharField(max_length=50)
   redirect_uri = models.CharField(max_length=300)
 
-class AuthenticationToken(models.Model):
-  token = models.CharField(max_length=100)
-  date = models.DateTimeField('date acquired')
+# Boaty Macboatface only currently
+class InstagramUser(models.Model):
+  username = models.CharField(max_length=30)
+  access_token = models.CharField(max_length=100)

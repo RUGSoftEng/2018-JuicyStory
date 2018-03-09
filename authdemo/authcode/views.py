@@ -1,31 +1,33 @@
+import requests
 from django.shortcuts import render
-from .models import InstagramClient, AuthenticationToken
-from django.utils import timezone
+from .models import InstagramClient, InstagramUser
 
 
-def get_auth_code(request):
+def get_access_token(auth_code):
+  url = "https://api.instagram.com/oauth/access_token"
+  client = InstagramClient.objects.get(pk=1)
+  post_data = {'client_id': client.id, 'client_secret': client.secret,
+               'grant_type': 'authorization_code', 'redirect_uri': client.redirect_uri, 'code': auth_code}
+  response = requests.post(url, post_data)
+  content = response.content
+  return content
+
+
+def process_auth_code(request):
   if 'code' in request.GET:
-    newToken = AuthenticationToken(
-        token=request.GET['code'], date=timezone.now())
-    newToken.save()
-  #   ret = {'code': request.GET['code']}
-  # else:
-  #   ret = {'error_message': 'No Code'}
+    code = request.GET['code']
+    response = get_access_token(code)
+    access_token = response['access_token']
+    username = response['user']['id']
 
-  return render(request, 'admin')
+    user = InstagramUser.objects.get(username=username)
+    user.access_token = access_token
+    user.save()
+
+  return user_list(request)
 
 
 def user_list(request):
   clients = InstagramClient.objects.values()
   context = {'user_list': clients}
   return render(request, 'authcode/user_list.html', context)
-
-# def send_auth_request(request):
-#   context = {'response_type':'code'}
-#   if 'client_id' in request.GET and 'redirect_uri' in request.GET:
-#     context['client_id'] = request.GET['client_id']
-#     context['redirect_uri'] = request.GET['redirect_uri']
-
-#   # return render(request, 'https://api.instagram.com/oauth/authorize', context)
-#   # return HttpResponseRedirect('https://api.instagram.com/oauth/authorize', args=context)
-#   return HttpResponseRedirect(reverse('https://api.instagram.com/oauth/authorize', kwargs=context))
