@@ -1,1 +1,1 @@
-web: python autdemo/manage.py runserver
+web: python authdemo/manage.py runserver
