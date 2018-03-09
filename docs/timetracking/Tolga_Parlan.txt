@@ -33,3 +33,7 @@
   11.00 - Making an api endpoint to receive the authentication key
   11.30 - Make a user_list page and create the model for it
   12.00 - Add authentication key acquisition functionality to the userlist page
+  13.00 - Meeting
+  14.00 - Working on the prototype
+  .. until ..
+  20.00 - Working on the prototype
