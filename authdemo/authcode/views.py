@@ -19,7 +19,7 @@ def process_auth_code(request):
     response = get_access_token(code)
     if "error_type" in response:
       print(response)
-    else: 
+    else:
       access_token = response['access_token']
       username = response['user']['username']
       print(username)
