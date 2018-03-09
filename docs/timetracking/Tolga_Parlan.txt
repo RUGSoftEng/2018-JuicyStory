@@ -26,3 +26,7 @@
   21.00 - Investigate django-apache integration
   21.00 - Investigate django-apache integration
   21.30 - Configured opening django server to internet via port forwarding
+
+09.03.2018
+  10.00 - Porting previously built demos to django
+  10.30 - Making an api endpoint to receive the authentication key

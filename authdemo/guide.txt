@@ -6,6 +6,8 @@
 
 - Add your ip adddress (external ip address. google to find) to the allowed hosts in django settings file.
 
+- Add that ip address also to the redirect urls on instagram api
+
 - Go to [IP]:[PORT] on your browser, should be working.
 
 - Voila! Don't forget to stop routing the port after you are done developing.
