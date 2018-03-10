@@ -8,6 +8,7 @@
 	<body>
 		<div class="wrapper">
 			<h1><a href="{% url 'home'%}">Juicy Story</a></h1>
+			<h4>User <a href="{% url 'iusers:list_iusers' %}">{{ user }}</a></h4>
 			<nav>
 				<ul>
 					<li><form action="{% url 'users:login' %}" method="post">
@@ -23,7 +24,7 @@
 						{% csrf_token %}
 						<button type="submit">logout</button>
 					</form></li>
-					<li><form action="{% url 'iusers:addIuser' %}" method="post">
+					<li><form action="{% url 'iusers:add_iuser' %}" method="post">
 						{% csrf_token %}
 						<button type="submit">add Instagram Account</button>
 					</form></li>

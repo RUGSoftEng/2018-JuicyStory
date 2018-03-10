@@ -1,0 +1,9 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+<h2>Instagram Accounts</h2>
+<div class="wrapper">
+	{% for iuser in iusers %}
+	<div class="instagram-account"><a href="#">{{ iuser.username }}</a></div>
+	{% endfor %}
+</div>
+{% endblock %}

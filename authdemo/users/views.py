@@ -12,7 +12,7 @@ def sign_up(request):
 			user = form.get_user()
 			login(request, user)
 			#bad way to redirect
-			return redirect('http://127.0.0.1:8000/home/')
+			return redirect('iusers:list_iusers')
 			#return HttpResponse("User logged in!")
 	else:
 		form = UserCreationForm()
@@ -26,7 +26,7 @@ def log_in(request):
 			user = form.get_user()
 			login(request, user)
 			#bad way to redirect.
-			return redirect('http://127.0.0.1:8000/home/')
+			return redirect('iusers:list_iusers')
 	else:
 		form = AuthenticationForm()
 	return render(request, "users/log-in.html", {'form': form})
