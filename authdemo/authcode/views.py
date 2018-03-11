@@ -1,25 +1,15 @@
-import requests
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.utils.http import urlencode
 from .models import InstagramClient, InstagramUser
-
-
-def get_access_token(auth_code):
-  url = "https://api.instagram.com/oauth/access_token"
-  client = InstagramClient.objects.get(pk=1)
-  post_data = {'client_id': client.client_id, 'client_secret': client.client_secret,
-               'grant_type': 'authorization_code', 'redirect_uri': client.redirect_uri, 'code': auth_code}
-  response = requests.post(url, data=post_data)
-  content = response.json()
-  return content
+from .utils import *
 
 
 def process_auth_code(request):
   if 'code' in request.GET:
     code = request.GET['code']
     response = get_access_token(code)
-    if "error_type" in response:
-      print(response)
-    else:
+    if "error_type" not in response:
       access_token = response['access_token']
       username = response['user']['username']
       print(username)
@@ -32,6 +22,15 @@ def process_auth_code(request):
 
 
 def user_list(request):
-  clients = InstagramClient.objects.values()
-  context = {'user': clients[0]}
+  users = InstagramUser.objects.values()
+  context = {'users': users}
   return render(request, 'authcode/user_list.html', context)
+
+
+def get_code(request):
+  url = "https://api.instagram.com/oauth/authorize/"
+  client = InstagramClient.objects.get(pk=1)
+  params = {"client_id": client.client_id, "redirect_uri": client.redirect_uri,
+            "response_type": "code", "scope": "public_content"}
+  print(urlencode(params))
+  return HttpResponseRedirect(url + "?" + urlencode(params))

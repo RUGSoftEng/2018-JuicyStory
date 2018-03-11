@@ -9,4 +9,4 @@ class InstagramClient(models.Model):
 # Boaty Macboatface only currently
 class InstagramUser(models.Model):
   username = models.CharField(max_length=30)
-  access_token = models.CharField(max_length=100)
+  access_token = models.CharField(max_length=100, blank=True)
