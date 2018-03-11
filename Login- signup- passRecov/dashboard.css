@@ -1,0 +1,63 @@
+body {
+  background: #FFC0CB;
+}
+
+header {
+  background: #CC0066;
+  margin: 25px 50px;
+  border-radius: 10px;
+}
+
+header h1 {
+  text-align: center;
+  font-family: 'Poppins-Medium';
+}
+
+header ul {
+  text-align: right;
+  margin: 0;
+  padding: 0;
+}
+
+header li {
+  font-size: 1em;
+  padding: 5px;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.account {
+  width: 100px;
+  margin-left: 10px;
+}
+
+.navigation {
+  margin: 20px 100px 40px 100px;
+}
+
+.navigation ul {
+  margin: 0;
+  padding: 0;
+}
+
+.navigation li {
+  font-size: 1.25em;
+  padding: 20px;
+  display: inline-block;
+}
+
+.account a {
+  font-size: 15px;
+  font-family: 'Poppins-Medium';
+  color: #FFFFFF;
+}
+
+li a {
+  font-size: 15px;
+  font-family: 'Poppins-Medium';
+  color: #FFFFFF;
+}
+
+a:hover {
+  color: #CC0066;
+}
