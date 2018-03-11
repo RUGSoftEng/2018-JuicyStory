@@ -14,6 +14,7 @@
       <img src={{image.images.standard_resolution.url}}>
     </div>
   {% endfor %}
+
 {% elif places %}
   {% for place in places %}
     <form action="{% url 'image_board:list_images' userdata.username %}" method="get">
@@ -23,4 +24,5 @@
     </form>
     <p></p>
   {% endfor %}
+  
 {% endif %}

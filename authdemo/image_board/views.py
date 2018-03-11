@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404
 from authcode.models import InstagramUser
-# from django.http import JsonResponse
 from .utils import *
 
 
@@ -16,10 +15,11 @@ def list_images(request, username):
       tag = request.GET['tag_or_location'][1:]
       images = request_images_by_tag(tag, access_token)['data']
     else:
-      location = {"lat": "53.2383152", "lng": "6.5349696"} # TODO: Don't hardcode
-      places = request_ids_by_coordinate(location, access_token)
+      location = request.GET['tag_or_location']
+      places = query_locations_by_name(location)
 
   elif 'id' in request.GET:
     images = request_images_by_location_id(request.GET['id'], access_token)
 
-  return render(request, 'image_board/list_images.html', {'userdata': userdata, 'images': images, 'places':places})
+  context = {'userdata': userdata, 'images': images, 'places':places}
+  return render(request, 'image_board/list_images.html', context)
