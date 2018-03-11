@@ -3,7 +3,7 @@
   <img src={{userdata.profile_picture}}>
 {% endif %}
 
-<form action="{% url 'location:list_images' userdata.username %}" method="get">
+<form action="{% url 'image_board:list_images' userdata.username %}" method="get">
   <input type="text" name="tag_or_location">
   <input type="submit" value="Submit">
 </form>
@@ -16,7 +16,7 @@
   {% endfor %}
 {% elif places %}
   {% for place in places %}
-    <form action="{% url 'location:list_images' userdata.username %}" method="get">
+    <form action="{% url 'image_board:list_images' userdata.username %}" method="get">
       {{place.name}}
       <input type="hidden" name="id" value="{{place.id}}">
       <input type="submit" value="Submit">

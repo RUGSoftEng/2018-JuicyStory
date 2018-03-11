@@ -22,4 +22,4 @@ def list_images(request, username):
   elif 'id' in request.GET:
     images = request_images_by_location_id(request.GET['id'], access_token)
 
-  return render(request, 'location/list_images.html', {'userdata': userdata, 'images': images, 'places':places})
+  return render(request, 'image_board/list_images.html', {'userdata': userdata, 'images': images, 'places':places})
