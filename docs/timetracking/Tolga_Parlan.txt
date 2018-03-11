@@ -37,3 +37,8 @@
   14.00 - Working on the prototype
   .. until ..
   20.00 - Working on the prototype
+
+11.03.2018
+  12.00 - Improve prototype with location based image search
+  .. until ..
+  15.00 - Improve prototype with location based image search
