@@ -1,5 +1,9 @@
 import requests
 
+def get_self_user_info(access_token):
+  url = "https://api.instagram.com/v1/users/self/"
+  response = requests.get(url, params={"access_token":access_token})
+  return response.json()
 
 def request_images_by_tag(tag, access_token):
   url = "https://api.instagram.com/v1/tags/%s/media/recent" % tag

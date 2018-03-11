@@ -1,4 +1,17 @@
-<form action="{% url 'location:list_images' username %}" method="get">
+{% if userdata %}
+  <h3>{{userdata.username}}</h3>
+  <img src={{userdata.profile_picture}}>
+{% endif %}
+
+<form action="{% url 'location:list_images' userdata.username %}" method="get">
   <input type="text" name="tag_or_location" value="" placeholder="">
   <input type="submit" value="Submit">
 </form>
+
+{% if images %}
+  {% for image in images %}
+    <div>
+      <img src={{image.images.standard_resolution.url}}>
+    </div>
+  {% endfor %}
+{% endif %}
