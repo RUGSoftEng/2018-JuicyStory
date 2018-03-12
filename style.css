@@ -1,0 +1,113 @@
+body {
+  background-size: cover;
+  background-image: url(https://i.pinimg.com/originals/5e/52/b6/5e52b62bad58f49c6d0059e23dd3ffb4.jpg);
+  opacity: 2.0;
+}
+
+.page-wrap {
+  width: 960px;
+  margin: 0 auto;
+}
+/* Full-width inputs */
+input[type=text], input[type=password], input[type=email], button{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.opt1 {
+/*  position: absolute;*/
+  top: 95%;
+  left: 55.6%;
+  margin: -150px 0 0 -150px;
+  border-style: none;
+  width: 300px;
+  height: 300px;
+  font-family: sans-serif;
+}
+
+.opt2 {
+/*  position: absolute;*/
+  top: 100%;
+  left: 54.3%;
+  margin: -150px 0 0 -150px;
+  border-style: none;
+  width: 300px;
+  height: 300px;
+  font-family: sans-serif;
+  /*color: #F0F8FF;*/
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 100px;
+}
+
+.center h1, h2, h3, h4 {
+  text-align: center;
+  color: white;
+  font-family: sans-serif;
+}
+
+.login {
+/*  position: absolute;*/
+  top: 70%;
+  left: 50%;
+  margin: -150px 0 0 -150px;
+  border-style: none;
+  width: 300px;
+  height: 300px;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  background-color: white;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 13px;
+  color: #000000;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+button {
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  background-color: #DCDCDC;
+  font-weight: 700;
+}
+/* unvisited link */
+a:link {
+    color: #F0F8FF;
+}
+
+/* visited link */
+a:visited {
+    color: #FFFFF0;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+  color: blue;
+}
+
+a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
