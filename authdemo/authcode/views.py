@@ -1,28 +1,35 @@
-from django.shortcuts import render
-#from .models import User
-# from django.http import HttpResponseRedirect
-# from django.urls import reverse
+from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from django.utils.http import urlencode
+from .models import InstagramClient, InstagramUser
+from .utils import *
 
 
-def get_auth_code(request):
+def process_auth_code(request):
   if 'code' in request.GET:
-    ret = {'code': request.GET['code']}
-  else:
-    ret = {'error_message': 'No Code'}
+    code = request.GET['code']
+    response = get_access_token(code)
+    if "error_type" not in response:
+      access_token = response['access_token']
+      username = response['user']['username']
 
-  return render(request, 'authcode/received.html', ret)
+      user = InstagramUser.objects.get(username=username)
+      user.access_token = access_token
+      user.save()
+
+  return redirect("image_board:list_images", username)
+
 
 def user_list(request):
-  users = User.objects.values()
-  context = {'user_list':users}
+  users = InstagramUser.objects.values()
+  context = {'users': users}
   return render(request, 'authcode/user_list.html', context)
 
-# def send_auth_request(request):
-#   context = {'response_type':'code'}
-#   if 'client_id' in request.GET and 'redirect_uri' in request.GET:
-#     context['client_id'] = request.GET['client_id']
-#     context['redirect_uri'] = request.GET['redirect_uri']    
 
-#   # return render(request, 'https://api.instagram.com/oauth/authorize', context)
-#   # return HttpResponseRedirect('https://api.instagram.com/oauth/authorize', args=context)
-#   return HttpResponseRedirect(reverse('https://api.instagram.com/oauth/authorize', kwargs=context))
+def get_code(request):
+  url = "https://api.instagram.com/oauth/authorize/"
+  client = InstagramClient.objects.get(pk=1)
+  params = {"client_id": client.client_id, "redirect_uri": client.redirect_uri,
+            "response_type": "code", "scope": "public_content"}
+  print(urlencode(params))
+  return HttpResponseRedirect(url + "?" + urlencode(params))

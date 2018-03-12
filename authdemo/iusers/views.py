@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from . import forms
-from .models import Iusers
+from authcode.models import InstagramUser
 
 # if the user calls the function from the urls, he will go to the else
 # statement and show the html with the form. If he is already in the html
@@ -21,5 +21,5 @@ def add_iuser(request):
 
 @login_required(login_url='/users/login/')
 def list_iusers(request):
-	iusers = Iusers.objects.filter(owner=request.user)
+	iusers = InstagramUser.objects.filter(owner=request.user)
 	return render(request, 'iusers/iuser-list.html', {'iusers':iusers})

@@ -1,7 +1,8 @@
 from django import forms
-from . import models
+# from . import models
+from authcode.models import InstagramUser
 
 class AddIuser(forms.ModelForm):
 	class Meta:
-		model = models.Iusers
+		model = InstagramUser
 		fields = ['username']

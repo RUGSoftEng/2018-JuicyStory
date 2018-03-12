@@ -25,8 +25,7 @@ SECRET_KEY = '@s3_m58yh-4u+%#z5_!(me=3lv@2fxsk6-^j=^z!vn-uf8jc1s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['80.114.178.251']
-
+ALLOWED_HOSTS = ['80.114.178.251','localhost','127.0.0.1','juicy-story.herokuapp.com']
 
 # Application definition
 
@@ -37,9 +36,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'image_board',
     'authcode',
     'iusers',
     'users',
+    'authdemo'
 ]
 
 MIDDLEWARE = [
@@ -125,6 +126,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets'),
 )
+
+#STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
 MEDIA_URL = '/media/'
 

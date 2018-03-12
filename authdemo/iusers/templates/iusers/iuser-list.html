@@ -3,7 +3,7 @@
 <h2>Instagram Accounts</h2>
 <div class="wrapper">
 	{% for iuser in iusers %}
-	<div class="instagram-account"><a href="#">{{ iuser.username }}</a></div>
+	<div class="instagram-account"><a href="{% url 'image_board:list_images' iuser.username %}">{{ iuser.username }}</a></div>
 	{% endfor %}
 </div>
 {% endblock %}
