@@ -35,7 +35,14 @@
 }
 
 body, html {
-	background-color: blue;
+	height: 100%;
+	font-family: Poppins-Regular, sans-serif;
+  background-color: #FFC0CB;
+
+  background: -webkit-linear-gradient(-135deg, #d3cce3 , #e9e4f0);
+  background: -o-linear-gradient(-135deg, #d3cce3 , #e9e4f0);
+  background: -moz-linear-gradient(-135deg, #d3cce3 , #e9e4f0);
+  background: linear-gradient(-135deg, #d3cce3 , #e9e4f0);
 }
 
 
