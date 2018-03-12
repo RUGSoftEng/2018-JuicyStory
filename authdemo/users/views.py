@@ -7,9 +7,8 @@ def sign_up(request):
 	if request.method == 'POST':
 		form = UserCreationForm(request.POST)
 		if form.is_valid():
-			form.save()
+			user = form.save()
 			#log the user in
-			user = form.get_user()
 			login(request, user)
 			#bad way to redirect
 			return redirect('iusers:list_iusers')
