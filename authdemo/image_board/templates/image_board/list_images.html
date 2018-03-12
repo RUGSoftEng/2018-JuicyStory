@@ -1,3 +1,6 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+
 {% if userdata %}
   <h3>{{userdata.username}}</h3>
   <img src={{userdata.profile_picture}}>
@@ -26,3 +29,5 @@
   {% endfor %}
   
 {% endif %}
+
+{% endblock%}
