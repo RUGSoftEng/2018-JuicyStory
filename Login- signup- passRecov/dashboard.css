@@ -1,16 +1,79 @@
-body {
-  background: #FFC0CB;
+/*//////////////////////////////////////////////////////////////////
+[ FONT ]*/
+
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('../fonts/poppins/Poppins-Regular.ttf');
 }
 
-header {
-  background: #CC0066;
-  margin: 25px 50px;
-  border-radius: 10px;
+@font-face {
+  font-family: Poppins-Bold;
+  src: url('../fonts/poppins/Poppins-Bold.ttf');
 }
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url('../fonts/poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url('../fonts/montserrat/Montserrat-Bold.ttf');
+}
+
+/*body {
+  background: #D3D3D3;
+  font-family: Poppins-Bold;
+}*/
+/*//////////////////////////////////////////////////////////////////
+[ RESTYLE TAG ]*/
+
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+body, html {
+	height: 100%;
+	font-family: Poppins-Regular, sans-serif;
+  background-color: #FFC0CB;
+
+  background: -webkit-linear-gradient(-135deg, #d3cce3 , #e9e4f0);
+  background: -o-linear-gradient(-135deg, #d3cce3 , #e9e4f0);
+  background: -moz-linear-gradient(-135deg, #d3cce3 , #e9e4f0);
+  background: linear-gradient(-135deg, #d3cce3 , #e9e4f0);
+}
+
+
+header {
+  background: #cc0066;
+  margin: auto;
+  width: 80%;
+  border-radius: 10px;
+  top: 10%;
+}
+
+.menu, .menu a {
+  font-family: Poppins-Regular;
+  font-size: 16px;
+  line-height: 1.7;
+  color: white;
+  margin: 0px;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+}
+
+.bell {
+  width: 100px;
+  height: 100px;
+}
+
 
 header h1 {
   text-align: center;
-  font-family: 'Poppins-Medium';
 }
 
 header ul {
@@ -26,13 +89,9 @@ header li {
   display: inline-block;
 }
 
-.account {
-  width: 100px;
-  margin-left: 10px;
-}
-
 .navigation {
   margin: 20px 100px 40px 100px;
+  text-align: center;
 }
 
 .navigation ul {
@@ -46,18 +105,92 @@ header li {
   display: inline-block;
 }
 
-.account a {
-  font-size: 15px;
-  font-family: 'Poppins-Medium';
-  color: #FFFFFF;
-}
-
 li a {
-  font-size: 15px;
-  font-family: 'Poppins-Medium';
-  color: #FFFFFF;
+	font-family: Poppins-Medium;
+	font-size: 18px;
+	line-height: 1.7;
+	color: #666666;
+	margin: 0px;
+	transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
 }
 
-a:hover {
-  color: #CC0066;
+.menu a:focus, li a:focus {
+	outline: none !important;
 }
+
+.menu a:hover, li a:hover {
+	text-decoration: none;
+  color: slateblue;
+}
+
+/*scaling to browser*/
+
+
+
+@media (max-width: 992px) {
+  header {
+    padding: 50px 50px 20px 50px;
+  }
+
+  header .menu {
+    text-align: center;
+  }
+
+  .navigation {
+    padding: 0px 0px 0px 0px;
+    /*width: 75%;*/
+    text-align: center;
+    font-size: 10px;
+  }
+
+
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 50px 50px 20px 50px;
+  }
+
+  header .menu {
+    text-align: center;
+  }
+
+  .navigation {
+    padding: 0px 0px 0px 0px;
+    /*width: 75%;*/
+    text-align: center;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  header {
+    padding: 50px 50px 20px 50px;
+  }
+
+  header .menu {
+    text-align: center;
+  }
+
+  .navigation {
+    padding: 0px 0px 0px 0px;
+    /*width: 75%;*/
+    text-align: center;
+    font-size: 10px;
+  }
+}
+
+© 2018 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+API
+Training
+Shop
+Blog
