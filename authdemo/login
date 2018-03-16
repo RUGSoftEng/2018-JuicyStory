@@ -1,0 +1,27 @@
+url:
+https://www.instagram.com/accounts/login/ajax/
+
+Request data:
+username=testy8101
+password=%3zf(^u7YX
+next=/
+
+Response data:
+{"authenticated": true, "user": true, "status": "ok"}
+
+Request Headers:
+POST /accounts/login/ajax/ HTTP/1.1
+Host: www.instagram.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Referer: https://www.instagram.com/
+X-CSRFToken: kjB4bsi59ol9eQX58Kx1hzIL4CVOofuz
+X-Instagram-AJAX: 1
+Content-Type: application/x-www-form-urlencoded
+X-Requested-With: XMLHttpRequest
+Content-Length: 51
+Cookie: mid=WpHKMAAEAAGvpIppCb-kjMMZHMMk; rur=ASH; urlgen="{\"time\": 1521203635\054 \"145.97.157.227\": 1103}:1ewp6P:IGvu-tbBvSI3ScxVbYAnwumiFnk"; ig_vw=1415; ig_pr=1.2; ig_vh=403; ig_or=landscape-primary; social_hash_bucket_id=307; csrftoken=kjB4bsi59ol9eQX58Kx1hzIL4CVOofuz
+Connection: keep-alive
+DNT: 1
