@@ -1,18 +1,66 @@
-{% extends 'base_layout.html' %}
-{% block content %}
-	<div class="limiter">
+{% load staticfiles %}
+<html>
+<head>
+	<title>Login Juicy Story</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'font-awesome.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+
+<!-- updated version -->
+<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-pic">
-					<img src="img-01.png" alt="IMG">
+					<img src="{% static 'images/img-01.png' %}" alt="IMG">
 				</div>
-				<h1>LogIn</h1>
-				<form class="site-form" action="{% url 'users:login' %}" method="post">
+
+				<form class="login100-form validate-form" action="#" method="post">
+					
+					<span class="login100-form-title">
+						Login
+					</span>
+
 					{% csrf_token %}
-					{{ form }}
-					<input type="submit" value="Login">
+					
+					{% for field in form %}
+       	 			<div class="wrap-input100 validate-input">
+       	 				<div class="input100">{{ field }}</div>
+       	 			</div>
+        			{% endfor %}
+					
+					<div class="container-login100-form-btn">
+						<input type="submit" value="Login" class="btn btn-default login100-form-btn">
+					</div>
+
+					<div class="text-center p-t-12">
+						<span class="txt1">
+							Forgot
+						</span>
+						<a class="txt2" href="#" target="_blank">
+							Password?
+						</a>
+					</div>
+					
+					<div class="text-center p-t-136">
+						<a class="txt2" href="{% url 'users:signup' %}" target="_blank">
+							Create your Account
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+
 				</form>
 			</div>
 		</div>
 	</div>
-{% endblock %}
+<!-- updated version -->
+
+<!-- Javascript files -->
+<!-- <script src="{% static 'jquery/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script> -->
+</body>
+</html>

@@ -1,5 +1,65 @@
-{% extends 'base_layout.html' %}
-{% block content %}
+{% load staticfiles %}
+<html>
+<head>
+	<title>Login Juicy Story</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'font-awesome.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+<!-- updated version -->
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<!-- The image displayed on the left -->
+				<div class="login100-pic">
+					{% load static %}
+					<img src="{% static 'images/img-01.png' %}" alt="IMG">
+				</div>
+
+				<form class="login100-form validate-form" action="#" method="post">
+					<!-- The image displayed on the left -->
+					<span class="login100-form-title">
+						Sign Up
+					</span>
+
+					{% csrf_token %}
+					
+					{% for field in form %}
+       	 			<div class="wrap-input100 validate-input">
+       	 				<div class="input100">{{ field }}</div>
+       	 			</div>
+        			{% endfor %}
+
+					<div class="container-login100-form-btn">
+						<input type="submit" value="Signup" class="btn btn-default login100-form-btn">
+					</div>
+
+					<div class="text-center p-t-136">
+						<a class="txt2" href="{% url 'users:login' %}" target="_blank">
+							Already have an Account?
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+<!-- updated version -->
+</body>
+</html>
+
+
+
+
+
+
+
+<!-- {% block content %}
 
 	<div class="limiter">
 		<div class="container-login100">
@@ -17,4 +77,4 @@
 		</div>
 	</div>
 	
-{% endblock %}
+{% endblock %} -->
