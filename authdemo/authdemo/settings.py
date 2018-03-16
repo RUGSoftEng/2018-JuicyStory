@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'authcode',
     'iusers',
     'users',
-    'authdemo'
+    'authdemo',
+    'upload'
 ]
 
 MIDDLEWARE = [
