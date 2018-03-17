@@ -26,9 +26,10 @@
 					</span>
 
 					{% csrf_token %}
-					
+
 					{% for field in form %}
        	 			<div class="wrap-input100 validate-input">
+       	 				<div>{{ field.label_tag }}</div>
        	 				<div class="input100">{{ field }}</div>
        	 			</div>
         			{% endfor %}
