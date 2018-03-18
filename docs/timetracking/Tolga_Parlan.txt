@@ -52,3 +52,6 @@
   15.00 - Setting up upload functionality to the website and a cron job
   .. until ..
   17.30
+
+  20.00 - Finishing the upload functionality and the cron job
+  20.30 - Finishing the upload functionality and the cron job
