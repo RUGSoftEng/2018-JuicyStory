@@ -47,3 +47,8 @@
   13.00 - Figuring out how to upload images to Instagram
   .. until ..
   16.30 - Figuring out how to upload images to Instagram
+
+18.03.2018
+  15.00 - Setting up upload functionality to the website and a cron job
+  .. until ..
+  17.30
