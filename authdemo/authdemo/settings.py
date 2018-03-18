@@ -56,7 +56,7 @@ MIDDLEWARE = [
 ]
 
 CRON_CLASSES = [
-    "upload.cron.MyCronJob"
+    "upload.cron.ImageUploadCronJob"
 ]
 
 

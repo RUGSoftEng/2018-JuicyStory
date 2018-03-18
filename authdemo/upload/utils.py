@@ -1,7 +1,7 @@
 import time
 import requests.sessions
 
-def upload_image(user, photo):
+def upload_image(username, photo):
   with requests.Session() as s:
     baseurl = "https://www.instagram.com/"
     loginurl = baseurl + "accounts/login/ajax/"
@@ -25,10 +25,10 @@ def upload_image(user, photo):
     uploadurl = baseurl + "create/upload/photo/"
     s.headers.update({'Referer': baseurl + 'create/style/'})
     upload_id = str(int(time.time() * 1000))
-    path = "1991-11.jpg"
+    # path = "1991-11.jpg"
 
     data = {'upload_id': upload_id}
-    files = {'photo': open(path, 'rb')}
+    files = {'photo': open(photo, 'rb')}
     s.post(uploadurl, data, files=files)
 
     # post it
