@@ -11,7 +11,7 @@ def sign_up(request):
 			#log the user in
 			login(request, user)
 			#bad way to redirect
-			return redirect('iusers:list_iusers')
+			return redirect('home')
 			#return HttpResponse("User logged in!")
 	else:
 		form = UserCreationForm()
@@ -25,7 +25,7 @@ def log_in(request):
 			user = form.get_user()
 			login(request, user)
 			#bad way to redirect.
-			return redirect('iusers:list_iusers')
+			return redirect('home')
 	else:
 		form = AuthenticationForm()
 	return render(request, "users/log-in.html", {'form': form})

@@ -1,9 +1,20 @@
 {% extends 'base_layout.html' %}
-{% block content %}
-<h2>Instagram Accounts</h2>
-<div class="wrapper">
-	{% for iuser in iusers %}
-	<div class="instagram-account"><a href="{% url 'image_board:list_images' iuser.username %}">{{ iuser.username }}</a></div>
-	{% endfor %}
+
+{% block head %}
+<title>Instagram Account List | Juicy Story</title>
+{% endblock %}
+
+{% block body %}
+<div class="container-login100">
+	<div class="wrap-login100">
+		<h2>Instagram Accounts</h2>
+		<div class="wrapper">
+			{% for iuser in iusers %}
+			<div class="instagram-account">
+				<a href="{% url 'image_board:list_images' iuser.username %}">{{ iuser.username }}</a>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
 </div>
 {% endblock %}
