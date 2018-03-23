@@ -1,0 +1,100 @@
+## February 23rd 2018
+13:00 - {Meeting with the group; understanding the project;}
+13:30 - Trying to hack a meeting with the client
+14:00 - First meeting with the client
+14:30 - System requirements
+15:00 - System requirements
+
+## March 1st 2018
+11:00 - Meeting with the client/Developer
+11:30 - Recommendations / Expectations
+12:00 - Splitting to Back / Front end teams
+12:30 - Creating Trello boards
+13:00 - Gathering resources about Django and where to start
+13:30 - Learning by doing, Making a Django Blog.
+14:00 - Outdated video, found another
+7:00 - {Start Learning Django; Getting Started with Django; Project SetUp and installation;}
+7:30 - {First rendering with the views; Decoupling the HTML from python}
+8:00 -Having Basic understanding of python/Django
+8:30 - {First rendering with the views; Decoupling the HTML from python}
+10:00 -Generating apps
+10:30 -Users
+11:00 -Database, Forms
+11:30 -Registering, Forms
+12:00 -Login, Registering works.
+
+## March 2nd 2018
+13:00 - TA meeting
+13:30 - Concluding on technologies, languages etc.
+14:00 - Prototyping the users app
+14:30 - Django errors, launch
+8:00 - Implementing prior knowledge from the Blog to Juicy
+8:30 - 10:30 Login, Registering, Database and Forms working.
+
+## March 7th 2018
+3:00 - {Meeting with the Group; Dividing work; Expressing Issues; Plan making;}
+3:30 - Meeting conclusion
+
+## March 9th 2018
+13:00 - Meeting with the TA
+13:30 - Concluding meeting
+14:00 - Rushing a prototype
+14:30 - {Testing Heroku; Minnor issues with development on Uni}
+15:00 - {Small break; Planning on next steps}
+15:30 - {First version of v0.1 branch}
+17:00 - Making Iusers app
+17:30 - Making the views & Urls 
+18:00 - Working Iusers connected with regular users
+18:30 - Committing work
+
+## March 12th 2018
+11:00 - Private Meeting with Tolga
+11:30 - Merging our work (mostly Tolga)
+12:00 - Merging done
+3:00 - Meeting with the group
+3:30 - Showing the demo
+4:00 - Dividing work; Writing back-end architecture
+4:30 - Finalising on architecture 
+5:00 - Minnor setbacks merging back/front-end
+5:30 - final version of system requirements v2, architecture v1
+6:00 - committing
+
+## March 14th 2018
+15:00 - Showing the demo to the client
+15:30 - General expectations and pace
+16:00 - Meeting conclusion HTTP requests as potential solution
+
+## March 16th 2018
+13:00 - 17:00 Trying to fix the back/front-end merge
+17:00 - Working version but not pleased with results
+17:30 - File structure is a mess, refactoring 
+18:00 - {Finalising work; committing}
+
+## March 17th 2018
+11:00 - Potential plug in can help a lot
+11:30 - Testing plug in
+12:00 - {Plug in work; Altering HTML, CSS work}
+12:30 - Sign up working perfectly, removed email tab
+13:00 - Sign in working, minor issues with sending get requests
+13:30 - Sign in working perfectly!
+
+ ## March 18th 2018
+10:30 - Fixing all other pages
+11:00 - Main page sorta fixed, incorrect css file?
+11:30 - Changing the forms for adding instagram accounts
+12:00 - Technical fixes and testing
+12:30 - Whole site up to date with both back/front - end
+
+## March 21st 2018
+14:00 - Meeting with the group 
+14:30 - Making goals, raising major issue…
+
+## March 23rd 2018
+11:00 - Updating time tracking
+11:30 - removing cluttered files from v0.1
+12:00 - committing time tracking
+
+
+
+
+
