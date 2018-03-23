@@ -1,36 +1,47 @@
 import time
 import requests.sessions
+import random
 
-def upload_image(username, photo):
+
+def upload_image(username, photo, is_story=None):
   with requests.Session() as s:
-    baseurl = "https://www.instagram.com/"
-    loginurl = baseurl + "accounts/login/ajax/"
+    base_url = "https://www.instagram.com/"
+    login_url = base_url + "accounts/login/ajax/"
     USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0"
-    data = {"username": "testy8101", "password": "%3zf(^u7YX"}
+    login_data = {"username": "testy8101", "password": "%3zf(^u7YX"}
 
     s.headers = {'User-Agent': USER_AGENT}
-    s.headers.update({'Referer': baseurl})
+    s.headers.update({'Referer': base_url})
 
     # get the cookies by going to the base site
-    r = s.get(baseurl)
+    r = s.get(base_url)
     s.headers.update({'X-CSRFToken': r.cookies['csrftoken']})
 
     # login
-    r = s.post(loginurl, data=data, allow_redirects=True)
+    r = s.post(login_url, data=login_data, allow_redirects=True)
     s.headers.update({'X-CSRFToken': r.cookies['csrftoken']})
 
-    #######
-
     # upload the image
-    uploadurl = baseurl + "create/upload/photo/"
-    s.headers.update({'Referer': baseurl + 'create/style/'})
+    upload_url = base_url + "create/upload/photo/"
+    s.headers.update({'Referer': base_url + 'create/style/'})
     upload_id = str(int(time.time() * 1000))
-    # path = "1991-11.jpg"
 
     data = {'upload_id': upload_id}
     files = {'photo': open(photo, 'rb')}
-    s.post(uploadurl, data, files=files)
+    s.post(upload_url, data, files=files)
 
     # post it
-    posturl = baseurl + "create/configure/"
-    s.post(posturl, data=data)
+    if(is_story):
+      data.update({
+          'client_shared_at': str(int(time.time())),
+          'source_type': 3,
+          'configure_mode': 1,
+          'client_timestamp': str(int(time.time()) - random.randint(3, 10)),
+          'upload_id': upload_id,
+      })
+      posturl = base_url + "create/configure_to_story/"
+    else:
+      posturl = base_url + "create/configure/"
+    
+    r = s.post(posturl, data=data)
+    print(r.status_code)

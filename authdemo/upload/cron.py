@@ -19,7 +19,7 @@ class ImageUploadCronJob(CronJobBase):
     for image in images:    
       try:
         upload_image(image.username, settings.BASE_DIR +
-                     '/' + image.image_file.url)
+                     '/' + image.image_file.url, True)
         image.delete()
       except Exception as e:
         print(e)
