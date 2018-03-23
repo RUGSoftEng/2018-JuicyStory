@@ -13,7 +13,7 @@ def upload_page(request, username):
     form = ImageUploadForm(request.POST, request.FILES)
     if form.is_valid:
       newImage = Image(username=user.username,
-                       image_file=request.FILES['file'], upload_date=request.POST['upload_date'])
+                       image_file=request.FILES['file'], upload_date=request.POST['upload_date'], is_story=(True if request.POST['upload_type'] == 'story' else False))
       newImage.save()
 
       return HttpResponseRedirect(reverse('upload:upload_page', kwargs=context))
