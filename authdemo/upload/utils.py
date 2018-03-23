@@ -43,5 +43,4 @@ def upload_image(username, photo, is_story=None):
     else:
       posturl = base_url + "create/configure/"
     
-    r = s.post(posturl, data=data)
-    print(r.status_code)
+    s.post(posturl, data=data)
