@@ -51,7 +51,15 @@
 18.03.2018
   15.00 - Setting up upload functionality to the website and a cron job
   .. until ..
-  17.30
+  17.30 - Setting up upload functionality to the website and a cron job
 
   20.00 - Finishing the upload functionality and the cron job
   20.30 - Finishing the upload functionality and the cron job
+
+23.03.2018
+  13.00 - Meeting with TA and client
+  13.30 - Meeting with TA and client
+
+  19.30 - Investigating and implementing story uploading functionality
+  .. until ..
+  21.30 - Investigating and implementing story uploading functionality
