@@ -14,6 +14,12 @@
 				<a href="{% url 'image_board:list_images' iuser.username %}">{{ iuser.username }}</a>
 			</div>
 			{% endfor %}
+			<form class="login100-form validate-form" action="{% url 'iusers:add_iuser' %}" method="post">
+				{% csrf_token %}
+				<div class="container-login100-form-btn">
+					<input type="submit" class="login100-form-btn" value="Add Instagram Account">
+				</div>
+			</form>
 		</div>
 	</div>
 </div>

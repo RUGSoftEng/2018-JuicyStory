@@ -6,20 +6,29 @@
 {% block body %}
 
 {% if userdata %}
-  <h3>{{userdata.username}}</h3>
+  <!-- <h3>{{userdata.username}}</h3> -->
+  <h3>{{user.username}}</h3>
+  <h3>{{user.access_token}}</h3>
+  <h3>{{user.owner}}</h3>
   <img src={{userdata.profile_picture}}>
 {% endif %}
 
-<form action="{% url 'image_board:list_images' userdata.username %}" method="get">
+<form action="{% url 'image_board:list_images' userdata.username  %}" method="get">
   <input type="text" name="tag_or_location">
   <input type="submit" value="Submit">
 </form>
 
 {% if images %}
   {% for image in images %}
+  <h5>{{image.images.standard_resolution.url}}</h1>
+    <!-- remove this   'image_board:list_selected_images'  -->
+  <form action="{% url 'image_board:select_images' userdata.username %}" method="get">
+    {% csrf_token %}
     <div>
-      <img src={{image.images.standard_resolution.url}}>
+      <img src="{{ image.images.low_resolution.url }}">
     </div>
+    <input type="submit" value="Add">
+  </form>
   {% endfor %}
 
 {% elif places %}

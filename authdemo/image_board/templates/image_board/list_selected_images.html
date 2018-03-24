@@ -1,0 +1,10 @@
+{% extends 'base_layout.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+{% for image in images%}
+	<img src="{{ image.photo }}">
+{% endfor %}
+{% endblock %}
