@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from authcode.models import InstagramUser, SelectedImage
+from authcode.models import InstagramUser, SelectedImage, User
 from .utils import *
 
 def list_images(request, username):
@@ -32,12 +32,18 @@ def list_images(request, username):
   context = {'userdata': userdata, 'images': images, 'places':places, 'user':user}
   return render(request, 'image_board/list_images.html', context)
 
+#worst possible way that i can think of;
 def select_images(request, username):
-  print(username)
-  #selectedImage = SelectedImage(instagram_user=user, photo=imageUrl)
-  #selectedImage.save()
+  user = get_object_or_404(InstagramUser, username=username)
+  image_url = request.POST.get('url')
+  SelectedImage.objects.create(instagram_user=user, photo=image_url)
+  #SelectedImage(instagram_user=user, photo=image_url).save()
   return redirect('image_board:list_images', username)
-  #ist_images(request, user.username)
+
+def remove_selected_images(request):
+  image_url = request.POST.get('url')
+  SelectedImage.objects.filter(photo=image_url).delete()
+  return redirect('image_board:list_selected_images')
 
 # display information based on user
 def list_selected_images(request):
