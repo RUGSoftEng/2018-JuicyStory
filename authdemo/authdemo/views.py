@@ -6,4 +6,4 @@ from authcode.models import InstagramUser
 @login_required(login_url="/users/login/")
 def home(request, username):
 	instagram_user = get_object_or_404(InstagramUser, username=username)
-	return render(request, "home.html", {'instagram_user':instagram_user})
+	return render(request, "base_layout.html", {'instagram_user':instagram_user})
