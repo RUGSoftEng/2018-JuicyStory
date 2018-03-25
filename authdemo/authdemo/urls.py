@@ -19,12 +19,12 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('image_board/', include('image_board.urls')),
+    path('<username>/', views.home, name='home'),
+    path('image_board/', include('image_board.urls'), name='image_board'),
     path('admin/', admin.site.urls, name='admins'),
     path('users/', include('users.urls')),
     path('iusers/', include('iusers.urls')),
     path('authcode/', include('authcode.urls')),
-    path('', views.home, name='home')
 ]
 
 urlpatterns += staticfiles_urlpatterns()

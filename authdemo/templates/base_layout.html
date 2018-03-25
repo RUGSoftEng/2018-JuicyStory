@@ -19,16 +19,14 @@
 	<body>
 		<header>
 			<div class="logo">
-				<h1><a href="{% url 'home' %}">Juicy Story</a></h1>
+				<h1><a href="{% url 'home' instagram_user.username %}">Juicy Story</a></h1>
 			</div>
 			<div class="menu">
-			<h4>User <a href="{% url 'home' %}">{{ user }}</a></h4>
+			<h4>User <a href="#">{{ instagram_user.username }}</a></h4>
 				<ul>
 					{% if request.user.is_authenticated %}
 					
-					<li><a href="{% url 'home' %}"> Home</a></li>
 					<li><a href="{% url 'iusers:list_iusers' %}"> Instagram Account list</a></li>
-					
 					
 					<li><form action="{% url 'users:logout' %}" method="post">
 						{% csrf_token %}

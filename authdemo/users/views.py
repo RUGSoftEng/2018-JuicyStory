@@ -10,7 +10,7 @@ def sign_up(request):
 			user = form.save()
 			#log the user in
 			login(request, user)
-			return redirect('home')
+			return redirect('iusers:list_iusers')
 	else:
 		form = UserCreationForm()
 	return render(request, "users/sign-up.html", {'form': form})
@@ -22,7 +22,7 @@ def log_in(request):
 			#log in the user
 			user = form.get_user()
 			login(request, user)
-			return redirect('home')
+			return redirect('iusers:list_iusers')
 	else:
 		form = AuthenticationForm()
 	return render(request, "users/log-in.html", {'form': form})

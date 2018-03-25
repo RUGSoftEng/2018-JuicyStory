@@ -1,13 +1,16 @@
-{% extends 'base_layout.html' %}
 {% load staticfiles %}
 {% load widget_tweaks %}
-
-{% block head %}
-	<title>Add Instagram Account | Juicy Story</title>
-	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
-{% endblock %}
-
-{% block body %}
+<html>
+<head>
+  <title>Add Instagram Account | Juicy Story</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
 <div class="container-login100">
 	<div class="wrap-login100">
 		<form class="login100-form validate-form" action="{% url 'iusers:add_iuser' %}" method="post">
@@ -28,7 +31,14 @@
 				<input type="submit" class="login100-form-btn" value="Add">
 			</div>
 
+			<div class="text-center p-t-136">
+				<a class="txt2" href="{% url 'iusers:list_iusers' %}">
+					Account already added?
+				</a>
+			</div>
+
 		</form>
 	</div>
 </div>
-{% endblock %}
+</body>
+</html>

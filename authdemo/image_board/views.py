@@ -13,9 +13,7 @@ def list_images(request, username):
 
   userdata = userdata["data"]
   # images from the request
-  # store the url of the images
   images = {}
-  # places that we can search
   places = {}
 
   if 'tag_or_location' in request.GET:
@@ -32,14 +30,15 @@ def list_images(request, username):
   context = {'userdata': userdata, 'images': images, 'places':places, 'user':user}
   return render(request, 'image_board/list_images.html', context)
 
-#worst possible way that i can think of;
+#Select an image an save it in the databse
 def select_images(request, username):
   user = get_object_or_404(InstagramUser, username=username)
   image_url = request.POST.get('url')
   SelectedImage.objects.create(instagram_user=user, photo=image_url)
-  #SelectedImage(instagram_user=user, photo=image_url).save()
+  ##return redirect('image_board:list_selected_images')
   return redirect('image_board:list_images', username)
 
+#Remove an image from the database and refresh
 def remove_selected_images(request):
   image_url = request.POST.get('url')
   SelectedImage.objects.filter(photo=image_url).delete()
