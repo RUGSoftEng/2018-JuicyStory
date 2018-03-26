@@ -63,3 +63,11 @@
   19.30 - Investigating and implementing story uploading functionality
   .. until ..
   21.30 - Investigating and implementing story uploading functionality
+
+26.03.2018
+  14.00 - Merging George's image listing into image uploading branch
+  .. until ..
+  16.30 - Merging George's image listing into image uploading branch
+
+  22.00 - Merging George's image listing into image uploading branch
+  22.30 - Merging George's image listing into image uploading branch
