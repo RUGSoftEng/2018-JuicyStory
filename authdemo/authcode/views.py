@@ -12,7 +12,6 @@ def process_auth_code(request):
     if "error_type" not in response:
       access_token = response['access_token']
       username = response['user']['username']
-
       user = InstagramUser.objects.get(username=username)
       user.access_token = access_token
       user.save()

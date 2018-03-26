@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from authcode.models import InstagramUser, SelectedImage, User
+from authcode.models import InstagramUser, SelectedImage
 from .utils import *
 
 def list_images(request, username):
