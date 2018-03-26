@@ -1,21 +1,35 @@
 {% extends 'base_layout.html' %}
-{% block content %}
 
-{% if userdata %}
-  <h3>{{userdata.username}}</h3>
-  <img src={{userdata.profile_picture}}>
-{% endif %}
+{% block head %}
+{% endblock %}
 
-<form action="{% url 'image_board:list_images' userdata.username %}" method="get">
-  <input type="text" name="tag_or_location">
-  <input type="submit" value="Submit">
-</form>
+{% block body %}
+
+<div>
+  {% if userdata %}
+    <img src={{userdata.profile_picture}}>
+  {% endif %}
+  <form action="{% url 'image_board:list_images' userdata.username  %}" method="get">
+    <input type="text" name="tag_or_location">
+    <input type="submit" value="Submit">
+  </form>
+</div>
 
 {% if images %}
   {% for image in images %}
+  <form action="{% url 'image_board:select_images' userdata.username %}" method="post">
+    {% csrf_token %}
     <div>
-      <img src={{image.images.standard_resolution.url}}>
+      <img src="{{ image.images.low_resolution.url }}">
+      <input type="text" id="{{ image.images.low_resolution.url }}" name="url">
+    <input type="submit" value="Add">
     </div>
+    <!-- Worst way possible -->
+    <script type="text/javascript">
+      document.getElementById('{{ image.images.low_resolution.url }}').value="{{ image.images.low_resolution.url }}";
+      document.getElementById('{{ image.images.low_resolution.url }}').style.display = 'none';
+    </script>
+  </form>
   {% endfor %}
 
 {% elif places %}

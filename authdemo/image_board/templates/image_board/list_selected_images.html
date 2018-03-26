@@ -1,0 +1,22 @@
+{% extends 'base_layout.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+{% for image in images%}
+	<form action="{% url 'image_board:remove_selected_images' instagram_user.username %}" method="post">
+		{% csrf_token %}
+	    <div>
+	      	<img src="{{ image.photo }}" width="200px" height="200px">
+	      	<input type="text" id="{{ image.photo }}" name="url">
+	    	<input type="submit" value="X">
+	    </div>
+	    <!-- Worst way possible -->
+	    <script type="text/javascript">
+	      document.getElementById('{{ image.photo }}').value="{{ image.photo }}";
+	      document.getElementById('{{ image.photo }}').style.display = 'none';
+	    </script>
+  	</form>
+{% endfor %}
+{% endblock %}

@@ -1,37 +1,32 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 	<head lang="en">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+	
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<link rel="stylesheet" href="dashboard.css">
 		<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Varela Round'>
+		<!-- Bootstrap CSS -->
 		
-		
-		{% load static %}
-		<link rel="stylesheet" type="text/css" href="{% static 'utils.css'%}">
-		<link rel="stylesheet" type="text/css" href="{% static 'main.css'%}">
-		<link rel="stylesheet" href="{% static 'dashboard.css'%}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/utils.css'%}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%}">
+		<link rel="stylesheet" href="{% static 'css/dashboard.css'%}">
 		{% block head %}
 		{% endblock %}
 	</head>
 	<body>
-	
 		<header>
 			<div class="logo">
-				<h1>Juicy Story</h1>
+				<h1><a href="{% url 'home' instagram_user.username %}">Juicy Story</a></h1>
 			</div>
 			<div class="menu">
-			<h4>User <a href="{% url 'home' %}">{{ user }}</a></h4>
+			<h4>User <a href="#">{{ instagram_user.username }}</a></h4>
 				<ul>
 					{% if request.user.is_authenticated %}
 					
-					<li><a href="{% url 'home' %}"> Home</a></li>
-					<li><a href="{% url 'iusers:add_iuser' %}"> add Instagram Account</a></li>
 					<li><a href="{% url 'iusers:list_iusers' %}"> Instagram Account list</a></li>
-					
 					
 					<li><form action="{% url 'users:logout' %}" method="post">
 						{% csrf_token %}
@@ -59,33 +54,30 @@
 				</ul>-->
 			</div>
 		</header>
-	
-	<!--	<div class="wrapper">
-			<h1><a href="{% url 'home'%}">Juicy Story</a></h1>
-			<h4>User <a href="{% url 'iusers:list_iusers' %}">{{ user }}</a></h4>
-			<nav>
+			<div class="navigation">
 				<ul>
-					<li><form action="{% url 'users:login' %}" method="post">
-						{% csrf_token %}
-						<button type="submit">login</button>
-					</form></li>
-					<li><form action="{% url 'users:signup' %}" method="post">
-						{% csrf_token %}
-						<button type="submit">signup</button>
-					</form></li>
-					{% if request.user.is_authenticated %}
-					<li><form action="{% url 'users:logout' %}" method="post">
-						{% csrf_token %}
-						<button type="submit">logout</button>
-					</form></li>
-					<li><form action="{% url 'iusers:add_iuser' %}" method="post">
-						{% csrf_token %}
-						<button type="submit">add Instagram Account</button>
-					</form></li>
-					{% endif %}
+					<li><a href="#">Dashboard</a></li>
+					<li>|</li>
+					<li><a href="{% url 'image_board:list_images' instagram_user.username %}">Incoming</a></li>
+					<li>|</li>
+					<li><a href="#">Stories</a></li>
+					<li>|</li>
+					<li><a href="#">Report</a></li>
+					<li>|</li>
+					<li><a href="{% url 'image_board:list_selected_images' instagram_user.username %}">Story Creator</a></li>
 				</ul>
-			</nav>-->
-			{% block content %}
+			</div>
+
+			<div class="dashboard"></div>
+
+			<div class="incoming"></div>
+
+			<div class="stories"></div>
+
+			<div class="report"></div>
+
+			<div class="storycreator"></div>
+			{% block body %}
 			{% endblock %}
 		</div>
 	</body>

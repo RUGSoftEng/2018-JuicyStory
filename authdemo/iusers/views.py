@@ -23,3 +23,4 @@ def add_iuser(request):
 def list_iusers(request):
 	iusers = InstagramUser.objects.filter(owner=request.user)
 	return render(request, 'iusers/iuser-list.html', {'iusers':iusers})
+
