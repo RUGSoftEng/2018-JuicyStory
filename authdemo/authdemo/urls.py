@@ -23,10 +23,9 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('iusers/', include('iusers.urls')),
     path('authcode/', include('authcode.urls')),
-    path('upload/', include('upload.urls')),
+    path('upload/<iusername>/', include('upload.urls')),
+    path('incoming/<iusername>/', include('incoming.urls'), name='incoming'),
     path('<username>/', views.home, name='home'),
-    path('<username>/incoming/',
-         include('incoming.urls'), name='incoming')
 ]
 
 urlpatterns += staticfiles_urlpatterns()

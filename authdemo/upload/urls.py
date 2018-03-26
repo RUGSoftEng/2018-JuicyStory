@@ -4,5 +4,6 @@ from . import views
 app_name = "upload"
 
 urlpatterns = [
-  path('<username>/', views.upload_page, name="upload_page"),
+  path('list_selected_images/', views.list_selected_images, name='list_selected_images'),
+  path('remove_selected_images/', views.remove_selected_images, name='remove_selected_images')
 ]

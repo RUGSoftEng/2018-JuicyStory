@@ -1,6 +1,6 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.http import HttpResponseRedirect
-from authcode.models import InstagramUser
+from authcode.models import InstagramUser, SelectedImage
 from .forms import ImageUploadForm
 from .models import Image
 
@@ -23,3 +23,16 @@ def upload_page(request, username):
   context['form'] = form
 
   return render(request, 'upload/upload.html', context)
+
+#Remove an image from the database and refresh
+def remove_selected_images(request, iusername):
+  image_url = request.POST.get('url')
+  SelectedImage.objects.filter(photo=image_url).delete()
+  return redirect('upload:list_selected_images', iusername)
+
+# display information based on user
+def list_selected_images(request, iusername):
+  instagram_user = get_object_or_404(InstagramUser, username=iusername)
+  images = SelectedImage.objects.filter(instagram_user=instagram_user)
+  context = {'images': images, 'instagram_user':instagram_user}
+  return render(request, 'upload/list_selected_images.html', context)
