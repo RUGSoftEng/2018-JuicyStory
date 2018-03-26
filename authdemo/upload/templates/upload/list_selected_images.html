@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-	<form action="{% url 'upload:remove_selected_images' instagram_user.username %}" method="post">
+	<form action="{% url 'upload:process_selected_images' instagram_user.username %}" method="post">
 		{% csrf_token %}
     {% for image in images%}
 	    <div>
@@ -12,7 +12,9 @@
 	      	<img src="{{ image.photo }}" width="200px" height="200px">
 	    </div>
     {% endfor %}
-    <input type="submit" name="action" value="delete">
-    <input type="submit" name="action" value="submit">
+
+    <input type="date" name="date">
+    <input type="submit" name="action" value="Delete">
+    <input type="submit" name="action" value="Upload">
   </form>
 {% endblock %}

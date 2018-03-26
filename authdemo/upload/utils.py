@@ -1,6 +1,10 @@
 import time
 import requests.sessions
-import random
+from urllib import request
+from urllib.parse import urlparse
+from .models import Image
+from authcode.models import SelectedImage
+from django.core.files.images import ImageFile
 
 
 def upload_image(username, photo, is_story=None):
@@ -36,11 +40,31 @@ def upload_image(username, photo, is_story=None):
           'client_shared_at': str(int(time.time())),
           'source_type': 3,
           'configure_mode': 1,
-          'client_timestamp': str(int(time.time()) - random.randint(3, 10)),
           'upload_id': upload_id,
       })
       posturl = base_url + "create/configure_to_story/"
     else:
       posturl = base_url + "create/configure/"
-    
+
     s.post(posturl, data=data)
+
+
+def download_image(image_url, iusername, date):
+  response = requests.get(image_url, stream=True)
+
+  if response.status_code != requests.codes.ok:
+    return
+
+  try:
+    result = request.urlretrieve(image_url)
+    image_file = ImageFile(open(result[0], 'rb'))
+
+    image = Image()
+    image.username = iusername
+    image.is_story = True
+    image.upload_date = date
+    image.image_file.save(urlparse(image_url), image_file, save=True)
+
+    SelectedImage.objects.filter(photo=image_url).delete()
+  except Exception as e:
+    raise e
