@@ -19,15 +19,15 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('<username>/', views.home, name='home'),
-    path('<username>/image_board/',
-         include('image_board.urls'), name='image_board'),
     path('admin/', admin.site.urls, name='admins'),
+    path('home/', views.home, name='home'),
     path('users/', include('users.urls')),
     path('iusers/', include('iusers.urls')),
     path('authcode/', include('authcode.urls')),
-    path('home/', views.home, name='home'),
-    path('upload/', include('upload.urls'))
+    path('upload/', include('upload.urls')),
+    path('<username>/', views.home, name='home'),
+    path('<username>/image_board/',
+         include('image_board.urls'), name='image_board')
 ]
 
 urlpatterns += staticfiles_urlpatterns()
