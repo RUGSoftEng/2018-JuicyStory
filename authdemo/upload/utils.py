@@ -4,6 +4,7 @@ from urllib import request
 from urllib.parse import urlparse
 from .models import Image
 from authcode.models import SelectedImage
+from datetime import datetime
 from django.core.files.images import ImageFile
 
 
@@ -49,22 +50,32 @@ def upload_image(username, photo, is_story=None):
     s.post(posturl, data=data)
 
 
-def download_image(image_url, iusername, date):
+def parseDateTime(date, time):
+  date = date.split('-')
+  year = int(date[0])
+  month = int(date[1])
+  day = int(date[2])
+
+  time = time.split(':')
+  hour = int(time[0])
+  minute = int(time[1])
+
+  return datetime(year, month, day, hour, minute)
+
+
+def download_schedule_image(image_url, iusername, date, time):
   response = requests.get(image_url, stream=True)
 
   if response.status_code != requests.codes.ok:
     return
 
-  try:
-    result = request.urlretrieve(image_url)
-    image_file = ImageFile(open(result[0], 'rb'))
+  result = request.urlretrieve(image_url)
+  image_file = ImageFile(open(result[0], 'rb'))
 
-    image = Image()
-    image.username = iusername
-    image.is_story = True
-    image.upload_date = date
-    image.image_file.save(urlparse(image_url), image_file, save=True)
+  image = Image()
+  image.username = iusername
+  image.is_story = True
+  image.upload_date = parseDateTime(date, time)
+  image.image_file.save(urlparse(image_url).path.split('/')[-1], image_file, save=True)
 
-    SelectedImage.objects.filter(photo=image_url).delete()
-  except Exception as e:
-    raise e
+  SelectedImage.objects.filter(photo=image_url).delete()
