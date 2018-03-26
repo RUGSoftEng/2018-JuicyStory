@@ -5,7 +5,7 @@
 
 {% block body %}
 {% for image in images%}
-	<form action="{% url 'image_board:remove_selected_images' instagram_user.username %}" method="post">
+	<form action="{% url 'incoming:remove_selected_images' instagram_user.username %}" method="post">
 		{% csrf_token %}
 	    <div>
 	      	<img src="{{ image.photo }}" width="200px" height="200px">

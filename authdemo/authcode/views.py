@@ -16,7 +16,7 @@ def process_auth_code(request):
       user.access_token = access_token
       user.save()
 
-  return redirect("image_board:list_images", username)
+  return redirect("incoming:list_images", username)
 
 
 def user_list(request):

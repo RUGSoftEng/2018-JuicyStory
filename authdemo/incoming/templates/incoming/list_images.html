@@ -9,7 +9,7 @@
   {% if userdata %}
     <img src={{userdata.profile_picture}}>
   {% endif %}
-  <form action="{% url 'image_board:list_images' userdata.username  %}" method="get">
+  <form action="{% url 'incoming:list_images' userdata.username  %}" method="get">
     <input type="text" name="tag_or_location">
     <input type="submit" value="Submit">
   </form>
@@ -17,7 +17,7 @@
 
 {% if images %}
   {% for image in images %}
-  <form action="{% url 'image_board:select_images' userdata.username %}" method="post">
+  <form action="{% url 'incoming:select_images' userdata.username %}" method="post">
     {% csrf_token %}
     <div>
       <img src="{{ image.images.low_resolution.url }}">
@@ -34,7 +34,7 @@
 
 {% elif places %}
   {% for place in places %}
-    <form action="{% url 'image_board:list_images' userdata.username %}" method="get">
+    <form action="{% url 'incoming:list_images' userdata.username %}" method="get">
       {{place.name}}
       <input type="hidden" name="id" value="{{place.id}}">
       <input type="submit" value="Submit">
