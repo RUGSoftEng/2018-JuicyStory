@@ -58,13 +58,13 @@
 				<ul>
 					<li><a href="#">Dashboard</a></li>
 					<li>|</li>
-					<li><a href="{% url 'image_board:list_images' instagram_user.username %}">Incoming</a></li>
+					<li><a href="{% url 'incoming:list_images' instagram_user.username %}">Incoming</a></li>
 					<li>|</li>
 					<li><a href="#">Stories</a></li>
 					<li>|</li>
 					<li><a href="#">Report</a></li>
 					<li>|</li>
-					<li><a href="{% url 'image_board:list_selected_images' instagram_user.username %}">Story Creator</a></li>
+					<li><a href="{% url 'upload:list_selected_images' instagram_user.username %}">Story Creator</a></li>
 				</ul>
 			</div>
 

@@ -37,11 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
-    'image_board',
+    'incoming',
     'authcode',
     'iusers',
     'users',
-    'authdemo'
+    'authdemo',
+    'upload',
+    'django_cron'
 ]
 
 MIDDLEWARE = [
@@ -53,6 +55,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CRON_CLASSES = [
+    "upload.cron.ImageUploadCronJob"
+]
+
 
 ROOT_URLCONF = 'authdemo.urls'
 

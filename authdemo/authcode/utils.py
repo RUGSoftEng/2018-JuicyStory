@@ -1,12 +1,18 @@
 import requests
-from .models import InstagramClient
+
+
+# TODO: HIDE THE SECRET!
+def get_client_info():
+  return {"client_id": "a81a42fcf5eb4194b4905822fc05f56a",
+          "redirect_uri": "http://80.114.178.251/authcode/receive_code", "client_secret": "0d2e5ce1664b477d8aca11201b5dd779"}
+
 
 def get_access_token(auth_code):
   url = "https://api.instagram.com/oauth/access_token"
-  client = InstagramClient.objects.get(pk=1)
-  post_data = {'client_id': client.client_id, 'client_secret': client.client_secret,
-               'grant_type': 'authorization_code', 'redirect_uri': client.redirect_uri, 'code': auth_code}
+  client = get_client_info()
+
+  post_data = {'client_id': client["client_id"], 'client_secret': client["client_secret"],
+               'grant_type': 'authorization_code', 'redirect_uri': client["redirect_uri"], 'code': auth_code}
   response = requests.post(url, data=post_data)
   content = response.json()
   return content
-

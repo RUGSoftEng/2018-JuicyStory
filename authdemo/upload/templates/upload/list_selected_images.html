@@ -1,0 +1,21 @@
+{% extends 'base_layout.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+	<form action="{% url 'upload:process_selected_images' instagram_user.username %}" method="post">
+		{% csrf_token %}
+    {% for image in images%}
+	    <div>
+          <input type="radio" name="img{{forloop.counter}}" value="{{image.photo}}">
+	      	<img src="{{ image.photo }}" width="200px" height="200px">
+	    </div>
+    {% endfor %}
+
+    <input type="date" name="date">
+    <input type="time" name="time">
+    <input type="submit" name="action" value="Delete">
+    <input type="submit" name="action" value="Upload">
+  </form>
+{% endblock %}
