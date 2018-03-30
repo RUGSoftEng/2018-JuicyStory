@@ -2,21 +2,23 @@
 <!DOCTYPE html>
 <html>
 	<head lang="en">
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Required meta tags -->
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Varela Round'>
-		<!-- Bootstrap CSS -->
-		
-		<link rel="stylesheet" type="text/css" href="{% static 'css/utils.css'%}">
-		<link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%}">
-		<link rel="stylesheet" href="{% static 'css/dashboard.css'%}">
+		<!-- Online CSS -->
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    	<link href="https://fonts.googleapis.com/css?family=Heebo|Lato" rel="stylesheet">
+
+		<!-- Static CSS -->
+		<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
 		{% block head %}
 		{% endblock %}
 	</head>
 	<body>
+		<!-- 
 		<header>
 			<div class="logo">
 				<h1><a href="{% url 'home' instagram_user.username %}">Juicy Story</a></h1>
@@ -45,15 +47,33 @@
 					</form></li>
 					{% endif %}
 				</ul>
-<!--				<ul>
-				<li><a href=""><i class="glyphicon glyphicon-bell"></i></a></li>
-				<li>|</li>
-				<li><a href="">Account Settings</a></li>
-				<li>|</li>
-				<li><a href="">Log out</a></li>
-				</ul>-->
 			</div>
 		</header>
+		-->
+		<header>
+      		<div id="menu" v-bind:class="menuStyle" v-cloak>
+        		<ul>
+		          <li>{{ instagram_user.username }}</li>
+		          <li></li><li></li><li></li>
+		          <li></li><li></li><li></li>
+		          <li></li><li></li><li></li>
+		          <li></li><li></li><li></li>
+		          <li></li><li></li><li></li>
+		          <li></li><li></li><li></li>
+		          <li></li><li></li>
+		          <li><a href="{% url 'home' instagram_user.username %}"><img id="logo-pic" src="{% static 'images/logo1.png' %}" alt="alt"></a></li>
+		          <li></li><li></li><li></li>
+		          <li></li><li></li><li></li>
+		          <li></li><li></li><li></li>
+		          <li></li><li></li><li></li>
+		          <li></li><li></li><li></li>
+		          <li></li>
+		          <li><a href="{% url 'iusers:list_iusers' %}">My Accounts</a></li>
+		          <li>|</li>
+		          <li><a href="">Log out</a></li>
+        		</ul>
+      		</div>
+    	</header>
 			<div class="navigation">
 				<ul>
 					<li><a href="#">Dashboard</a></li>
@@ -67,18 +87,12 @@
 					<li><a href="{% url 'upload:list_selected_images' instagram_user.username %}">Story Creator</a></li>
 				</ul>
 			</div>
-
-			<div class="dashboard"></div>
-
-			<div class="incoming"></div>
-
-			<div class="stories"></div>
-
-			<div class="report"></div>
-
-			<div class="storycreator"></div>
-			{% block body %}
-			{% endblock %}
 		</div>
+		{% block body %}
+		{% endblock %}
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    	<script type="text/javascript" src="https://unpkg.com/vue"></script>
+   		<script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    	<script type="text/javascript" src="{% static 'js/dashboard.js' %}"></script>
 	</body>
 </html>

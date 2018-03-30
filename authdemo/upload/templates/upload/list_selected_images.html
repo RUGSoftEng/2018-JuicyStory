@@ -6,7 +6,7 @@
 {% block body %}
 	<form action="{% url 'upload:process_selected_images' instagram_user.username %}" method="post">
 		{% csrf_token %}
-    {% for image in images%}
+    {% for image in images %}
 	    <div>
           <input type="radio" name="img{{forloop.counter}}" value="{{image.photo}}">
 	      	<img src="{{ image.photo }}" width="200px" height="200px">

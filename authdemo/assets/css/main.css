@@ -133,17 +133,17 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
 .txt1 {
-  font-family: Poppins-Regular;
+  font-family: 'Lato' sans-serif;
   font-size: 13px;
   line-height: 1.5;
   color: darkgrey;
 }
 
 .txt2 {
-  font-family: Poppins-Regular;
+  font-family: 'Lato' sans-serif;
   font-size: 13px;
   line-height: 1.5;
-  color: white;
+  color: #CE2655;
 }
 
 
@@ -170,18 +170,28 @@ iframe {
   background: #FFC0CB;
 
 
-  background: -webkit-linear-gradient(-135deg, #d3cce3 , #e9e4f0);
+  /*background: -webkit-linear-gradient(-135deg, #d3cce3 , #e9e4f0);
   background: -o-linear-gradient(-135deg, #d3cce3 , #e9e4f0);
   background: -moz-linear-gradient(-135deg, #d3cce3 , #e9e4f0);
-  background: linear-gradient(-135deg, #d3cce3 , #e9e4f0);
+  background: linear-gradient(-135deg, #d3cce3 , #e9e4f0);*/
+  background: linear-gradient(#abc8d3, #eef4f6);
+  background: #abc8d3; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #abc8d3, #eef4f6); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #abc8d3, #eef4f6); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #abc8d3, #eef4f6); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #abc8d3, #eef4f6); /* Standard syntax (must be last) */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .wrap-login100 {
-  width: 960px;
-  height: 700px;
-  background: #cc0066;
-  border-radius: 10px;
+  width: 900px;
+  height: 600px;
+  background: white;
+  border-radius: 25px;
   overflow: hidden;
+
+  box-shadow:  5px 5px 5px  DarkGrey;
 
   display: -webkit-box;
   display: -webkit-flex;
@@ -190,7 +200,7 @@ iframe {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 177px 130px 33px 95px;
+  padding: 120px 130px 33px 95px;
 }
 
 /*------------------------------------------------------------------
@@ -208,13 +218,13 @@ iframe {
 [  ]*/
 .login100-form {
   width: 290px;
-
 }
 
 .login100-form-title {
-  font-family: Poppins-Bold;
+  font-family: 'Heebo' sans-serif;
   font-size: 24px;
-  color: #333333;
+  font-weight: bold;
+  color: #CE2655;
   line-height: 1.2;
   text-align: center;
 
@@ -224,7 +234,7 @@ iframe {
 }
 
 .login100-form-subtitle {
-  font-family: Poppins-Medium;
+  font-family: 'Lato' sans-serif;
   font-size: 18px;
   color: #333333;
   line-height: 1.2;
@@ -245,10 +255,10 @@ iframe {
 }
 
 .input100 {
-  font-family: Poppins-Medium;
+  font-family: 'Lato';
   font-size: 15px;
   line-height: 1.5;
-  color: black;
+  color: #CE2655;
 
   display: block;
   width: 100%;
@@ -274,24 +284,24 @@ iframe {
   color: rgba(87,184,70, 0.8);
 }
 
+
+.focus-input100-acc {
+  display: block;
+  position: absolute;
+  border-radius: 25px;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 0px 0px 0px;
+  color: rgba(87,184,70, 0.8);
+}
+
 .input100:focus + .focus-input100 {
   -webkit-animation: anim-shadow 0.5s ease-in-out forwards;
   animation: anim-shadow 0.5s ease-in-out forwards;
 }
-
-/*@-webkit-keyframes anim-shadow {
-  to {
-    box-shadow: 0px 0px 70px 25px;
-    opacity: 0;
-  }
-}
-
-@keyframes anim-shadow {
-  to {
-    box-shadow: 0px 0px 70px 25px;
-    opacity: 0;
-  }
-}*/
 
 .symbol-input100 {
   font-size: 15px;
@@ -310,7 +320,32 @@ iframe {
   height: 100%;
   padding-left: 35px;
   pointer-events: none;
-  color: darkgrey;
+  color: #CE2655;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.symbol-input100-acc{
+  font-size: 15px;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+/*  position: absolute;*/
+  border-radius: 25px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-left: 100px;
+  pointer-events: none;
+  color: #CE2655;
 
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
@@ -319,7 +354,7 @@ iframe {
 }
 
 .input100:focus + .focus-input100 + .symbol-input100 {
-  color: darkgrey;
+  color: #CE2655;
   padding-left: 28px;
 }
 
@@ -338,16 +373,17 @@ iframe {
 }
 
 .login100-form-btn {
-  font-family: Montserrat-Bold;
+  font-family: 'Heebo';
+  font-weight: bold;
   font-size: 15px;
   line-height: 1.5;
-  color: grey;
+  color: white;
   text-transform: uppercase;
 
   width: 100%;
   height: 50px;
   border-radius: 25px;
-  background: lightgrey;
+  background: #CE2655;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -364,7 +400,7 @@ iframe {
 }
 
 .login100-form-btn:hover {
-  background: #FFC0CB;
+  background: #46529E;
 }
 
 
