@@ -1,20 +1,59 @@
 {% extends 'base_layout.html' %}
+{% load staticfiles %}
 
 {% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/incoming.css' %}">
 {% endblock %}
 
 {% block body %}
-
-<div>
-  {% if userdata %}
-    <img src={{userdata.profile_picture}}>
-  {% endif %}
+<div class="allign">
   <form action="{% url 'incoming:list_images' userdata.username  %}" method="get">
-    <input type="text" name="tag_or_location">
+    {% if userdata %}
+    <img class="img-circle" src=" {{userdata.profile_picture}} ">
+    {% endif %}
+    <input type="text" name="tag_or_location" placeholder="search...">
     <input type="submit" value="Submit">
   </form>
 </div>
 
+
+  <div id="incoming">
+    <!--  <h2 class="page-title">Incoming images</h2> -->
+      <ul>
+        {% for image in images %}
+        <li>
+         <!-- <div class="selected" v-if="img.selected == true" v-on:click="select(img, $event)">
+            
+            <img v-bind:src="img.url" height="288" width="162"> 
+            <div class="checkmark"></div>
+          </div>
+        -->
+          <div class="nonselected" id="{{ image.images.low_resolution.url }}" >
+            <img src="{{ image.images.low_resolution.url }}">
+            <div class="remove" id="checkmark"></div>
+            <script type="text/javascript">
+              function switchClass(){
+                var element = document.getElementById('{{ image.images.low_resolution.url }}');
+                element.classList.toggle("selected");
+                element.classList.toggle("nonselected");
+                //var tick = document.getElementById('checkmark');
+                //tick.classList.toggle("remove");
+              }
+
+              document.getElementById('{{ image.images.low_resolution.url }}').onclick = switchClass;
+            </script>   
+          </div>
+          <!--<p class="imginfo">
+            {{ img.user }}<br>
+            {{ img.date }} | {{ img.time }}
+          </p>-->
+        </li>
+         {% endfor %}
+      </ul>
+
+      <button style="color:white">Create Story</button>
+    </div>
+<!--
 {% if images %}
   {% for image in images %}
   <form action="{% url 'incoming:select_images' userdata.username %}" method="post">
@@ -24,7 +63,7 @@
       <input type="text" id="{{ image.images.low_resolution.url }}" name="url">
     <input type="submit" value="Add">
     </div>
-    <!-- Worst way possible -->
+    
     <script type="text/javascript">
       document.getElementById('{{ image.images.low_resolution.url }}').value="{{ image.images.low_resolution.url }}";
       document.getElementById('{{ image.images.low_resolution.url }}').style.display = 'none';
@@ -43,5 +82,5 @@
   {% endfor %}
   
 {% endif %}
-
+-->
 {% endblock%}
