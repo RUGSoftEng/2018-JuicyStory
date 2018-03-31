@@ -2,12 +2,18 @@
 {% load staticfiles %}
 
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/incoming.css' %}">
+  <title>Incoming | Juicy Story</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Heebo|Lato" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/incoming.css' %}">
 {% endblock %}
 
 {% block body %}
-<div class="allign">
-  <form action="{% url 'incoming:list_images' userdata.username  %}" method="get">
+<div>
+  <form class="allign" action="{% url 'incoming:list_images' userdata.username  %}" method="get">
     {% if userdata %}
     <img class="img-circle" src=" {{userdata.profile_picture}} ">
     {% endif %}
@@ -22,37 +28,28 @@
       <ul>
         {% for image in images %}
         <li>
-         <!-- <div class="selected" v-if="img.selected == true" v-on:click="select(img, $event)">
-            
-            <img v-bind:src="img.url" height="288" width="162"> 
-            <div class="checkmark"></div>
-          </div>
-        -->
           <div class="nonselected" id="{{ image.images.low_resolution.url }}" >
+            <!-- height="288" width="162" -->
             <img src="{{ image.images.low_resolution.url }}">
-            <div class="remove" id="checkmark"></div>
+            <div class="remove checkmark" id="{{forloop.counter}}"></div>
             <script type="text/javascript">
               function switchClass(){
                 var element = document.getElementById('{{ image.images.low_resolution.url }}');
                 element.classList.toggle("selected");
                 element.classList.toggle("nonselected");
-                //var tick = document.getElementById('checkmark');
-                //tick.classList.toggle("remove");
+                var element = document.getElementById('{{forloop.counter}}');
+                element.classList.toggle("remove");
               }
 
               document.getElementById('{{ image.images.low_resolution.url }}').onclick = switchClass;
             </script>   
           </div>
-          <!--<p class="imginfo">
-            {{ img.user }}<br>
-            {{ img.date }} | {{ img.time }}
-          </p>-->
         </li>
          {% endfor %}
       </ul>
 
       <button style="color:white">Create Story</button>
-    </div>
+  </div>
 <!--
 {% if images %}
   {% for image in images %}

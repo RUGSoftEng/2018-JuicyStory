@@ -8,13 +8,14 @@
 		{% csrf_token %}
     {% for image in images %}
 	    <div>
-          <input type="radio" name="img{{forloop.counter}}" value="{{image.photo}}">
+          <input type="radio" name="img{{forloop.counter}}" value="{{image.photo}}" pla>
 	      	<img src="{{ image.photo }}" width="200px" height="200px">
 	    </div>
     {% endfor %}
 
-    <input type="date" name="date">
-    <input type="time" name="time">
+    <input type="date" name="date" placeholder="Date">
+    <input type="time" name="time" placeholder="Time">
+    <br><br>
     <input type="submit" name="action" value="Delete">
     <input type="submit" name="action" value="Upload">
   </form>

@@ -4,26 +4,26 @@
 }
 
 .selected img {
-  width: 162px;
   height: 288px;
+  width: 162px;
 	padding: 10px;
 	border-radius: 20px;
-	opacity: 0.5;
+	opacity: 0.65;
   font-size: 80px;
 }
 
 .nonselected img {
-  width: 162px;
   height: 288px;
+  width: 162px;
 	padding: 10px;
 	border-radius: 20px;
 }
 
-.selected, .nonselected {
-	position: relative;
+.selected, .nonselected{
+  position: relative;
 }
 
-#checkmark {
+.checkmark {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -31,7 +31,7 @@
   font-size: 80px;
 }
 
-#checkmark:before {
+.checkmark:before {
   content: "\f00c";
   font-family: FontAwesome;
   font-style: normal;
@@ -58,7 +58,7 @@
 }
 
 .allign {
-  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
 }

@@ -51,7 +51,7 @@
 		</header>
 		-->
 		<header>
-      		<div id="menu" v-bind:class="menuStyle" v-cloak>
+      		<div class="menu">
         		<ul>
 		          <li>{{ instagram_user.username }}</li>
 		          <li></li><li></li><li></li>
@@ -59,8 +59,7 @@
 		          <li></li><li></li><li></li>
 		          <li></li><li></li><li></li>
 		          <li></li><li></li><li></li>
-		          <li></li><li></li><li></li>
-		          <li></li><li></li>
+		          <li></li>
 		          <li><a href="{% url 'home' instagram_user.username %}"><img id="logo-pic" src="{% static 'images/logo1.png' %}" alt="alt"></a></li>
 		          <li></li><li></li><li></li>
 		          <li></li><li></li><li></li>
@@ -70,23 +69,25 @@
 		          <li></li>
 		          <li><a href="{% url 'iusers:list_iusers' %}">My Accounts</a></li>
 		          <li>|</li>
-		          <li><a href="">Log out</a></li>
+		          <li><form action="{% url 'users:logout' %}" method="post">
+						{% csrf_token %}
+						<input type="submit">
+					</form></li>
         		</ul>
       		</div>
     	</header>
-			<div class="navigation">
-				<ul>
-					<li><a href="#">Dashboard</a></li>
-					<li>|</li>
-					<li><a href="{% url 'incoming:list_images' instagram_user.username %}">Incoming</a></li>
-					<li>|</li>
-					<li><a href="#">Stories</a></li>
-					<li>|</li>
-					<li><a href="#">Report</a></li>
-					<li>|</li>
-					<li><a href="{% url 'upload:list_selected_images' instagram_user.username %}">Story Creator</a></li>
-				</ul>
-			</div>
+		<div class="navigation">
+			<ul>
+				<li><a href="#">Dashboard</a></li>
+				<li>|</li>
+				<li><a href="{% url 'incoming:list_images' instagram_user.username %}">Incoming</a></li>
+				<li>|</li>
+				<li><a href="#">Stories</a></li>
+				<li>|</li>
+				<li><a href="#">Report</a></li>
+				<li>|</li>
+				<li><a href="{% url 'upload:list_selected_images' instagram_user.username %}">Story Creator</a></li>
+			</ul>
 		</div>
 		{% block body %}
 		{% endblock %}
