@@ -73,6 +73,13 @@ header {
   display: inline-block;
 }
 
+.removeInput  {
+  font-size: 1em;
+  padding: 5px;
+  margin-right: 10px;
+  display: inline-block;
+}
+
 .menu li a {
   /*  color: #666666;*/
   color: #CE2655;

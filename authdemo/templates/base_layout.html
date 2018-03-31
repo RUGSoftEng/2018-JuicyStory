@@ -69,13 +69,13 @@
 		          <li></li>
 		          <li><a href="{% url 'iusers:list_iusers' %}">My Accounts</a></li>
 		          <li>|</li>
-		          <li><form action="{% url 'users:logout' %}" method="post">
-						{% csrf_token %}
-						<input type="submit">
-					</form></li>
+		          <form action="{% url 'users:logout' %}" method="post">
+					{% csrf_token %}
+					<input class="removeInput" type="submit" value="Log Out">
+				  </form>
         		</ul>
       		</div>
-    	</header>
+      	</header>
 		<div class="navigation">
 			<ul>
 				<li><a href="#">Dashboard</a></li>

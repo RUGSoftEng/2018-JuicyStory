@@ -12,18 +12,19 @@
 {% endblock %}
 
 {% block body %}
-<div>
-  <form class="allign" action="{% url 'incoming:list_images' userdata.username  %}" method="get">
-    {% if userdata %}
-    <img class="img-circle" src=" {{userdata.profile_picture}} ">
-    {% endif %}
-    <input type="text" name="tag_or_location" placeholder="search...">
-    <input type="submit" value="Submit">
-  </form>
-</div>
 
-
-  <div id="incoming">
+  <div>
+    <form class="allign" action="{% url 'incoming:list_images' userdata.username  %}" method="get">
+      {% if userdata %}
+      <img class="img-circle" src=" {{userdata.profile_picture}} ">
+      {% endif %}
+      <input type="text" name="tag_or_location" placeholder="search...">
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+  {% if images %}
+  <form class="incoming" id="incoming" action="{% url 'incoming:select_images' userdata.username %}" method="post">
+    {% csrf_token %}
     <!--  <h2 class="page-title">Incoming images</h2> -->
       <ul>
         {% for image in images %}
@@ -31,25 +32,45 @@
           <div class="nonselected" id="{{ image.images.low_resolution.url }}" >
             <!-- height="288" width="162" -->
             <img src="{{ image.images.low_resolution.url }}">
-            <div class="remove checkmark" id="{{forloop.counter}}"></div>
+            <div class="remove checkmark" id="{{ forloop.counter }}"></div>
+            <input type="text" id="url{{forloop.counter}}" name="url">
             <script type="text/javascript">
               function switchClass(){
                 var element = document.getElementById('{{ image.images.low_resolution.url }}');
                 element.classList.toggle("selected");
                 element.classList.toggle("nonselected");
-                var element = document.getElementById('{{forloop.counter}}');
+                element = document.getElementById("{{forloop.counter}}");
                 element.classList.toggle("remove");
+                var url = document.getElementById("url{{forloop.counter}}");
+                if(element.classList.contains("remove")){
+                  url.value = "";
+                }else{
+                  url.value = "{{ image.images.low_resolution.url }}";
+                }
               }
 
               document.getElementById('{{ image.images.low_resolution.url }}').onclick = switchClass;
+              document.getElementById('url{{forloop.counter}}').style.display = 'none';
             </script>   
           </div>
         </li>
          {% endfor %}
       </ul>
 
-      <button style="color:white">Create Story</button>
-  </div>
+      <input type="submit" value="Create Story">
+  </form>
+
+  {% elif places %}
+  {% for place in places %}
+    <form action="{% url 'incoming:list_images' userdata.username %}" method="get">
+      {{place.name}}
+      <input type="hidden" name="id" value="{{place.id}}">
+      <input type="submit" value="Submit">
+    </form>
+    <p></p>
+  {% endfor %}
+  
+{% endif %}
 <!--
 {% if images %}
   {% for image in images %}

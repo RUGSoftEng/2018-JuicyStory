@@ -34,6 +34,8 @@ def list_images(request, iusername):
 #Select an image and save it in the databse
 def select_images(request, iusername):
   user = get_object_or_404(InstagramUser, username=iusername)
-  image_url = request.POST.get('url')
-  SelectedImage.objects.create(instagram_user=user, photo=image_url)
+  image_url = request.POST.getlist('url')
+  for url in image_url:
+    if url:
+      SelectedImage.objects.create(instagram_user=user, photo=url)
   return redirect('incoming:list_images', iusername)
