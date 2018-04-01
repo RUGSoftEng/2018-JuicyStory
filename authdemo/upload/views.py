@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from authcode.models import InstagramUser, SelectedImage
 from .utils import download_schedule_image
 
+
 def process_selected_images(request, iusername):
   if request.method == 'POST':
     action = request.POST['action']
@@ -11,17 +12,13 @@ def process_selected_images(request, iusername):
     image_url = request.POST.getlist('url')
     for url in image_url:
       print(url)
-      if url:
+      if action == 'Delete':
         SelectedImage.objects.filter(photo=url).delete()
-    '''
-    for key, url in request.POST.items():
-      if(key.startswith('url')):
-        if action == 'Delete':
-          SelectedImage.objects.filter(photo=url).delete()
-        elif action == 'Upload':
-          download_schedule_image(url, iusername, date, time)          
-    '''
+      elif action == 'Upload':
+        download_schedule_image(url, iusername, date, time)
+
   return redirect('upload:list_selected_images', iusername)
+
 
 def list_selected_images(request, iusername):
   instagram_user = get_object_or_404(InstagramUser, username=iusername)
