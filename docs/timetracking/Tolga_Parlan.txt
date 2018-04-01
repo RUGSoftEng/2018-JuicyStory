@@ -71,3 +71,7 @@
 
   22.00 - Merging George's image listing into image uploading branch
   22.30 - Merging George's image listing into image uploading branch
+
+01.04.2018
+  13.00 - Fix small bug with uploading
+  13.30 - Create a README
