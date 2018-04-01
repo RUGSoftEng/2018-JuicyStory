@@ -94,7 +94,62 @@
 11:30 - removing cluttered files from v0.1
 12:00 - committing time tracking
 
+## March 24th 2018
+11:00 - Issue with templates
+11:30 - issue resides with regex
+12:00 - Issue still persists…
+12:30 - Possible rerouting fix
+18:30 - Progress
+19:00 - Buttons and adding works
+19:30 - Fixing the views / urls
+20:00 - using POST methods instead
+20:30 - filtering InstagramUsers ,tests
+21:00 - editing HTML, JS
+21:30 - delete button functional
+22:00 - tests.
+23:30 - working version, committed
 
+## March 25th 2018
+18:00 - redesigning the architecture
+18:30 - brainstorming, 
+19:00 - rerouting login, signup, homepage
+19:30 - new branch v0.3 with somewhat updated architecture
+20:00 - new architecture done
 
+## March 30th 2018
+15:00 - merge start
+15:30 - trying to make vuejs work
+16:00 - problems
+16:30 - cannot load data to vuejs
+17:00 - refactoring front-end code
+17:30 - vuejs would only work with Django REST
+18:00 - multiple problems from all directions
+18:30 - fixed dashboard 
+19:00 - looking into JS functionality
+19:30 - incoming partially working
+20:00 - list of instagram users working
+
+## March 31st 2018
+13:00 - picking up where i left
+13:30 - maybe css z-index?
+14:00 - not quite working
+14:30 - JS working
+15:00 - selecting images works
+15:30 - updating login, signup
+16:00 - working on story creator
+18:00 - picking up where i left
+18:30 - story creator ‘looks’ done
+20:00 - working incoming functionality
+20:30 - issues
+21:00 - issue resolved, testing
+21:30 - fully functional incoming!
+
+## April 1st 2018
+10:30 - moving HTML with JS
+11:00 - elements are moving
+11:30 - showing hiding placeholder
+12:00 - deleting images works
+12:30 - committing changes
+15:30 - redirect loved in users
 
 
