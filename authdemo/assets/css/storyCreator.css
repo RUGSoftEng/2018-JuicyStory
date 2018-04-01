@@ -84,3 +84,7 @@
   cursor: pointer;
   background: #46529E;
 }
+
+#parent1 #hide{
+  display: none;
+}

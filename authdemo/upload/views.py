@@ -8,17 +8,23 @@ def process_selected_images(request, iusername):
     date = request.POST['date']
     time = request.POST['time']
 
+    image_url = request.POST.getlist('url')
+    for url in image_url:
+      print(url)
+      if url:
+        SelectedImage.objects.filter(photo=url).delete()
+    '''
     for key, url in request.POST.items():
-      if(key.startswith('img')):
+      if(key.startswith('url')):
         if action == 'Delete':
           SelectedImage.objects.filter(photo=url).delete()
         elif action == 'Upload':
           download_schedule_image(url, iusername, date, time)          
-
+    '''
   return redirect('upload:list_selected_images', iusername)
 
 def list_selected_images(request, iusername):
   instagram_user = get_object_or_404(InstagramUser, username=iusername)
   images = SelectedImage.objects.filter(instagram_user=instagram_user)
   context = {'images': images, 'instagram_user': instagram_user}
-  return render(request, 'upload/list_selected_images.html', context)
+  return render(request, 'upload/story_creator.html', context)

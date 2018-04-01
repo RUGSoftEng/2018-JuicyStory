@@ -28,7 +28,7 @@ def list_images(request, iusername):
     images = request_images_by_location_id(request.GET['id'], access_token)
 
   context = {'userdata': userdata, 'images': images, 'places':places, 'instagram_user':user}
-  return render(request, 'incoming/list_images.html', context)
+  return render(request, 'incoming/incoming_images.html', context)
 
 
 #Select an image and save it in the databse

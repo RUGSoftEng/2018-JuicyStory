@@ -1,0 +1,121 @@
+{% extends 'base_layout.html' %}
+{% load staticfiles %}
+
+{% block head %}
+  <title>Story Creator | Juicy Story</title>
+  <link href="https://fonts.googleapis.com/css?family=Heebo|Lato" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{% static 'css/storyCreator.css' %}">
+{% endblock %}
+
+{% block body %}
+
+<form class="story" id="story" action="{% url 'upload:process_selected_images' instagram_user.username %}" method="post">
+  {% csrf_token %}
+  <div class="split left">
+    <label>Select Pictures</label>
+    </br>
+    <i class="fa fa-camera-retro icon"></i><small>Click images to add to story</small>
+    </br></br>
+    <ul id="parent1">
+      <li id="pHolder1"><div class="placeholder ratio">No images to display</div></li>
+    {% for image in images %}
+      <li id="img{{forloop.counter}}" ><img src="{{ image.photo }}" height="288" width="162" value="{{image.photo}}"></li>
+      <input type="text" id="url{{forloop.counter}}" name="url">
+      <script type="text/javascript">
+        /* move images from one parent to another */
+        /* add remove the content of the urls */
+        function moveElement(){
+          var child = getElement("img{{forloop.counter}}");
+          var parent = child.parentNode;
+          var url = getElement("url{{forloop.counter}}");
+          var id;
+          if(parent.id == "parent1"){
+            id = "parent2";
+            if(getElement(id).childElementCount == 1){
+              getElement("pHolder2").style.display = "none";
+            }
+            url.value = "{{ image.photo }}";
+          }else{
+            id = "parent1";
+            url.value = "";
+          }
+          parent = getElement(id);
+          parent.appendChild(child);
+        }
+
+        /* deal with placeholders */
+        function showPlaceholders(){
+          var parent1 = getElement("parent1");
+          var parent2 = getElement("parent2");
+          if(parent1.childElementCount == 1){
+              getElement("pHolder2").style.display = "none";
+          }
+        }
+
+        /* set the placeholder */
+        function setDefaults(){
+          var parent = getElement("parent1");
+          if(parent.childElementCount > 1){
+            getElement("pHolder1").style.display = "none";
+          }
+        }
+
+        getElement("img{{forloop.counter}}").onclick = moveElement;
+        getElement('url{{forloop.counter}}').style.display = 'none';
+        window.onload = setDefaults;
+
+        function getElement(id){
+          return document.getElementById(id);
+        }
+      </script>  
+    {% endfor %}
+    </ul>
+    </br>
+  </div>
+  
+  <div class="split right">
+    <div style="text-align: center">
+      <label>Story</label>
+      </br>
+      <i class="fa fa-camera-retro icon"></i><small>Click images to remove from story</small>
+      </br></br>
+      
+      <ul id="parent2" >
+        <li id="pHolder2" ><div class="placeholder ratio">No images to display</div></li>
+      </ul> 
+    </div>
+    <div>
+      <!-- <button>Schedule Story</button> -->
+      <input type="date" name="date" value="Date">
+      <br><br>
+      <input type="time" name="time" value="Time">
+      <br><br>
+      <input type="submit" name="action" value="Delete">
+      <br><br>
+      <input type="submit" name="action" value="Upload">
+    </div>
+    </br></br>
+  </div>
+</form>
+
+  <!--
+	<form action="{% url 'upload:process_selected_images' instagram_user.username %}" method="post">
+		{% csrf_token %}
+    {% for image in images %}
+	    <div>
+          <input type="radio" name="img{{forloop.counter}}" value="{{image.photo}}">
+	      	<img src="{{ image.photo }}" width="200px" height="200px">
+	    </div>
+    {% endfor %}
+
+    <input type="date" name="date" value="Date">
+    <input type="time" name="time" value="Time">
+    <br><br>
+    <input type="submit" name="action" value="Delete">
+    <input type="submit" name="action" value="Upload">
+  </form> -->
+{% endblock %}

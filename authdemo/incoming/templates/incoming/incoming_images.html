@@ -36,12 +36,12 @@
             <input type="text" id="url{{forloop.counter}}" name="url">
             <script type="text/javascript">
               function switchClass(){
-                var element = document.getElementById('{{ image.images.low_resolution.url }}');
+                var element = getElement('{{ image.images.low_resolution.url }}');
                 element.classList.toggle("selected");
                 element.classList.toggle("nonselected");
-                element = document.getElementById("{{forloop.counter}}");
+                element = getElement("{{forloop.counter}}");
                 element.classList.toggle("remove");
-                var url = document.getElementById("url{{forloop.counter}}");
+                var url = getElement("url{{forloop.counter}}");
                 if(element.classList.contains("remove")){
                   url.value = "";
                 }else{
@@ -49,14 +49,19 @@
                 }
               }
 
-              document.getElementById('{{ image.images.low_resolution.url }}').onclick = switchClass;
-              document.getElementById('url{{forloop.counter}}').style.display = 'none';
+              getElement('{{ image.images.low_resolution.url }}').onclick = switchClass;
+              getElement('url{{forloop.counter}}').style.display = 'none';
+
+              function getElement(id){
+                return document.getElementById(id);
+              }
             </script>   
           </div>
         </li>
          {% endfor %}
       </ul>
-
+      
+      <!--<button type="submit">Create Story</button>-->
       <input type="submit" value="Create Story">
   </form>
 
