@@ -24,6 +24,8 @@ def log_in(request):
 			login(request, user)
 			return redirect('iusers:list_iusers')
 	else:
+		if request.user.is_authenticated:
+			return redirect('iusers:list_iusers')
 		form = AuthenticationForm()
 	return render(request, "users/log-in.html", {'form': form})
 

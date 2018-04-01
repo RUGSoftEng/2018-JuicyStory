@@ -38,4 +38,4 @@ def select_images(request, iusername):
   for url in image_url:
     if url:
       SelectedImage.objects.create(instagram_user=user, photo=url)
-  return redirect('incoming:list_images', iusername)
+  return redirect('upload:list_selected_images', iusername)
