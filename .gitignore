@@ -1,1 +1,4 @@
 *.sublime-workspace
+**/__pycache__
+authdemo/media/*
+authdemo/db.sqlite3
