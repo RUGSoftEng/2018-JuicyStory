@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 from django.urls import path, include
+from .routers import router
 from . import views
 
 urlpatterns = [
+    path('api/', include(router.urls)),
     path('admin/', admin.site.urls, name='admins'),
     path('users/', include('users.urls')),
     path('iusers/', include('iusers.urls')),

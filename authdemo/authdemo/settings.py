@@ -36,6 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'django_filters',
     'widget_tweaks',
     'incoming',
     'authcode',
@@ -59,7 +62,6 @@ MIDDLEWARE = [
 CRON_CLASSES = [
     "upload.cron.ImageUploadCronJob"
 ]
-
 
 ROOT_URLCONF = 'authdemo.urls'
 
