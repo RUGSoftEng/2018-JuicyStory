@@ -5,6 +5,9 @@
 * Django
 * django_cron app
 * widget_tweaks app
+* rest_framework
+* rest_framework.authtoken
+* django_filters
 
 ## Installation Instructions
 
@@ -14,6 +17,17 @@
   * Add the following line to the file with the correct paths. <ANY PATH> can be anywhere in your computer.
     > \* * * * * python3 <PROJECT PATH>/2018-JuicyStory/authdemo/manage.py runcrons >> <ANY PATH>/.cronlog
 * (Windows) [Schedule a task](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc748993(v=ws.11)) that basically runs `manage.py runcrons` every single minute
+
+## Adding an API-Endpoint
+* First, create the desired model in the app
+* We need to serialize it, so that i can be viewed as JSON
+	* create file `serializer.py` and import `from rest_framework import serializers`
+	* also import the desired model from `.models`
+	* create a class ie `<name>Serializer` and pass in the arguments `serializers.ModelSerializer` . Indent another class called `Meta` along with the model and fields ie 	`model = <name>` & `fields = '__all__`
+	* create file `viewset.py` and import the model long with the serializer class `<name>Serializer`. Create class `<name>ViewSet(viewsets.ModelViewSet):` with the parameter passed from `from rest_framework import viewsets`. Set two variables ie `queryset = <name>.objects.all()` & `serializer_class = <name>Serializer`.
+	* inside the default app `authdemo` create file `routers.py` and import the ViewSet from the app that you set it in.
+	* import `from rest_framework import routers` and set `router = routers.DefaultRouter()`. Now register the router by `router.register(r’<title>’, <name>ViewSet)` where title should be a meaningful name for your Data.
+* Now if you go to `http://127.0.0.1:8000/api/` you should see all the available endpoints along with a link to your included Api. ie `http://127.0.0.1:8000/api/<title>/`
 
 ## Running the Application (for testing purposes)
 
