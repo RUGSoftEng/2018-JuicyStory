@@ -1,0 +1,100 @@
+## February 23rd 2018
+13:00 - Meeting with group
+
+## March 1st 2018
+11:00 - Meeting with the client
+11:30 - Discussion with group
+12:00 - Discussion with group
+
+# March 2nd 2018
+13:00 - TA meeting
+13:30 - TA meeting
+
+# March 7th 2018
+13:00 - Group Meeting
+13:30 - Group Meeting
+16:00 - Learn Django
+16:30 - Learn Django
+17:00 - Learn Django
+17:30 - Learn Django
+18:00 - Learn Django
+
+# March 8th 2018
+14:00 - Learn Django
+14:30 - Learn Django 
+15:00 - Learn Django
+
+# March 9th 2018
+14:00 - Looking into uploading pictures to instagram
+14:30 - Looking into uploading pictures to instagram
+15:00 - Figuring out monkeyrunner api
+15:30 - Figuring out monkeyrunner api
+16:00 - Figuring out monkeyrunner api
+16:30 - Figuring out monkeyrunner api
+17:00 - Figuring out monkeyrunner api
+
+# March 10th 2018
+17:00 - Creating automation demo
+17:30 - Creating automation demo
+18:00 - Creating automation demo
+18:30 - Creating automation demo
+19:00 - Creating automation demo
+19:30 - Creating automation demo
+20:00 - Creating automation demo
+20:30 - Creating automation demo
+
+# March 11th 2018
+19:00 - switched to androidviewclient for demo
+19:30 - switched to androidviewclient for demo
+20:00 - switched to androidviewclient for demo
+20:30 - switched to androidviewclient for demo
+21:00 - switched to androidviewclient for demo
+22:00 - switched to androidviewclient for demo
+
+# March 12th 2018
+13:00 - Meeting with group
+13:30 - Meeting with group
+14:00 - Updating Documents
+14:30 - Updating Documents
+14:30 - Updating Documents
+15:00 - Updating Documents
+15:30 - Updating Documents
+16:00 - Updating Documents
+18:00 - Automate uploading with androidviewclient
+18:30 - Automate uploading with androidviewclient
+19:00 - Automate uploading with androidviewclient
+19:30 - Automate uploading with androidviewclient
+20:00 - Automate uploading with androidviewclient
+
+# March 14th 2018
+15:00 - Meeting with client
+15:30 - Meeting with client
+16:00 - Meeting with client
+
+# March 18th 2018
+16:00 - Continue working on django
+16:30 - Continue working on django
+17:00 - Continue working on django
+17:30 - Continue working on django
+18:00 - Continue working on django
+
+# March 27th 2018
+17:00 - Meeting with group
+17:30 - Meeting with group
+18:00 - Meeting with group
+
+# April 4th 2018
+17:00 - Look into stats api
+17:30 - Look into stats api
+18:00 - Look into stats api
+18:30 - Look into stats api
+19:00 - Look into stats api
+
+# April 19th 2018
+13:00 - Meeting with group
+13:30 - meeting with group
+14:00 - Meeting with group
+18:30 - start on stats module
+19:00 - start on stats module
+
+
