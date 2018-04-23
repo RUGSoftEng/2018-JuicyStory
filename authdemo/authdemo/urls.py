@@ -28,6 +28,7 @@ urlpatterns = [
     path('upload/<iusername>/', include('upload.urls')),
     path('incoming/<iusername>/', include('incoming.urls'), name='incoming'),
     path('<username>/', views.home, name='home'),
+    path('stats/<access_token>/',include('stats.urls'),name = 'stats')
 ]
 
 urlpatterns += staticfiles_urlpatterns()

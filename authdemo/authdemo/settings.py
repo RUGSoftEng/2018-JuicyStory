@@ -25,7 +25,7 @@ SECRET_KEY = '@s3_m58yh-4u+%#z5_!(me=3lv@2fxsk6-^j=^z!vn-uf8jc1s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['80.114.178.251','localhost','127.0.0.1','juicy-story.herokuapp.com']
+ALLOWED_HOSTS = ['82.73.235.168','localhost','juicy-story.herokuapp.com','80.114.178.251']
 
 # Application definition
 
@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'users',
     'authdemo',
     'upload',
-    'django_cron'
+    'django_cron',
+    'stats'
 ]
 
 MIDDLEWARE = [
