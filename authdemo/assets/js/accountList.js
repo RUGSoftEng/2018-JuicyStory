@@ -18,6 +18,20 @@ new Vue({
   },
 
   methods: {
+    getInstagramUsers: function(){
+      this.loading = true;
+      //specify the http request type ie. get & the url
+      this.$http.get('/api/InstagramUser/').then((response) => {
+        //code if the request actually worked
+        this.items = response.data.results;
+        this.loading = false;
+      }).catch((err) => {
+        //request didn't work
+       this.loading = false;
+       console.log(err);
+      })
+    },
+
     removeElem: function(input) {
       for(var i = this.items.length - 1; i >= 0; i--) {
           if(this.items[i].name == input) {
