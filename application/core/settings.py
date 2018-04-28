@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'core',
     'upload',
     'django_cron',
-    'stats',
+    'statistics',
     'database',
 ]
 
