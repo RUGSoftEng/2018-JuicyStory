@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'authentication',
     'iusers',
     'entry',
-    'authdemo',
+    'core',
     'upload',
     'django_cron',
     'stats'
@@ -64,7 +64,7 @@ CRON_CLASSES = [
     "upload.cron.ImageUploadCronJob"
 ]
 
-ROOT_URLCONF = 'authdemo.urls'
+ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
     {
@@ -82,7 +82,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'authdemo.wsgi.application'
+WSGI_APPLICATION = 'core.wsgi.application'
 
 
 # Database
