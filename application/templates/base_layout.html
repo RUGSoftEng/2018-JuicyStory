@@ -30,18 +30,18 @@
 					
 					<li><a href="{% url 'iusers:list_iusers' %}"> Instagram Account list</a></li>
 					
-					<li><form action="{% url 'users:logout' %}" method="post">
+					<li><form action="{% url 'entry:logout' %}" method="post">
 						{% csrf_token %}
 						<button type="submit">logout</button>
 					</form></li>
 					
 					{% else %}
 					
-					<li><form action="{% url 'users:login' %}" method="post">
+					<li><form action="{% url 'entry:login' %}" method="post">
 						{% csrf_token %}
 						<button type="submit">login</button>
 					</form></li>
-					<li><form action="{% url 'users:signup' %}" method="post">
+					<li><form action="{% url 'entry:signup' %}" method="post">
 						{% csrf_token %}
 						<button type="submit">signup</button>
 					</form></li>
@@ -69,7 +69,7 @@
 		          <li></li>
 		          <li><a href="{% url 'iusers:list_iusers' %}">My Accounts</a></li>
 		          <li>|</li>
-		          <form action="{% url 'users:logout' %}" method="post">
+		          <form action="{% url 'entry:logout' %}" method="post">
 					{% csrf_token %}
 					<input class="removeInput" type="submit" value="Log Out">
 				  </form>

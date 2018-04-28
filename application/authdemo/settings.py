@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'incoming',
     'authcode',
     'iusers',
-    'users',
+    'entry',
     'authdemo',
     'upload',
     'django_cron',

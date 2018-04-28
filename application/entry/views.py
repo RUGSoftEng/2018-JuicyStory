@@ -18,7 +18,7 @@ def sign_up(request):
 			return redirect('iusers:list_iusers')
 	else:
 		form = UserCreationForm()
-	return render(request, "users/sign-up.html", {'form': form})
+	return render(request, "entry/sign-up.html", {'form': form})
 
 '''
 Method to log-in the user after 
@@ -39,7 +39,7 @@ def log_in(request):
 		if request.user.is_authenticated:
 			return redirect('iusers:list_iusers')
 		form = AuthenticationForm()
-	return render(request, "users/log-in.html", {'form': form})
+	return render(request, "entry/log-in.html", {'form': form})
 
 '''
 Method to log-out the user after
@@ -48,4 +48,4 @@ he is already loged into the app.
 def log_out(request):
 	if request.method == 'POST':
 		logout(request)
-		return redirect('users:login')
+		return redirect('entry:login')

@@ -22,7 +22,7 @@ def add_iuser(request):
 	return render(request, 'iusers/add-iuser.html', {'form':form})
 '''
 
-@login_required(login_url='/users/login/')
+@login_required(login_url='/entry/login/')
 def list_iusers(request):
 	if request.method == 'POST':
 		form = forms.AddIuser(request.POST, request.FILES)

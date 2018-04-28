@@ -22,7 +22,7 @@ from . import views
 urlpatterns = [
     path('api/', include(router.urls)),
     path('admin/', admin.site.urls, name='admins'),
-    path('users/', include('users.urls')),
+    path('entry/', include('entry.urls')),
     path('iusers/', include('iusers.urls')),
     path('authcode/', include('authcode.urls')),
     path('upload/<iusername>/', include('upload.urls')),
