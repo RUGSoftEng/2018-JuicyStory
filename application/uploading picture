@@ -1,0 +1,34 @@
+Request Data:
+-----------------------------1504707524647933058640156441
+Content-Disposition: form-data; name="upload_id"
+
+1521203977982
+-----------------------------1504707524647933058640156441
+Content-Disposition: form-data; name="photo"; filename="photo.jpg"
+Content-Type: image/jpeg
+
+ÿØÿà
+
+
+URL:
+https://www.instagram.com/create/upload/photo/
+
+Response data:
+{"upload_id": "1521203977982", "xsharing_nonces": {}, "status": "ok"}
+
+Request headers:
+POST /create/upload/photo/ HTTP/1.1
+Host: www.instagram.com
+User-Agent: Mozilla/5.0 (Linux; Android 7.0; PLUS Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.98 Mobile Safari/537.36
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Referer: https://www.instagram.com/create/style/
+X-CSRFToken: h13fNmsZ4owXiMk7nxb1KAs9AGeZuVxF
+X-Instagram-AJAX: 1
+X-Requested-With: XMLHttpRequest
+Content-Length: 310547
+Content-Type: multipart/form-data; boundary=---------------------------1504707524647933058640156441
+Cookie: mid=WpHKMAAEAAGvpIppCb-kjMMZHMMk; rur=ASH; urlgen="{\"time\": 1521203635\054 \"145.97.157.227\": 1103}:1ewodA:uaeKS6AXeJNzrX6g3j575uOxV3c"; ig_vw=1415; ig_pr=1.2; ig_vh=806; ig_or=landscape-primary; social_hash_bucket_id=307; csrftoken=h13fNmsZ4owXiMk7nxb1KAs9AGeZuVxF; ds_user_id=7199328359; sessionid=IGSCcf5297fb47c15bd26f390626a390313a307109992e39be01857a08b33dcbdc17%3ABFtp7EeysaeWmhrMTXH4TyjFayqct2cc%3A%7B%22_auth_user_id%22%3A7199328359%2C%22_auth_user_backend%22%3A%22accounts.backends.CaseInsensitiveModelBackend%22%2C%22_auth_user_hash%22%3A%22%22%2C%22_platform%22%3A4%2C%22_token_ver%22%3A2%2C%22_token%22%3A%227199328359%3AKbeXbtBJdgCzgcBrSy6jNFslBrek87xe%3Acb6d49b505622d9233944173ea8ea4b45ea9ac403d26e0f95065b9b1e35e1fbe%22%2C%22last_refreshed%22%3A1521203789.7948439121%7D
+Connection: keep-alive
+DNT: 1
