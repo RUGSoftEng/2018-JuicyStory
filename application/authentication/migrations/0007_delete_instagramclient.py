@@ -6,7 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('authcode', '0006_merge_20180326_1241'),
+        ('authentication', '0006_merge_20180326_1241'),
     ]
 
     operations = [

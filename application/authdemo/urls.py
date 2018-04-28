@@ -24,7 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls, name='admins'),
     path('entry/', include('entry.urls')),
     path('iusers/', include('iusers.urls')),
-    path('authcode/', include('authcode.urls')),
+    path('auth/', include('authentication.urls')),
     path('upload/<iusername>/', include('upload.urls')),
     path('incoming/<iusername>/', include('incoming.urls'), name='incoming'),
     path('stats/<iusername>/',include('stats.urls'), name='stats'),

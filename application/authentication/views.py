@@ -22,7 +22,7 @@ def process_auth_code(request):
 def user_list(request):
   users = InstagramUser.objects.values()
   context = {'users': users}
-  return render(request, 'authcode/user_list.html', context)
+  return render(request, 'authentication/user_list.html', context)
 
 
 def get_code(request):

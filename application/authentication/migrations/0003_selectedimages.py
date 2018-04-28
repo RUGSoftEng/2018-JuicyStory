@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('authcode', '0002_instagramuser_owner'),
+        ('authentication', '0002_instagramuser_owner'),
     ]
 
     operations = [
@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('photo', models.CharField(max_length=300)),
-                ('username', models.ForeignKey(default=None, on_delete=django.db.models.deletion.CASCADE, to='authcode.InstagramUser')),
+                ('username', models.ForeignKey(default=None, on_delete=django.db.models.deletion.CASCADE, to='authentication.InstagramUser')),
             ],
         ),
     ]

@@ -6,7 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('authcode', '0003_selectedimages'),
+        ('authentication', '0003_selectedimages'),
     ]
 
     operations = [

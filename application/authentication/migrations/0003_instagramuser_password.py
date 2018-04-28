@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('authcode', '0002_instagramuser_owner'),
+        ('authentication', '0002_instagramuser_owner'),
     ]
 
     operations = [

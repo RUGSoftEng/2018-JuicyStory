@@ -6,8 +6,8 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('authcode', '0003_instagramuser_password'),
-        ('authcode', '0005_auto_20180323_1642'),
+        ('authentication', '0003_instagramuser_password'),
+        ('authentication', '0005_auto_20180323_1642'),
     ]
 
     operations = [

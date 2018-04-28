@@ -1,5 +1,4 @@
-
-from authcode.models import InstagramUser
+from authentication.models import InstagramUser
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .utils import *

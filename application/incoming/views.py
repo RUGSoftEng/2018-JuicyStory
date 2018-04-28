@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from authcode.models import InstagramUser, SelectedImage
+from authentication.models import InstagramUser, SelectedImage
 from .utils import *
 
 def list_images(request, iusername):
@@ -9,7 +9,7 @@ def list_images(request, iusername):
 
   # got an error, try to acquire a new access token
   if "data" not in userdata:
-    return redirect('authcode:get_code')    
+    return redirect('authentication:get_code')    
 
   userdata = userdata["data"]
   # images from the request

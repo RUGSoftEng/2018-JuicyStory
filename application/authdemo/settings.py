@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django_filters',
     'widget_tweaks',
     'incoming',
-    'authcode',
+    'authentication',
     'iusers',
     'entry',
     'authdemo',
