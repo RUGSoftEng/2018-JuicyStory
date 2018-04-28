@@ -1,6 +1,5 @@
 from rest_framework import serializers
-from .models import InstagramUser, SelectedImage
-from upload.models import Image
+from .models import InstagramUser, SelectedImage, Image
 
 class InstagramUserSerializer(serializers.ModelSerializer):
 	class Meta:

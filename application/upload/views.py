@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from authentication.models import InstagramUser, SelectedImage
+from database.models import InstagramUser, SelectedImage
 from .utils import download_schedule_image
 
 

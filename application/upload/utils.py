@@ -2,8 +2,7 @@ import time
 import requests.sessions
 from urllib import request
 from urllib.parse import urlparse
-from .models import Image
-from authentication.models import SelectedImage
+from database.models import SelectedImage, Image
 from datetime import datetime
 from django.core.files.images import ImageFile
 

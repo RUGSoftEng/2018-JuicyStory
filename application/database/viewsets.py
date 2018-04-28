@@ -1,6 +1,5 @@
 from rest_framework import viewsets
-from .models import InstagramUser, SelectedImage
-from upload.models import Image
+from .models import InstagramUser, SelectedImage, Image
 from .serializers import InstagramUserSerializer, SelectedImageSerializer, ImageSerializer
 
 class InstagramUserViewSet(viewsets.ModelViewSet):

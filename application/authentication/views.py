@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.utils.http import urlencode
-from .models import InstagramUser
+from database.models import InstagramUser
 from .utils import *
 
 

@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'core',
     'upload',
     'django_cron',
-    'stats'
+    'stats',
+    'database',
 ]
 
 MIDDLEWARE = [

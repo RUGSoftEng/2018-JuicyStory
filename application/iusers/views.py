@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from . import forms
-from authentication.models import InstagramUser
+from database.models import InstagramUser
 
 
 '''

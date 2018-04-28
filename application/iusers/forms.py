@@ -1,6 +1,5 @@
 from django import forms
-# from . import models
-from authentication.models import InstagramUser
+from database.models import InstagramUser
 
 class AddIuser(forms.ModelForm):
 	class Meta:
