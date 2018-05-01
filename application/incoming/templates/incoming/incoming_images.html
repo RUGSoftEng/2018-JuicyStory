@@ -1,5 +1,6 @@
 {% extends 'base_layout.html' %}
 {% load staticfiles %}
+{% load get_item %}
 
 {% block head %}
   <title>Incoming | Juicy Story</title>
@@ -12,6 +13,12 @@
 {% endblock %}
 
 {% block body %}
+
+  <div>{{DMImages}}</div>
+  {% for timestamp in orderedDMTimestamps %}
+    <p>{{ DMImages|get_item:timestamp }}</p>
+    <a href={{ DMImages|get_item:timestamp }}></a>
+  {% endfor %}
 
   <div>
     <form class="allign" action="{% url 'incoming:list_images' userdata.username  %}" method="get">

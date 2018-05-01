@@ -2,6 +2,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from database.models import InstagramUser, SelectedImage
 from .utils import *
 
+from django.http import JsonResponse
+from InstagramAPI import InstagramAPI
+from collections import OrderedDict
+
+
 def list_images(request, iusername):
   user = get_object_or_404(InstagramUser, username=iusername)
   access_token = user.access_token
@@ -9,12 +14,25 @@ def list_images(request, iusername):
 
   # got an error, try to acquire a new access token
   if "data" not in userdata:
-    return redirect('authentication:get_code')    
+    return redirect('authentication:get_code')
 
+  # Get the DMs
+  igapi = InstagramAPI("t.parlan", "a1234567")
+  igapi.login()
+  igapi.getv2Inbox()
+
+  DMResponse = igapi.LastJson
   userdata = userdata["data"]
-  # images from the request
   images = {}
   places = {}
+  DMImages = {}
+
+  for messageThread in DMResponse['inbox']['threads']:
+    for item in messageThread['items']:
+      if 'media' in item:
+        DMImages[item['timestamp']
+                 ] = item['media']['image_versions2']['candidates'][0]['url']
+  orderedDMTimestamps = sorted(DMImages.keys())
 
   if 'tag_or_location' in request.GET:
     if request.GET['tag_or_location'][0] == '#':
@@ -27,11 +45,12 @@ def list_images(request, iusername):
   elif 'id' in request.GET:
     images = request_images_by_location_id(request.GET['id'], access_token)
 
-  context = {'userdata': userdata, 'images': images, 'places':places, 'instagram_user':user}
+  context = {'userdata': userdata, 'images': images,
+             'places': places, 'DMImages': DMImages, 'orderedDMTimestamps': orderedDMTimestamps, 'instagram_user': user}
   return render(request, 'incoming/incoming_images.html', context)
 
 
-#Select an image and save it in the databse
+# Select an image and save it in the databse
 def select_images(request, iusername):
   user = get_object_or_404(InstagramUser, username=iusername)
   image_url = request.POST.getlist('url')
