@@ -75,3 +75,8 @@
 01.04.2018
   13.00 - Fix small bug with uploading
   13.30 - Create a README
+
+01.05.2018
+  18.30 - Researching and implementing getting images from DMs
+  .. until .. 
+  21.00 - Researching and implementing getting images from DMs
