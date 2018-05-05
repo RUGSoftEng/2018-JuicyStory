@@ -10,7 +10,7 @@ class DatabaseTests(TestCase):
 		george = User.objects.create_user('testname', 'test@mail.com', 'testpassword')
 		for i in range(0, size):
 			username = "Test" + str(i)
-			#print(username)
+			print(username)
 			iuser = InstagramUser.objects.create(username=username, owner=george)
 			Image.objects.create(username=iuser, is_story=False)
 
