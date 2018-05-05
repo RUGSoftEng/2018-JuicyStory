@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import InstagramUser
+from .models import InstagramUser, Image
 from django.contrib.auth.models import User
 
 class DatabaseTests(TestCase):
@@ -11,12 +11,18 @@ class DatabaseTests(TestCase):
 		for i in range(0, size):
 			username = "Test" + str(i)
 			#print(username)
-			InstagramUser.objects.create(username=username, owner=george)
+			iuser = InstagramUser.objects.create(username=username, owner=george)
+			Image.objects.create(username=iuser, is_story=False)
+
 
 	#The actual test of asserting that the names match
-	def test_users(self):
+	def test_iusers(self):
 		size = 1000
 		for i in range(0, size):
 			username = "Test" + str(i)
 			iuser = InstagramUser.objects.get(username=username)
+			image = Image.objects.get(username=iuser)
 			self.assertEqual(iuser.username, username)
+			self.assertEqual(image.username, username)
+
+
