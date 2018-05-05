@@ -2,32 +2,32 @@ import requests
 from incoming.utils import get_self_user_info
 import json
 
-#access_token is place holder for fb user token
-def requestImpressions(access_token,timeframe,fbId):
+def requestImpressions(access_token,timeframe,fbId,timeStampSince,timeStampUntil):
 
 	userId = getId(fbId,access_token)
 
 	url = "https://graph.facebook.com/" + userId +"/insights"
-	response = requests.get(url,params={"access_token": access_token,"metric":"impressions,reach","period":timeframe})
+	response = requests.get(url,params={"access_token": access_token,"metric":"impressions,reach","period":timeframe,"since":timeStampSince,"until":timeStampUntil})
 
 	return response.json()
 
-def requestViewsAndFollowers(access_token,fbId):
+def requestViewsAndFollowers(access_token,fbId,timeStampSince,timeStampUntil):
 
 	userId = getId(fbId,access_token)
 
 	url = "https://graph.facebook.com/" + userId +"/insights"
-	response = requests.get(url,params={"access_token": access_token,"metric":"follower_count,profile_views","period":"day"})
+	response = requests.get(url,params={"access_token": access_token,"metric":"follower_count,profile_views","period":"day","since":timeStampSince,"until":timeStampUntil})
 
 	return response.json()
 
 
-def requestLifetimeStats(access_token,fbId):
+def requestLifetimeStats(access_token,fbId,timeStampSince,timeStampUntil):
 
 	userId = getId(fbId,access_token)
 
 	url = "https://graph.facebook.com/" + userId +"/insights"
-	response = requests.get(url,params={"access_token": access_token,"metric":"audience_gender_age,audience_locale,audience_country,audience_city,online_followers","period":"lifetime"})
+	response = requests.get(url,params={"access_token": access_token,"metric":"audience_gender_age,audience_locale,audience_country,audience_city,online_followers","period":"lifetime",
+		"since":timeStampSince,"until":timeStampUntil})
 
 	return response.json()
 
