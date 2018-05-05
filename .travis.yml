@@ -8,5 +8,6 @@ install:
 
 script:
   - "cd application"
+  - "pip install djangorestframework"
   - "python manage.py test"
   - "cd .."
