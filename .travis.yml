@@ -5,9 +5,9 @@ python:
 
 install:
   - "pip install -q Django"
+  - "pip install -q -r requirements.txt"
 
 script:
   - "cd application"
-  - "pip install djangorestframework"
   - "python manage.py test"
   - "cd .."
