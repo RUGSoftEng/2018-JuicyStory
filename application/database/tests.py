@@ -26,3 +26,5 @@ class DatabaseTests(TestCase):
 			self.assertEqual(image.username, username)
 
 
+	def test_more(self):
+		self.assertEqual(1 + 1, 2)
