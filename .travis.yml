@@ -3,11 +3,12 @@ language: python
 python:
   - "3.6"
 
+install:
+  - "pip install -q Django=$DJANGO"
+  - "pip install -q ."
+  - "pip install -q -r requirements.txt"
+
 script:
   - "cd application"
-  - "pip install django"
-  - "pip install djangorestframework"
-  - "pip install markdown"  
-  - "pip install django-filter"
   - "python manage.py test"
   - "cd .."
