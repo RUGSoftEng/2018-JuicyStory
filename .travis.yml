@@ -4,7 +4,7 @@ python:
   - "3.6"
 
 install:
-  - "pip install -q Django==$DJANGO"
+  - "pip install -q Django"
   - "pip install -q ."
   - "pip install -q -r requirements.txt"
 
