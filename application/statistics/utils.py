@@ -2,7 +2,7 @@ import requests
 from incoming.utils import get_self_user_info
 import json
 
-def requestImpressions(access_token,timeframe,fbId,timeStampSince,timeStampUntil):
+def request_impressions(access_token,timeframe,fbId,timeStampSince,timeStampUntil):
 
 	userId = getId(fbId,access_token)
 
@@ -11,7 +11,7 @@ def requestImpressions(access_token,timeframe,fbId,timeStampSince,timeStampUntil
 
 	return response.json()
 
-def requestViewsAndFollowers(access_token,fbId,timeStampSince,timeStampUntil):
+def request_views_and_followers(access_token,fbId,timeStampSince,timeStampUntil):
 
 	userId = getId(fbId,access_token)
 
@@ -21,7 +21,7 @@ def requestViewsAndFollowers(access_token,fbId,timeStampSince,timeStampUntil):
 	return response.json()
 
 
-def requestLifetimeStats(access_token,fbId,timeStampSince,timeStampUntil):
+def request_lifetime_stats(access_token,fbId,timeStampSince,timeStampUntil):
 
 	userId = getId(fbId,access_token)
 
@@ -31,7 +31,7 @@ def requestLifetimeStats(access_token,fbId,timeStampSince,timeStampUntil):
 
 	return response.json()
 
-def getId(fbId,access_token):
+def get_id(fbId,access_token):
 	url = "https://graph.facebook.com/" + fbId
 	getUser = requests.get(url,params={"access_token": access_token,"fields":"instagram_business_account"})
 	userId = getUser.json()["instagram_business_account"]["id"]
