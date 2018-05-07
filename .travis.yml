@@ -1,27 +1,13 @@
-language: python # => 1
+language: python
 
-    python: # => 2
+python:
+  - "3.6"
 
-      - "2.6"
+install:
+  - "pip install -q Django"
+  - "pip install -q -r requirements.txt"
 
-      - "2.7"
-
-      - "3.6"
-
-    services: # => 3
-
-      - mysql
-
-    env: # => 4
-
-      -DJANGO=2.0 DB=mysql
-    install: # => 5
-
-      - pip install -r requirements.txt
-
-    before_script: # => 6
-
-      - mysql -e 'create database test;' -u root
-    script: # => 7
-
-      - python manage.py test
+script:
+  - "cd application"
+  - "python manage.py test"
+  - "cd .."
