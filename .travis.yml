@@ -1,0 +1,13 @@
+language: python
+
+python:
+  - "3.6"
+
+install:
+  - "pip install -q Django"
+  - "pip install -q -r requirements.txt"
+
+script:
+  - "cd application"
+  - "python manage.py test"
+  - "cd .."

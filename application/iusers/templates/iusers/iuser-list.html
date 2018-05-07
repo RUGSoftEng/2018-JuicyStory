@@ -1,0 +1,97 @@
+{% load staticfiles %}
+{% load widget_tweaks %}
+<html>
+<head>
+	<title>Instagram Account List | Juicy Story</title>
+  	<meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  	<link href="https://fonts.googleapis.com/css?family=Heebo|Lato" rel="stylesheet">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ 	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  	<link rel="stylesheet" type="text/css" href="{% static 'css/accountList.css' %}">
+  	<link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
+</head>
+<body>
+	<!--
+	<div class="container-login100">
+		<div class="wrap-login100">
+			<h2>Instagram Accounts</h2>
+			<div class="wrapper">
+				{% for iuser in iusers %}
+				<div class="instagram-account">
+					<a href="{% url 'home' iuser.username %}">{{ iuser.username }}</a>
+				</div>
+				{% endfor %}
+				<form class="login100-form validate-form" action="{% url 'iusers:list_iusers' %}" method="post">
+					{% csrf_token %}
+					<div class="container-login100-form-btn">
+					<input type="submit" class="login100-form-btn" value="Add Instagram Account">
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	-->
+
+	<div id="accountList" class="accountList">
+    	<div class="split col-md-4 left">
+	        <label>Instagram Accounts</label>
+	        <ul>
+	          {% for iuser in iusers %}
+	            <li><img id="over" src="{% static 'images/profile.png' %}" class="img-circle"><b><a href="{% url 'home' iuser.username %}">{{ iuser.username }}</a></b></li>
+	          {% endfor %}
+	        </ul>
+      	</div>
+		
+		<form class="split col-md-8 right validate-form" action="{% url 'iusers:list_iusers' %}" method="post">
+	        <label>Manage account list</label>
+	        {% csrf_token %}
+	    	</br>
+	    	<div class="container-input validate-input" data-validate = "Invalid Username">
+				{% render_field form.username class="input" placeholder=form.username.label %}
+			</div>
+	        <div class="container-input">
+	          	<input type="submit" value="Add">
+			</div>
+    	</form>
+	</div>
+	
+	<!--
+	<div id="accountList" v-bind:class="accountListStyle" v-cloak>
+	    <div v-bind:class="[view, left]">
+	        <label>[[headerName]]</label>
+	        <ul>
+	          <li></li>
+	          <li v-for="item in items">
+	            <img id="over" v-bind:src="item.pic" v-bind:class="imgStyle"> <b>[[item.name]]</b>
+	          </li>
+	        </ul>
+	    </div>
+
+	    <div v-bind:class="[view, right]">
+	        <label>Manage account list</label></br>
+	        <div v-bind:class="cnt">
+	        	<input v-model.trim.lazy="input" type="text" placeholder="Instagram Account" style="text-align: center"></input>
+	      		</br></br>
+	        	<button style="color: white;" v-on:click="addElem(input)">Add</button>
+	        	</br></br>
+	        	<button style="color: white;" v-on:click="removeElem(input)">Remove</button>
+	        	</br></br>
+			</div>
+		</div>
+	</div>
+	-->
+
+    <footer></footer>
+
+	
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script type="text/javascript" src="https://unpkg.com/vue"></script>
+	<script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script type="text/javascript" src="{% static 'js/dashboard.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/accountList.js' %}"></script>
+</body>
+</html>
