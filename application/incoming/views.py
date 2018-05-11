@@ -1,12 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from database.models import InstagramUser, SelectedImage
 from .utils import *
-from rest_framework import viewsets
-from rest_framework.response import Response
 from django.http import JsonResponse
 from InstagramAPI import InstagramAPI
 from collections import OrderedDict
-from .serializer import IncomingSerializer
+
 
 def list_images(request, iusername):
   user = get_object_or_404(InstagramUser, username=iusername)
