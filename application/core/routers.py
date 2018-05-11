@@ -1,6 +1,6 @@
 from rest_framework import routers
 from database.viewsets import InstagramUserViewSet, SelectedImageViewSet, ImageViewSet
-from incoming.views import IncomingViewSet
+from incoming.viewsets import IncomingViewSet
 
 router = routers.DefaultRouter()
 router.register(r'InstagramUser', InstagramUserViewSet)

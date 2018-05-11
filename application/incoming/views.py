@@ -8,15 +8,6 @@ from InstagramAPI import InstagramAPI
 from collections import OrderedDict
 from .serializer import IncomingSerializer
 
-
-class IncomingViewSet(viewsets.ViewSet):
-  
-  def list(self, request):
-    data = [{'id':1}]
-    results = IncomingSerializer(data, many=True).data
-    return Response(results)
-
-
 def list_images(request, iusername):
   user = get_object_or_404(InstagramUser, username=iusername)
   access_token = user.access_token
