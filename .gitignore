@@ -2,3 +2,4 @@
 **/__pycache__
 application/db.sqlite3
 **/.vscode/*
+application/media/*
