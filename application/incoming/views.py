@@ -1,10 +1,20 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from database.models import InstagramUser, SelectedImage
 from .utils import *
-
+from rest_framework import viewsets
+from rest_framework.response import Response
 from django.http import JsonResponse
 from InstagramAPI import InstagramAPI
 from collections import OrderedDict
+from .serializer import IncomingSerializer
+
+
+class IncomingViewSet(viewsets.ViewSet):
+  
+  def list(self, request):
+    data = [{'id':1}]
+    results = IncomingSerializer(data, many=True).data
+    return Response(results)
 
 
 def list_images(request, iusername):
