@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from rest_framework.documentation import include_docs_urls
 from django.contrib import admin
 from django.urls import path, include
 from .routers import router
@@ -21,6 +22,7 @@ from . import views
 
 urlpatterns = [
     path('api/', include(router.urls)),
+    path('docs/', include_docs_urls(title='Juicy Story API', public=False)),
     path('admin/', admin.site.urls, name='admins'),
     path('entry/', include('entry.urls')),
     path('iusers/', include('iusers.urls')),
