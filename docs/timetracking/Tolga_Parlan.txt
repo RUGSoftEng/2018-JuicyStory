@@ -80,3 +80,12 @@
   18.30 - Researching and implementing getting images from DMs
   .. until .. 
   21.00 - Researching and implementing getting images from DMs
+
+11.05.2018
+  16.00 - Researching model-less Django api endpoints
+  16.30 - Researching model-less Django api endpoints
+  17.00 - Creating a mock api endpoint for incoming app
+
+  19.30 - Creating a mock api endpoint for incoming app, migrating all the possible code to InstagramAPI module
+  .. until ..
+  22.00 - Creating a mock api endpoint for incoming app, migrating all the possible code to InstagramAPI module
