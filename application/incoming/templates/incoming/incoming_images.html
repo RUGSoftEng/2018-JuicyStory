@@ -13,13 +13,6 @@
 {% endblock %}
 
 {% block body %}
-
-  <div>{{DMImages}}</div>
-  {% for timestamp in orderedDMTimestamps %}
-    <p>{{ DMImages|get_item:timestamp }}</p>
-    <a href={{ DMImages|get_item:timestamp }}></a>
-  {% endfor %}
-
   <div>
     <form class="allign" action="{% url 'incoming:list_images' userdata.username  %}" method="get">
       {% if userdata %}
