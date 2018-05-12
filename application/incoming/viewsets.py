@@ -16,7 +16,21 @@ class IncomingViewSet(viewsets.ViewSet):
             raise ValidationError(
                 detail="instagram_user_name parameter is mandatory.")
 
-        data = list_images(instagram_user_name, tag="cat")
+        tag = None
+        location_id = None
+        get_DM = None
+
+        if "tag" in request.GET:
+            tag = request.GET["tag"]
+
+        if "location_id" in request.GET:
+            location_id = request.GET["location_id"]
+
+        if "get_DM" in request.GET:
+            get_DM = request.GET["get_DM"]
+
+        data = list_images(instagram_user_name, tag=tag,
+                           location_id=location_id, get_DM=get_DM)
 
         if "Error" in data:
             return ValidationError(detail=data["Error"])
