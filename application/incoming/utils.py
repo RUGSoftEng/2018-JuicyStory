@@ -10,11 +10,19 @@ def get_self_user_info(access_token):
 
 
 def request_images_by_tag(tag, access_token):
-    """ Queries the instagram API for images with the given tag.  """
+    """ Queries the instagram API for images with the given tag.
+    Strips the response and returns a dict : {timestamp : image url}
+    """
+    result_images = {}
     url = "https://api.instagram.com/v1/tags/%s/media/recent" % tag
     response = requests.get(
         url, params={"access_token": access_token})
-    return response.json()["data"]
+
+    for image in response.json()["data"]:
+        result_images[image["caption"]["created_time"]
+                      ] = image["images"]["standard_resolution"]["url"]
+
+    return result_images
 
 
 def query_locations_by_name(location_name, result_count=10):
@@ -100,5 +108,5 @@ def list_images(iusername, tag=None, location_id=None, get_DM=None):
     if get_DM:
         DM_images = get_DM_Images(user.username, user.password)
         all_images.update(DM_images)
-
+    
     return all_images
