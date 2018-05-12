@@ -1,7 +1,6 @@
 import requests
-from database.models import InstagramUser
-from django.shortcuts import redirect
 from InstagramAPI import InstagramAPI
+from database.models import InstagramUser
 
 
 def get_self_user_info(access_token):

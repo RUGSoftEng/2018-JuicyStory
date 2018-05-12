@@ -1,9 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from database.models import InstagramUser, SelectedImage
-from .utils import get_DM_Images, get_self_user_info, request_images_by_tag, request_images_by_location_id, query_locations_by_name
-from django.http import JsonResponse
 from InstagramAPI import InstagramAPI
-from collections import OrderedDict
+from database.models import InstagramUser, SelectedImage
+from .utils import get_self_user_info, request_images_by_tag, request_images_by_location_id, query_locations_by_name
 
 
 def list_images(request, iusername):
