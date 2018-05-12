@@ -1,38 +1,105 @@
 import requests
+from database.models import InstagramUser
+from django.shortcuts import redirect
+from InstagramAPI import InstagramAPI
 
 
 def get_self_user_info(access_token):
-  url = "https://api.instagram.com/v1/users/self/"
-  response = requests.get(url, params={"access_token": access_token})
-  return response.json()
+    url = "https://api.instagram.com/v1/users/self/"
+    response = requests.get(url, params={"access_token": access_token})
+    return response.json()
 
 
 def request_images_by_tag(tag, access_token):
-  url = "https://api.instagram.com/v1/tags/%s/media/recent" % tag
-  response = requests.get(
-      url, params={'access_token': access_token})
-  return response.json()
+    """ Queries the instagram API for images with the given tag.  """
+    url = "https://api.instagram.com/v1/tags/%s/media/recent" % tag
+    response = requests.get(
+        url, params={"access_token": access_token})
+    return response.json()["data"]
 
 
-def query_locations_by_name(location_name):
-  facebook_access_token = "193757027889836|y0gKhLCNcHx-Yah6FCLiT823RNc"
-  url = "https://graph.facebook.com/search"
+def query_locations_by_name(location_name, result_count=10):
+    """ Queries the facebook graph API for places with the given name.
+    Returns passed number of the most similar results
+    """
+    facebook_access_token = "193757027889836|y0gKhLCNcHx-Yah6FCLiT823RNc"
+    url = "https://graph.facebook.com/search"
 
-  response = requests.get(
-      url, params={"access_token": facebook_access_token, "q": location_name, "type": "place"})
+    response = requests.get(
+        url, params={"access_token": facebook_access_token, "q": location_name, "type": "place"})
 
-  return response.json()["data"][:10]
+    return response.json()["data"][:result_count]
 
 
 def convert_facebook_id_to_insta_id(facebook_places_id, access_token):
-  search_url = 'https://api.instagram.com/v1/locations/search'
-  response = requests.get(search_url, params={
-                          "facebook_places_id": facebook_places_id, 'access_token': access_token})
-  return response.json()['data'][0]['id']
+    """ Converts a facebook places ID to Instagram location ID by querying
+    the instagram API.
+    """
+    search_url = 'https://api.instagram.com/v1/locations/search'
+    response = requests.get(search_url, params={
+                            "facebook_places_id": facebook_places_id, 'access_token': access_token})
+    return response.json()['data'][0]['id']
 
 
 def request_images_by_location_id(facebook_places_id, access_token):
-  insta_id  = convert_facebook_id_to_insta_id(facebook_places_id, access_token)
-  url = 'https://api.instagram.com/v1/locations/%s/media/recent' % insta_id
-  response = requests.get(url, params={'access_token': access_token})
-  return response.json()['data']
+    """ Queries the instagram API for images for a certain place.
+    Place should be passed as a facebook places id.
+    """
+    insta_id = convert_facebook_id_to_insta_id(
+        facebook_places_id, access_token)
+    url = 'https://api.instagram.com/v1/locations/%s/media/recent' % insta_id
+    response = requests.get(url, params={'access_token': access_token})
+    return response.json()['data']
+
+
+def get_DM_Images(username, password):
+    """ Acquires the inbox for the user and strips the images.
+    The output is formatted as a dict that is {timestamp: image url}
+    """
+    DM_images = {}
+
+    igapi = InstagramAPI(username, password)
+    igapi.login()
+    igapi.getv2Inbox()
+    DMResponse = igapi.LastJson
+    for messageThread in DMResponse['inbox']['threads']:
+        for item in messageThread['items']:
+            if 'media' in item:
+                DM_images[item['timestamp']
+                          ] = item['media']['image_versions2']['candidates'][0]['url']
+
+    return DM_images
+
+
+def list_images(iusername, tag=None, location_id=None, get_DM=None):
+    """  Returns a dictionary of images with the given tag/location_id 
+    and also images from the DMs if requested. 
+
+    In return dict, timestamps of posted images are the keys and the 
+    image URLs are the values.
+    """
+    all_images = {}
+
+    user = InstagramUser.objects.get(username=iusername)
+
+    if not user:
+        return {"Error": "No instagram user with that username found."}
+
+    access_token = user.access_token
+
+    if tag or location_id:
+
+        if tag:
+            tag_images = request_images_by_tag(tag, access_token)
+            all_images.update(tag_images)
+
+        if location_id:
+            location_images = request_images_by_location_id(
+                location_id, access_token)
+            all_images.update(location_images)
+
+    if get_DM:
+        DM_images = get_DM_Images(user.username, user.password)
+        all_images.update(DM_images)
+
+    return all_images
