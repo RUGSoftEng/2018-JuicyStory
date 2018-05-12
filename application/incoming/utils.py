@@ -1,5 +1,5 @@
 import requests
-from InstagramAPI import InstagramAPI
+from instagramAPI.utils import InstagramAPI
 from django.core.exceptions import ObjectDoesNotExist
 from database.models import InstagramUser
 

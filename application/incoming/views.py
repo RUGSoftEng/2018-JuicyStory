@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from InstagramAPI import InstagramAPI
+from instagramAPI.utils import InstagramAPI
 from database.models import InstagramUser, SelectedImage
 from .utils import get_self_user_info, request_images_by_tag, request_images_by_location_id, query_locations_by_name
 
