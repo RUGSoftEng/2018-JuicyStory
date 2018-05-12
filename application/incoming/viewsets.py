@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
-from .utils import list_images
+from .utils import list_images, query_locations_by_name
 
 
 class IncomingViewSet(viewsets.ViewSet):
@@ -32,7 +32,31 @@ class IncomingViewSet(viewsets.ViewSet):
         data = list_images(instagram_user_name, tag=tag,
                            location_id=location_id, get_DM=get_DM)
 
-        if "Error" in data:
-            return ValidationError(detail=data["Error"])
+        if "error" in data:
+            return Response(data={"Error": data["error"]}, exception=True, status=400)
 
         return Response(data)
+
+
+class LocationQueryViewSet(viewsets.ViewSet):
+    """ Viewset to handle requests made to get location details """
+
+    def list(self, request):
+        """ GET the list of location names and their IDs for a passed location string. """
+
+        if "location" in request.GET:
+            location = request.GET["location"]
+        else:
+            raise ValidationError(detail="location parameter is mandatory.")
+
+        count = 10  # the default value
+
+        if "count" in request.GET:
+            count = request.GET["count"]
+
+        data = query_locations_by_name(location)
+
+        if "error" in data:
+            return Response(data={"Error": data["error"]}, exception=True, status=400)
+
+        return Response(data["data"][:count])

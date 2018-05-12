@@ -1,6 +1,8 @@
 import requests
 from InstagramAPI import InstagramAPI
+from django.core.exceptions import ObjectDoesNotExist
 from database.models import InstagramUser
+
 
 
 def get_self_user_info(access_token):
@@ -25,17 +27,15 @@ def request_images_by_tag(tag, access_token):
     return result_images
 
 
-def query_locations_by_name(location_name, result_count=10):
-    """ Queries the facebook graph API for places with the given name.
-    Returns passed number of the most similar results
-    """
+def query_locations_by_name(location_name):
+    """ Queries the facebook graph API for places with the given name. """
     facebook_access_token = "193757027889836|y0gKhLCNcHx-Yah6FCLiT823RNc"
     url = "https://graph.facebook.com/search"
 
     response = requests.get(
         url, params={"access_token": facebook_access_token, "q": location_name, "type": "place"})
 
-    return response.json()["data"][:result_count]
+    return response.json()
 
 
 def convert_facebook_id_to_insta_id(facebook_places_id, access_token):
@@ -87,10 +87,10 @@ def list_images(iusername, tag=None, location_id=None, get_DM=None):
     """
     all_images = {}
 
-    user = InstagramUser.objects.get(username=iusername)
-
-    if not user:
-        return {"Error": "No instagram user with that username found."}
+    try:
+        user = InstagramUser.objects.get(username=iusername)
+    except ObjectDoesNotExist:
+        return {"error": "No instagram user with that username found."}
 
     access_token = user.access_token
 
@@ -108,5 +108,5 @@ def list_images(iusername, tag=None, location_id=None, get_DM=None):
     if get_DM:
         DM_images = get_DM_Images(user.username, user.password)
         all_images.update(DM_images)
-    
+
     return all_images
