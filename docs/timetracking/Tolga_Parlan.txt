@@ -89,3 +89,8 @@
   19.30 - Creating a mock api endpoint for incoming app, migrating all the possible code to InstagramAPI module
   .. until ..
   22.00 - Creating a mock api endpoint for incoming app, migrating all the possible code to InstagramAPI module
+
+12.05.2018
+  12.30 - Creating a real api endpoint for incoming app
+  .. until ..
+  17.30 - Creating a real api endpoint for incoming app
