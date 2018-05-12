@@ -4,7 +4,6 @@ from django.core.exceptions import ObjectDoesNotExist
 from database.models import InstagramUser
 
 
-
 def get_self_user_info(access_token):
     url = "https://api.instagram.com/v1/users/self/"
     response = requests.get(url, params={"access_token": access_token})

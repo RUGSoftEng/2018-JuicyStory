@@ -54,7 +54,9 @@ class LocationQueryViewSet(viewsets.ViewSet):
         if "count" in request.GET:
             count = request.GET["count"]
 
-        data = query_locations_by_name(location)
+        # data = query_locations_by_name(location)
+        # COMMENTED OUT BECAUSE WE NEED EXTRA APP PERMISSIONS FOR THIS RIGHT NOW
+        data = {"error": "Waiting for extra app permissions right now."}
 
         if "error" in data:
             return Response(data={"Error": data["error"]}, exception=True, status=400)
