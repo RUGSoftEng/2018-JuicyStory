@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import InstagramUser, SelectedImage, Image
+from .models import InstagramUser, SelectedImage, ScheduledImage
 
 class InstagramUserSerializer(serializers.ModelSerializer):
 	class Meta:
@@ -11,7 +11,7 @@ class SelectedImageSerializer(serializers.ModelSerializer):
 		model = SelectedImage
 		fields = '__all__'
 
-class ImageSerializer(serializers.ModelSerializer):
+class ScheduledImageSerializer(serializers.ModelSerializer):
 	class Meta:
-		model = Image
+		model = ScheduledImage
 		fields = '__all__'

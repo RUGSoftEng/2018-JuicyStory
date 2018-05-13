@@ -11,7 +11,7 @@ class InstagramUser(models.Model):
   owner = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
 
 # The data regarding upcoming image uploads
-class Image(models.Model):
+class ScheduledImage(models.Model):
   username = models.CharField(max_length=30)
   image_file = models.ImageField(upload_to='images/%Y/%m/%d')
   upload_date = models.DateTimeField()

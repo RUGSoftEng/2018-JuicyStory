@@ -1,5 +1,5 @@
 # 2018-JuicyStory
-![travis](https://travis-ci.org/RUGSoftEng/2018-JuicyStory.svg?branch=v0.4)
+[![Build Status](https://travis-ci.org/RUGSoftEng/2018-JuicyStory.svg?branch=v0.5)](https://travis-ci.org/RUGSoftEng/2018-JuicyStory)
 
 ## Django tutorial
 Note that you might need to use `python3` instead of `python` depending on our installation
