@@ -5,7 +5,7 @@
       <navbar class="navbar"></navbar>
     </div>
     <div class="router"><router-view/></div>
-    <div><layout-footer></layout-footer></div>
+    <div><layout-footer class="footer"></layout-footer></div>
   </div>
 </template>
 
@@ -25,13 +25,19 @@ export default {
 </script>
 
 <style>
+
 .router {
   margin-bottom: 60px;
   height: 100%;
+  position: relative;
 }
 
 .header {
+}
 
+.footer {
+  /*height: 100%;*/
+  position: absolute;
 }
 
 #app {
@@ -41,14 +47,16 @@ export default {
   text-align: center;
   background-color: #F8F8F8;
   background-size: cover;
-  margin-top: 0px;
+  margin: 0px;
+  padding: 0px;
+
   height: 100%;
   width: 100%;
   min-height: 100%;
   min-width: 100%;
-  overflow: auto;
+  /*overflow: auto;*/
   display: block;
-  position: absolute;
+  position: relative;
 }
 
 .btn-primary {
