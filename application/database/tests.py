@@ -1,6 +1,6 @@
 from django.utils import timezone
 from django.test import TestCase
-from .models import InstagramUser, Image
+from .models import InstagramUser, ScheduledImage
 from django.contrib.auth.models import User
 
 class DatabaseTests(TestCase):
@@ -12,7 +12,7 @@ class DatabaseTests(TestCase):
 		for i in range(1, size):
 			username = "Test" + str(i)
 			iuser = InstagramUser.objects.create(username=username, owner=george)
-			Image.objects.create(username=iuser.username, upload_date=timezone.now(), is_story=False)
+			ScheduledImage.objects.create(username=iuser.username, upload_date=timezone.now(), is_story=False)
 
 
 	#The actual test of asserting that the names match
@@ -21,7 +21,7 @@ class DatabaseTests(TestCase):
 		for i in range(1, size):
 			username = "Test" + str(i)
 			iuser = InstagramUser.objects.get(username=username)
-			image = Image.objects.get(username=iuser.username)
+			image = ScheduledImage.objects.get(username=iuser.username)
 			self.assertEqual(iuser.username, username)
 			self.assertEqual(image.username, username)
 
