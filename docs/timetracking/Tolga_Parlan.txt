@@ -94,3 +94,6 @@
   12.30 - Creating a real api endpoint for incoming app
   .. until ..
   17.30 - Creating a real api endpoint for incoming app
+
+13.05.2018
+  14.00 - Moving InstagramAPI module into a new app
