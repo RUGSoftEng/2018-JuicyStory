@@ -38,24 +38,20 @@ export default {
     text-align: center;
   } */
 
-.footer {
-  /*position: absolute;*/
-  bottom: 0;
-  height: 60px;
-  width: 100%;
-  border-top: solid;
-}
-  /*.footer {
-      clear:both;
-      padding: 1rem;
+
+  .footer {
+      /*clear:both;*/
       width: 100%;
-      height: 100%;
-      min-height: 100%;
-      position: relative;
+      height: 60px;
+      /*height: 60%;*/
+      /*position: relative;*/
+      margin: 0;
+      padding: 0;
+      /*min-height: 60px;*/
+      /*position: relative;*/
       background-color: rgba(239, 238, 236,1);
-      margin: 0 auto -155px;*/
       /*-webkit-box-shadow: 0px -1px 14px 5px rgba(218,229,239,1);
       -moz-box-shadow: 0px -1px 14px 5px rgba(218,229,239,1);
       box-shadow: 0px -1px 14px 5px rgba(218,229,239,1);*/
-    /*}*/
+    }
 </style>
