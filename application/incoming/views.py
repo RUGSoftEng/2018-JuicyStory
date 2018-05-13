@@ -14,11 +14,11 @@ def list_images(request, iusername):
         return redirect('authentication:get_code')
 
     # Get the DMs
-    igapi = InstagramAPI("t.parlan", "a1234567")
-    igapi.login()
-    igapi.getv2Inbox()
+    instagram_api = InstagramAPI("t.parlan", "a1234567")
+    instagram_api.login()
+    instagram_api.getv2Inbox()
 
-    DMResponse = igapi.LastJson
+    DMResponse = instagram_api.LastJson
     userdata = userdata["data"]
     images = {}
     places = {}

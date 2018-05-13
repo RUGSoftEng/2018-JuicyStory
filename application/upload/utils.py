@@ -11,7 +11,7 @@ from django.core.exceptions import ObjectDoesNotExist
 def upload_image(username, photo):
     instagram_api = InstagramAPI("testy8101", "%3zf(^u7YX")
     instagram_api.login()
-    instagram_api.uploadPhoto(photo)
+    instagram_api.upload_photo(photo)
 
 
 def upload_story(iusername, photo):
@@ -22,7 +22,7 @@ def upload_story(iusername, photo):
 
     instagram_api = InstagramAPI(user.username, user.password)
     instagram_api.login()
-    instagram_api.uploadStoryPhoto(photo)
+    instagram_api.upload_story_photo(photo)
 
 
 def parseDateTime(date, time):
