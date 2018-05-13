@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
-from .utils import list_images, query_locations_by_name
+from .utils import list_images
 
 
 class IncomingViewSet(viewsets.ViewSet):

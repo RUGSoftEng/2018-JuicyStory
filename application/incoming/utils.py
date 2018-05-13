@@ -64,10 +64,10 @@ def get_DM_Images(username, password):
     """
     DM_images = {}
 
-    igapi = InstagramAPI(username, password)
-    igapi.login()
-    igapi.getv2Inbox()
-    DMResponse = igapi.LastJson
+    instagram_api = InstagramAPI(username, password)
+    instagram_api.login()
+    instagram_api.get_v2_inbox()
+    DMResponse = instagram_api.last_json
     for messageThread in DMResponse['inbox']['threads']:
         for item in messageThread['items']:
             if 'media' in item:

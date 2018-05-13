@@ -16,9 +16,9 @@ def list_images(request, iusername):
     # Get the DMs
     instagram_api = InstagramAPI("t.parlan", "a1234567")
     instagram_api.login()
-    instagram_api.getv2Inbox()
+    instagram_api.get_v2_inbox()
 
-    DMResponse = instagram_api.LastJson
+    DMResponse = instagram_api.last_json
     userdata = userdata["data"]
     images = {}
     places = {}
