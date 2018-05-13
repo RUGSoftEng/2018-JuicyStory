@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'django_cron',
     'statistics',
     'database',
-    'instagramAPI'
+    'instagramAPI',
 ]
 
 MIDDLEWARE = [

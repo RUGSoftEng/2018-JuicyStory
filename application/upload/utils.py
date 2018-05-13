@@ -15,7 +15,7 @@ def upload_image(iusername, photo):
     except ObjectDoesNotExist:
         return
 
-    instagram_api = InstagramAPI(user.username, user.password)
+    instagram_api = InstagramAPI(user)
     instagram_api.login()
     instagram_api.upload_photo(photo)
 
@@ -27,7 +27,7 @@ def upload_story(iusername, photo):
     except ObjectDoesNotExist:
         return
 
-    instagram_api = InstagramAPI(user.username, user.password)
+    instagram_api = InstagramAPI(user)
     instagram_api.login()
     instagram_api.upload_story_photo(photo)
 

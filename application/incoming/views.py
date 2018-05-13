@@ -14,7 +14,7 @@ def list_images(request, iusername):
         return redirect('authentication:get_code')
 
     # Get the DMs
-    instagram_api = InstagramAPI("t.parlan", "a1234567")
+    instagram_api = InstagramAPI(user)
     instagram_api.login()
     instagram_api.get_v2_inbox()
 

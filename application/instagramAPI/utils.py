@@ -20,6 +20,8 @@ from datetime import datetime
 import calendar
 import os
 from requests_toolbelt import MultipartEncoder
+import dill
+from database.models import InstagramUser
 
 # Turn off InsecureRequestWarning
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
@@ -79,14 +81,16 @@ class InstagramAPI:
     # is_logged_in          # Session status
     # rank_token          # Rank token
 
-    def __init__(self, username, password):
+    def __init__(self, instagram_user):
         m = hashlib.md5()
-        m.update(username.encode('utf-8') + password.encode('utf-8'))
+        m.update(instagram_user.username.encode('utf-8') +
+                 instagram_user.password.encode('utf-8'))
         self.device_id = self.generate_device_id(m.hexdigest())
-        self.set_user(username, password)
+        self.set_user(instagram_user.username, instagram_user.password)
         self.is_logged_in = False
         self.last_response = None
         self.s = requests.Session()
+        self.instagram_user = instagram_user
 
     def set_user(self, username, password):
         self.username = username
@@ -95,7 +99,13 @@ class InstagramAPI:
 
     def login(self, force=False):
         if (not self.is_logged_in or force):
-            if self.send_request('si/fetch_headers/?challenge_type=signup&guid=' + self.generateUUID(False), None, True):
+
+            if self.instagram_user.login_session and not force:
+                pickle_byte = self.instagram_user.login_session
+                self.s.cookies.update(pickle_byte)
+                self.is_logged_in = True
+
+            elif self.send_request('si/fetch_headers/?challenge_type=signup&guid=' + self.generateUUID(False), None, True):
 
                 data = {'phone_id': self.generateUUID(True),
                         '_csrftoken': self.last_response.cookies['csrftoken'],
@@ -116,7 +126,11 @@ class InstagramAPI:
                     self.timeline_feed()
                     self.get_v2_inbox()
                     self.get_recent_activity()
-                    print("Login success!\n")
+
+                    self.instagram_user.login_session = requests.utils.dict_from_cookiejar(
+                        self.s.cookies)
+                    self.instagram_user.save()
+
                     return True
 
     def sync_features(self):
@@ -213,7 +227,7 @@ class InstagramAPI:
             item_upload_id = self.generate_upload_id()
             if item.get('type', '') == 'photo':
                 self.upload_photo(item['file'], caption=caption,
-                                 is_sidecar=True, upload_id=item_upload_id)
+                                  is_sidecar=True, upload_id=item_upload_id)
 
             item['internalMetadata']['upload_id'] = item_upload_id
 
@@ -263,17 +277,17 @@ class InstagramAPI:
             if item.get('type', '') == 'photo':
                 # Build this item's configuration.
                 photo_config = {'date_time_original': date,
-                               'scene_type': 1,
-                               'disable_comments': False,
-                               'upload_id': uploadId,
-                               'source_type': 0,
-                               'scene_capture_type': 'standard',
-                               'date_time_digitized': date,
-                               'geotag_enabled': False,
-                               'camera_position': 'back',
-                               'edits': {'filter_strength': 1,
-                                         'filter_name': 'IGNormalFilter'}
-                               }
+                                'scene_type': 1,
+                                'disable_comments': False,
+                                'upload_id': uploadId,
+                                'source_type': 0,
+                                'scene_capture_type': 'standard',
+                                'date_time_digitized': date,
+                                'geotag_enabled': False,
+                                'camera_position': 'back',
+                                'edits': {'filter_strength': 1,
+                                          'filter_name': 'IGNormalFilter'}
+                                }
                 # This usertag per-file EXTERNAL metadata is only supported for PHOTOS!
                 if item.get('usertags', []):
                     # NOTE: These usertags were validated in Timeline::upload_album.
@@ -398,7 +412,7 @@ class InstagramAPI:
 
     def getUserTags(self, usernameId):
         tags = self.send_request('usertags/' + str(usernameId) +
-                                '/feed/?rank_token=' + str(self.rank_token) + '&ranked_content=true&')
+                                 '/feed/?rank_token=' + str(self.rank_token) + '&ranked_content=true&')
         return tags
 
     def getSelfUserTags(self):
@@ -464,7 +478,7 @@ class InstagramAPI:
         verify = False  # don't show request warning
 
         if (not self.is_logged_in and not login):
-            raise Exception("Not logged in!\n")
+            self.login(force=True)
 
         self.s.headers.update({'Connection': 'close',
                                'Accept': '*/*',
@@ -475,7 +489,7 @@ class InstagramAPI:
 
         while True:
             try:
-                if post is not None:
+                if post:
                     response = self.s.post(
                         self.API_URL + endpoint, data=post, verify=verify)
                 else:
@@ -483,8 +497,8 @@ class InstagramAPI:
                         self.API_URL + endpoint, verify=verify)
                 break
             except Exception as e:
-                print('Except on send_request (wait 60 sec and resend): ' + str(e))
-                time.sleep(60)
+                print('Except on send_request (wait 10 sec and resend): ' + str(e))
+                time.sleep(10)
 
         if response.status_code == 200:
             self.last_response = response
@@ -496,11 +510,12 @@ class InstagramAPI:
             try:
                 self.last_response = response
                 self.last_json = json.loads(response.text)
-                print(self.last_json)
                 if 'error_type' in self.last_json and self.last_json['error_type'] == 'sentry_block':
                     raise SentryBlockException(self.last_json['message'])
             except SentryBlockException:
                 raise
-            except:
-                pass
-            return False
+            if "message" in self.last_json and self.last_json["message"] == "login_required":
+                self.is_logged_in = False
+                self.instagram_user.login_session = ""
+                self.instagram_user.save()
+                return self.send_request(endpoint, post=post)

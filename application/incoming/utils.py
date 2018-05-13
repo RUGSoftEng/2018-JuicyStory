@@ -58,13 +58,13 @@ def request_images_by_location_id(facebook_places_id, access_token):
     return response.json()['data']
 
 
-def get_DM_Images(username, password):
+def get_DM_Images(user):
     """ Acquires the inbox for the user and strips the images.
     The output is formatted as a dict that is {timestamp: image url}
     """
     DM_images = {}
 
-    instagram_api = InstagramAPI(username, password)
+    instagram_api = InstagramAPI(user)
     instagram_api.login()
     instagram_api.get_v2_inbox()
     DMResponse = instagram_api.last_json
@@ -105,7 +105,7 @@ def list_images(iusername, tag=None, location_id=None, get_DM=None):
             all_images.update(location_images)
 
     if get_DM:
-        DM_images = get_DM_Images(user.username, user.password)
+        DM_images = get_DM_Images(user)
         all_images.update(DM_images)
 
     return all_images
