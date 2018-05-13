@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 
 class DatabaseTests(TestCase):
 
-	#Set up 1000 random users and test them.
 	def setUp(self):
+		''' Set up 1000 random users and test them '''
 		size = 1000
 		george = User.objects.create_user('testname', 'test@mail.com', 'testpassword')
 		for i in range(1, size):
@@ -14,9 +14,8 @@ class DatabaseTests(TestCase):
 			iuser = InstagramUser.objects.create(username=username, owner=george)
 			ScheduledImage.objects.create(username=iuser.username, upload_date=timezone.now(), is_story=False)
 
-
-	#The actual test of asserting that the names match
-	def test_iusers(self):
+	def test_iusers_scheduledImage(self):
+		''' The actual test of asserting that the names match '''
 		size = 1000
 		for i in range(1, size):
 			username = "Test" + str(i)

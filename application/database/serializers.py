@@ -1,6 +1,8 @@
 from rest_framework import serializers
 from .models import InstagramUser, SelectedImage, ScheduledImage
 
+''' Serializing the classes passing all the relevant objects to the viewsets '''
+
 class InstagramUserSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = InstagramUser
