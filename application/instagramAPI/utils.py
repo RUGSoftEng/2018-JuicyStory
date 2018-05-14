@@ -98,7 +98,6 @@ class InstagramAPI:
         self.token = last_cookies["csrftoken"]
         self.s.cookies.update(self.instagram_user.login_session)
 
-
       elif self.send_request('si/fetch_headers/?challenge_type=signup&guid=' + self.generateUUID(False), None, True):
 
         data = {
@@ -507,8 +506,7 @@ class InstagramAPI:
       return True
     else:
       print("Request return " + str(response.status_code) + " error!")
-      print(self.last_json
-      )
+      print(self.last_json)
       self.last_response = response
       self.last_json = json.loads(response.text)
       if 'error_type' in self.last_json and self.last_json['error_type'] == 'sentry_block':
@@ -520,6 +518,6 @@ class InstagramAPI:
         self.instagram_user.login_session = ""
         self.instagram_user.save()
         return self.send_request(endpoint, post=post)
-      
-      else: 
+
+      else:
         raise Exception("[ERROR]: Request failed")
