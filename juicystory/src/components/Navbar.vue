@@ -16,10 +16,10 @@
 
 <script>
 export default {
-  name:'navigation',
-  data() {
+  name: 'navigation',
+  data () {
     return {
-      navigationStyle: 'navigation',
+      navigationStyle: 'navigation'
     }
   }
 }
@@ -36,7 +36,6 @@ export default {
   color: #CE2655;
   text-decoration: none;
 }*/
-
 
 .navigation {
   font-family: 'Lato', sans-serif;

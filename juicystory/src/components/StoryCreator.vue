@@ -1,5 +1,4 @@
 <template>
-
   <div id="story" v-bind:class="accountListStyle" v-cloak>
     <div class="row">
       <div class="col-sm-6">
@@ -7,12 +6,12 @@
         <i class="fa fa-camera-retro icon"></i><small> Click images to add to story</small>
         <br><br>
 
-        <ul v-if="items.length==0">
+        <ul v-if="items.length === 0">
           <li><div v-bind:class="[placeholder, aspect]">{{message}}</div></li>
         </ul>
 
         <ul v-else>
-          <li v-for="item in items">
+          <li v-for="item in items" :key="item.url">
             <img v-bind:src="item" v-on:click="addToStory(item)" height="288" width="162">
           </li>
         </ul>
@@ -25,12 +24,12 @@
           <i class="fa fa-camera-retro icon"></i><small> Click images to remove from story</small>
         <br><br>
 
-          <ul v-if="storyItems.length==0">
+          <ul v-if="storyItems.length === 0">
             <li><div v-bind:class="[placeholder, aspect]">{{message}}</div></li>
           </ul>
 
           <ul v-else>
-            <li v-for="pic in storyItems">
+            <li v-for="pic in storyItems" :key="pic.url">
               <img v-bind:src="pic" v-on:click="removeFromStory(pic)" v-bind:class="aspect">
             </li>
           </ul>
@@ -48,18 +47,17 @@
 
 <script>
 export default {
-  name:'story',
-  data() {
+  name: 'story',
+  data () {
     return {
-    //list of the previously selected images in incoming
-      items:
-        [
-        'http://www.iclarified.com/images/news/33642/138964/138964-640.png',
-        'https://i.pinimg.com/236x/30/e1/d2/30e1d275c2bd60b80ed576ea3c4b46e6.jpg',
-        'http://backgroundcheckall.com/wp-content/uploads/2017/12/iphone-background-images-12.jpg'
-        ],
+    // list of the previously selected images in incoming
+      items: [
+        {url: 'http://www.iclarified.com/images/news/33642/138964/138964-640.png'},
+        {url: 'https://i.pinimg.com/236x/30/e1/d2/30e1d275c2bd60b80ed576ea3c4b46e6.jpg'},
+        {url: 'http://backgroundcheckall.com/wp-content/uploads/2017/12/iphone-background-images-12.jpg'}
+      ],
       storyItems: [],
-      accountListStyle:'story',
+      accountListStyle: 'story',
       message: 'No images to display',
       view: 'split',
       left: 'left',
@@ -69,28 +67,26 @@ export default {
     }
   },
 
-
   methods: {
-    removeElem: function(input, list) {
-      for(var i = list.length - 1; i >= 0; i--) {
-          if(list[i] == input) {
-            list.splice(i, 1);
+    removeElem: function (input, list) {
+      for (var i = list.length - 1; i >= 0; i--) {
+        if (list[i] === input) {
+          list.splice(i, 1)
         }
       }
     },
 
-    addToStory: function(picture){
-      this.storyItems.push(picture);
-      this.removeElem(picture, this.items);
+    addToStory: function (picture) {
+      this.storyItems.push(picture)
+      this.removeElem(picture, this.items)
     },
 
-    removeFromStory: function(picture){
-      this.items.push(picture);
+    removeFromStory: function (picture) {
+      this.items.push(picture)
       this.removeElem(picture, this.storyItems)
     }
   }
 }
-
 </script>
 
 <style>
@@ -144,6 +140,4 @@ img {
   border-radius: 20px;
   align-self: center;
 }
-
-
 </style>

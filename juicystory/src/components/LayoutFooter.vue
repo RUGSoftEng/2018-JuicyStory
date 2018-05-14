@@ -38,7 +38,6 @@ export default {
     text-align: center;
   } */
 
-
   .footer {
       /*clear:both;*/
       width: 100%;
