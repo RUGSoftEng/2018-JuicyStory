@@ -25,11 +25,13 @@ class SelectedImageViewSet(viewsets.ViewSet):
   these would be the images displayed in the story creator tab.
   Returns only the images selected by the requesting user. """
 
-  def validate(self, request):
+  def validate(self, request, post=None):
     """ Validates if the instagram user exists and it belongs to this user. 
     Throws an error if something is wrong. Returns the instagram user otherwise"""
     if "instagram_username" in request.GET:
       instagram_username = request.GET["instagram_username"]
+    elif post and "instagram_username" in request.data:
+      instagram_username = request.data["instagram_username"]
     else:
       raise ValidationError(detail="instagram_username parameter is mandatory.")
 
@@ -43,12 +45,29 @@ class SelectedImageViewSet(viewsets.ViewSet):
 
     instagram_user = self.validate(request)
     selected_images = SelectedImage.objects.filter(instagram_user=instagram_user)
-    
+
     serialized_result = []
     for image in selected_images:
       serialized_result.append(image.serialize())
 
     return Response(serialized_result)
+
+  def create(self, request):
+    """ POST a list of selected image for the given instagram_user.
+    The expected JSON format is: {instagram_username:<USERNAME>, images:[<URL1>,<URL2>]} """
+
+    instagram_user = self.validate(request, post=True)
+    if "images" in request.data:
+      for image_url in request.data["images"]:
+        selected_image = SelectedImage(instagram_user=instagram_user, photo=image_url)
+        selected_image.save()
+
+      return Response("Success")
+
+    else:
+      raise ValidationError(detail={"error": "No images specified."})
+
+  #TODO: Define a delete action
 
 
 class ScheduledImageViewSet(viewsets.ModelViewSet):
