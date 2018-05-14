@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'upload',
     'django_cron',
     'statistics',
-    'database',
+    'database'
 ]
 
 MIDDLEWARE = [

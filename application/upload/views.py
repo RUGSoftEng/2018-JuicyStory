@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from database.models import InstagramUser, SelectedImage
-from .utils import download_schedule_image
+from .utils import download_and_schedule_image
+
 
 def process_selected_images(request, iusername):
   if request.method == 'POST':
@@ -14,7 +15,7 @@ def process_selected_images(request, iusername):
       if action == 'Delete':
         SelectedImage.objects.filter(photo=url).delete()
       elif action == 'Upload':
-        download_schedule_image(url, iusername, date, time)
+        download_and_schedule_image(url, iusername, date, time)
 
   return redirect('upload:list_selected_images', iusername)
 
