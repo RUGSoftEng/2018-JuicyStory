@@ -60,19 +60,20 @@
          {% endfor %}
       </ul>
       
-      <!--<button type="submit">Create Story</button>-->
       <input type="submit" value="Create Story">
   </form>
-
   {% elif places %}
-  {% for place in places %}
-    <form action="{% url 'incoming:list_images' userdata.username %}" method="get">
-      {{place.name}}
-      <input type="hidden" name="id" value="{{place.id}}">
-      <input type="submit" value="Submit">
-    </form>
-    <p></p>
-  {% endfor %}
-  
-{% endif %}
+    {% for place in places %}
+      <form action="{% url 'incoming:list_images' userdata.username %}" method="get">
+        {{place.name}}
+        <input type="hidden" name="id" value="{{place.id}}">
+        <input type="submit" value="Submit">
+      </form>
+      <p></p>
+    {% endfor %}
+  {% elif DMImages%}
+    {% for key, value in DMImages.items %}
+      <img src="{{ value }}" id="{{ key }}">
+    {% endfor %}  
+  {% endif %}
 {% endblock%}
