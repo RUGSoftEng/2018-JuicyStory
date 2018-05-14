@@ -11,7 +11,9 @@ class InstagramUser(models.Model):
   fbid = models.CharField(max_length=50, blank=True)
   access_token = models.CharField(max_length=100, blank=True)
   owner = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
+  # Fields below are intended for persistent logins
   login_session = PickledObjectField(default=None, null=True, blank=True)
+  username_id = PickledObjectField(default=None, null=True, blank=True)
 
 
 # The data regarding upcoming image uploads

@@ -91,10 +91,13 @@ class InstagramAPI:
   def login(self, force=False):
     if (not self.is_logged_in or force):
 
-      if self.instagram_user.login_session and not force:
-        pickle_byte = self.instagram_user.login_session
-        self.s.cookies.update(pickle_byte)
+      if self.instagram_user.login_session and self.instagram_user.username_id and not force:
+        last_cookies = self.instagram_user.login_session
+        self.username_id = self.instagram_user.username_id
         self.is_logged_in = True
+        self.token = last_cookies["csrftoken"]
+        self.s.cookies.update(self.instagram_user.login_session)
+
 
       elif self.send_request('si/fetch_headers/?challenge_type=signup&guid=' + self.generateUUID(False), None, True):
 
@@ -109,6 +112,7 @@ class InstagramAPI:
         }
 
         if self.send_request('accounts/login/', self.generate_signature(json.dumps(data)), True):
+          print("LOGGED IN")
           self.is_logged_in = True
           self.username_id = self.last_json["logged_in_user"]["pk"]
           self.rank_token = "%s_%s" % (self.username_id, self.uuid)
@@ -121,6 +125,7 @@ class InstagramAPI:
           self.get_recent_activity()
 
           self.instagram_user.login_session = requests.utils.dict_from_cookiejar(self.s.cookies)
+          self.instagram_user.username_id = self.username_id
           self.instagram_user.save()
 
           return True
