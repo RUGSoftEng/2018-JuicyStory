@@ -507,14 +507,19 @@ class InstagramAPI:
       return True
     else:
       print("Request return " + str(response.status_code) + " error!")
-
+      print(self.last_json
+      )
       self.last_response = response
       self.last_json = json.loads(response.text)
       if 'error_type' in self.last_json and self.last_json['error_type'] == 'sentry_block':
         print("[ERROR] ACCOUNT POSSIBLY GOT BANNED BY INSTAGRAM")
 
-      if "message" in self.last_json and self.last_json["message"] == "login_required":
+      elif "message" in self.last_json and self.last_json["message"] == "login_required":
+        # means we aren't logged in, try to login
         self.is_logged_in = False
         self.instagram_user.login_session = ""
         self.instagram_user.save()
         return self.send_request(endpoint, post=post)
+      
+      else: 
+        raise Exception("[ERROR]: Request failed")
