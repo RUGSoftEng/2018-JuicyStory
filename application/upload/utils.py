@@ -1,7 +1,7 @@
 import requests.sessions
 from urllib import request
 from urllib.parse import urlparse
-from database.models import SelectedImage, Image, InstagramUser
+from database.models import SelectedImage, ScheduledImage, InstagramUser
 from datetime import datetime
 from django.core.files.images import ImageFile
 from instagramAPI.utils import InstagramAPI
@@ -60,7 +60,7 @@ def download_and_schedule_image(image_url, iusername, date, time, is_story=False
     result = request.urlretrieve(image_url)
     image_file = ImageFile(open(result[0], 'rb'))
 
-    image = Image()
+    image = ScheduledImage()
     image.username = iusername
     image.is_story = is_story
     image.upload_date = parseDateTime(date, time)

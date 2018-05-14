@@ -3,12 +3,12 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 
-'''
-Method to sign-up the user after he
-has filled all the necessary fields
-in the form.
-'''
 def sign_up(request):
+	'''
+	Method to sign-up the user after he
+	has filled all the necessary fields
+	in the form.
+	'''
 	if request.method == 'POST':
 		form = UserCreationForm(request.POST)
 		if form.is_valid():
@@ -20,14 +20,14 @@ def sign_up(request):
 		form = UserCreationForm()
 	return render(request, "entry/sign-up.html", {'form': form})
 
-'''
-Method to log-in the user after 
-he has filled his credentials and
-is verified in the database. If the
-user is already authenticated we 
-redirect him to the list of iusers.
-'''
 def log_in(request):
+	'''
+	Method to log-in the user after 
+	he has filled his credentials and
+	is verified in the database. If the
+	user is already authenticated we 
+	redirect him to the list of iusers.
+	'''
 	if request.method == 'POST':
 		form = AuthenticationForm(data=request.POST)
 		if form.is_valid():
@@ -41,11 +41,11 @@ def log_in(request):
 		form = AuthenticationForm()
 	return render(request, "entry/log-in.html", {'form': form})
 
-'''
-Method to log-out the user after
-he is already loged into the app.
-'''
 def log_out(request):
+	'''
+	Method to log-out the user after
+	he is already loged into the app.
+	'''
 	if request.method == 'POST':
 		logout(request)
 		return redirect('entry:login')
