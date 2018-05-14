@@ -19,6 +19,25 @@ class InstagramUserViewSet(viewsets.ModelViewSet):
     query_set = queryset.filter(owner=self.request.user)
     return query_set
 
+  def create(self, request):
+    """ POST a new instagram user for the current user """
+
+    try:
+      instagram_user = InstagramUser(
+        username=request.data["username"],
+        password=request.data["password"],
+        fbtoken=request.data["fbtoken"],
+        fbid=request.data["fbid"],
+        access_token=request.data["access_token"],
+        owner=request.user)
+      instagram_user.save()
+      return Response("Success")
+
+    except KeyError:
+      raise ValidationError(detail={"error": "Not all necessary fields provided."})
+    except:
+      raise ValidationError(detail={"error": "Something went wrong."})
+
 
 class SelectedImageViewSet(viewsets.ViewSet):
   """ Make request to retrieve information about the images selected by an instagram user, 
@@ -27,7 +46,8 @@ class SelectedImageViewSet(viewsets.ViewSet):
 
   def validate(self, request, post=None):
     """ Validates if the instagram user exists and it belongs to this user. 
-    Throws an error if something is wrong. Returns the instagram user otherwise"""
+    Throws an error if something is wrong. Returns the instagram user otherwise. """
+
     if "instagram_username" in request.GET:
       instagram_username = request.GET["instagram_username"]
     elif post and "instagram_username" in request.data:
