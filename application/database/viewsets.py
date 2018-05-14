@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import InstagramUser, SelectedImage, ScheduledImage
-from .serializers import InstagramUserSerializer, ScheduledImageSerializer
+from .models import InstagramUser, SelectedImage
+from .serializers import InstagramUserSerializer
 from rest_framework.response import Response
 from incoming.utils import validate_ownership  #TODO: Maybe move this into this module?
 from rest_framework.exceptions import ValidationError
@@ -88,10 +88,3 @@ class SelectedImageViewSet(viewsets.ViewSet):
       raise ValidationError(detail={"error": "No images specified."})
 
   #TODO: Define a delete action
-
-
-class ScheduledImageViewSet(viewsets.ModelViewSet):
-  ''' Make request to retrieve information about the images that are stored to be uploaded on a
-  later date '''
-  queryset = ScheduledImage.objects.all()
-  serializer_class = ScheduledImageSerializer
