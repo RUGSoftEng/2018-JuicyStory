@@ -49,7 +49,7 @@ Note that you might need to use `python3` instead of `python` depending on our i
 * Run the server
   * `python3 manage.py runserver 0.0.0.0:8000`
 * If it doesn't exist, add an instagram account 
-  * Go to [http://localhost:8000/admin/](http://localhost:8000/admin/)
+  * Go to [http://localhost:8000/admin/](http://localhost:8000/admin/) and login with the superuser account you have just created
   * Add an Instagram User with 
     * username `testy8101`
     * owner `<SUPERUSER>` 
