@@ -1,5 +1,5 @@
 from django_cron import CronJobBase, Schedule
-from database.models import Image
+from database.models import ScheduledImage
 from .utils import upload_image, upload_story
 import datetime
 from django.conf import settings
@@ -13,7 +13,7 @@ class ImageUploadCronJob(CronJobBase):
   code = 'upload.ImageUploadCronJob'
 
   def do(self):
-    images = Image.objects.filter(upload_date__lte=datetime.datetime.now())
+    images = ScheduledImage.objects.filter(upload_date__lte=datetime.datetime.now())
 
     for image in images:
       image_path = settings.BASE_DIR + '/' + image.image_file.url
