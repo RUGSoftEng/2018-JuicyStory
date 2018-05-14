@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
-from .utils import list_images
+from .utils import list_images, validate_ownership
 
 
 class IncomingViewSet(viewsets.ViewSet):
@@ -14,6 +14,10 @@ class IncomingViewSet(viewsets.ViewSet):
       instagram_user_name = request.GET["instagram_user_name"]
     else:
       raise ValidationError(detail="instagram_user_name parameter is mandatory.")
+
+    user = request.user
+    if not validate_ownership(user, instagram_user_name):
+      raise ValidationError(detail="You do not have permission for this operation.")
 
     tag = None
     location_id = None
