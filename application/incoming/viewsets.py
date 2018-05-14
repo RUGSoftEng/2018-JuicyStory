@@ -10,13 +10,13 @@ class IncomingViewSet(viewsets.ViewSet):
   def list(self, request):
     """ GET the list of incoming images for the given instagram user. """
 
-    if "instagram_user_name" in request.GET:
-      instagram_user_name = request.GET["instagram_user_name"]
+    if "instagram_username" in request.GET:
+      instagram_username = request.GET["instagram_username"]
     else:
-      raise ValidationError(detail="instagram_user_name parameter is mandatory.")
+      raise ValidationError(detail="instagram_username parameter is mandatory.")
 
     user = request.user
-    if not validate_ownership(user, instagram_user_name):
+    if not validate_ownership(user, instagram_username):
       raise ValidationError(detail="You do not have permission for this operation.")
 
     tag = None
@@ -32,7 +32,7 @@ class IncomingViewSet(viewsets.ViewSet):
     if "get_DM" in request.GET:
       get_DM = request.GET["get_DM"]
 
-    data = list_images(instagram_user_name, tag=tag, location_id=location_id, get_DM=get_DM)
+    data = list_images(instagram_username, tag=tag, location_id=location_id, get_DM=get_DM)
 
     if "error" in data:
       return Response(data={"Error": data["error"]}, exception=True, status=400)
