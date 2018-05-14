@@ -62,6 +62,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+REST_FRAMEWORK = {
+  'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework.authentication.SessionAuthentication',),
+  'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',)
+}
+
 CRON_CLASSES = [
     "upload.cron.ImageUploadCronJob"
 ]
@@ -148,7 +153,3 @@ MEDIA_URL = '/media/'
 # whenever a picture is uploaded django is going to create a folder named media
 # and add the picture there.
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
-
-

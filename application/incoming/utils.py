@@ -111,3 +111,13 @@ def list_images(iusername, tag=None, location_id=None, get_DM=None):
     return {"error": "An undetermined error occured while requesting images."}
 
   return all_images
+
+
+def validate_ownership(user, instagram_username):
+  """ Returns true if the given user owns the given instagram account """
+  try:
+    instagram_user = InstagramUser.objects.get(username=instagram_username)
+  except ObjectDoesNotExist:
+    return {"error": "No instagram user with that username found."}
+
+  return instagram_user.owner == user
