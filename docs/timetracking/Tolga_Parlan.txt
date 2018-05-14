@@ -107,3 +107,7 @@
   9.30 - Fixing the bugs related to persistent login and merging the branch into v0.5
   .. until ..
   12.30 - Fixing the bugs related to persistent login and merging the branch into v0.5
+
+  13.00 - Adding authentication to the whole api
+  .. until ..
+  15.30 - Adding authentication to the whole api
