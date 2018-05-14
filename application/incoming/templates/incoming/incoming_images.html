@@ -25,18 +25,17 @@
   {% if images %}
   <form class="incoming" id="incoming" action="{% url 'incoming:select_images' userdata.username %}" method="post">
     {% csrf_token %}
-    <!--  <h2 class="page-title">Incoming images</h2> -->
       <ul>
-        {% for image in images %}
+        {% for key, value in images.items %}
         <li>
-          <div class="nonselected" id="{{ image.images.low_resolution.url }}" >
+          <div class="nonselected" id="{{ key }}" >
             <!-- height="288" width="162" -->
-            <img src="{{ image.images.low_resolution.url }}">
+            <img src="{{ value }}">
             <div class="remove checkmark" id="{{ forloop.counter }}"></div>
-            <input type="text" id="url{{forloop.counter}}" name="url">
+            <input type="text" id="url{{ forloop.counter }}" name="url">
             <script type="text/javascript">
               function switchClass(){
-                var element = getElement('{{ image.images.low_resolution.url }}');
+                var element = getElement('{{ key }}');
                 element.classList.toggle("selected");
                 element.classList.toggle("nonselected");
                 element = getElement("{{forloop.counter}}");
@@ -45,11 +44,11 @@
                 if(element.classList.contains("remove")){
                   url.value = "";
                 }else{
-                  url.value = "{{ image.images.low_resolution.url }}";
+                  url.value = "{{ value }}";
                 }
               }
 
-              getElement('{{ image.images.low_resolution.url }}').onclick = switchClass;
+              getElement('{{ key }}').onclick = switchClass;
               getElement('url{{forloop.counter}}').style.display = 'none';
 
               function getElement(id){
@@ -76,34 +75,4 @@
   {% endfor %}
   
 {% endif %}
-<!--
-{% if images %}
-  {% for image in images %}
-  <form action="{% url 'incoming:select_images' userdata.username %}" method="post">
-    {% csrf_token %}
-    <div>
-      <img src="{{ image.images.low_resolution.url }}">
-      <input type="text" id="{{ image.images.low_resolution.url }}" name="url">
-    <input type="submit" value="Add">
-    </div>
-    
-    <script type="text/javascript">
-      document.getElementById('{{ image.images.low_resolution.url }}').value="{{ image.images.low_resolution.url }}";
-      document.getElementById('{{ image.images.low_resolution.url }}').style.display = 'none';
-    </script>
-  </form>
-  {% endfor %}
-
-{% elif places %}
-  {% for place in places %}
-    <form action="{% url 'incoming:list_images' userdata.username %}" method="get">
-      {{place.name}}
-      <input type="hidden" name="id" value="{{place.id}}">
-      <input type="submit" value="Submit">
-    </form>
-    <p></p>
-  {% endfor %}
-  
-{% endif %}
--->
 {% endblock%}

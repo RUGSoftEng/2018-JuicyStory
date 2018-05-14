@@ -5,6 +5,9 @@ from database.models import InstagramUser
 
 
 def get_self_user_info(access_token):
+  ''' Gets information based on the retrieved access_token such as,
+  username, profile_picture, full_name, bio, is_business etc
+  '''
   url = "https://api.instagram.com/v1/users/self/"
   response = requests.get(url, params={"access_token": access_token})
   return response.json()
@@ -13,7 +16,7 @@ def get_self_user_info(access_token):
 def request_images_by_tag(tag, access_token):
   """ Queries the instagram API for images with the given tag.
     Strips the response and returns a dict : {timestamp : image url}
-    """
+  """
   result_images = {}
   url = "https://api.instagram.com/v1/tags/%s/media/recent" % tag
   response = requests.get(url, params={"access_token": access_token})
@@ -37,7 +40,7 @@ def query_locations_by_name(location_name):
 def convert_facebook_id_to_insta_id(facebook_places_id, access_token):
   """ Converts a facebook places ID to Instagram location ID by querying
     the instagram API.
-    """
+  """
   search_url = 'https://api.instagram.com/v1/locations/search'
   response = requests.get(search_url, params={"facebook_places_id": facebook_places_id, 'access_token': access_token})
   return response.json()['data'][0]['id']
@@ -46,7 +49,7 @@ def convert_facebook_id_to_insta_id(facebook_places_id, access_token):
 def request_images_by_location_id(facebook_places_id, access_token):
   """ Queries the instagram API for images for a certain place.
     Place should be passed as a facebook places id.
-    """
+  """
   insta_id = convert_facebook_id_to_insta_id(facebook_places_id, access_token)
   url = 'https://api.instagram.com/v1/locations/%s/media/recent' % insta_id
   response = requests.get(url, params={'access_token': access_token})
@@ -56,7 +59,7 @@ def request_images_by_location_id(facebook_places_id, access_token):
 def get_DM_Images(user):
   """ Acquires the inbox for the user and strips the images.
     The output is formatted as a dict that is {timestamp: image url}
-    """
+  """
   DM_images = {}
 
   instagram_api = InstagramAPI(user)
