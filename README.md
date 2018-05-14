@@ -50,5 +50,11 @@ Note that you might need to use `python3` instead of `python` depending on our i
   * `python3 manage.py runserver 0.0.0.0:8000`
 * If it doesn't exist, add an instagram account 
   * Go to [http://localhost:8000/admin/](http://localhost:8000/admin/)
-  * Add an Instagram User with username `testy8101`, owner `<SUPERUSER>` and the access token `7199328359.a81a42f.61b3bb86b8f647cf9c7bf75a42566fee`
+  * Add an Instagram User with 
+    * username `testy8101`
+    * owner `<SUPERUSER>` 
+    * password `MFxH*854&t`
+    * access token `7199328359.a81a42f.61b3bb86b8f647cf9c7bf75a42566fee`
+    * FBToken `EAACEdEose0cBAImmJpxQg3nWm2AV04RBa2UWQNqU9GWlTZARPVexVhTxUZABoMt8fN2Kvok8Tjbjm2Db0CKFXmcf7jn4a3WK0ZCDjpZBWxjNyihZBwdRejgCxNtunYUuVkZChKZAZCrahWBe5QSghm8BDjkdY5JPyF2g6Po1oZCxEJg4HyTeNjGZAZA0f5iT2xu9fzrNFSddPHe0NFJJ6Mhxknb1jvPzQOAsAsZD`
+    * FBid `160447804650500`
 
