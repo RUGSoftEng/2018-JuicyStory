@@ -102,3 +102,8 @@
   19.00 - Implementing persistent logins on instagram while using the InstagramAPI
   .. until ..
   21.30 - Implementing persistent logins on instagram while using the InstagramAPI
+
+14.05.2018
+  9.30 - Fixing the bugs related to persistent login and merging the branch into v0.5
+  .. until ..
+  12.30 - Fixing the bugs related to persistent login and merging the branch into v0.5
