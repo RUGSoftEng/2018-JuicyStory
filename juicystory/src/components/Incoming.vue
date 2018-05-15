@@ -52,48 +52,46 @@ export default {
 </script>
 
 <style>
-.selected img {
-  padding: 10px;
-  border-radius: 20px;
-  opacity: 0.5;
-}
+  #incoming {
+    width: 90%;
+    margin: auto;
+  }
 
-.nonselected img {
-  padding: 10px;
-  border-radius: 20px;
-}
+  .selected img {
+    opacity: 0.5;
+  }
 
-.selected, .nonselected {
-  position: relative;
-}
+  img {
+    padding: 10px;
+    border-radius: 15px;
+  }
 
-.checkmark {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 80px;
-}
+  .selected, .nonselected {
+    position: relative;
+  }
 
-.checkmark:before {
-  content: "✓";
-  font-style: normal;
-  font-weight: normal;
-  text-decoration: inherit;
-  color: #CE2655;
-}
+  .checkmark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+  }
 
-#incoming ul {
-  list-style-type: none;
-}
+  .checkmark:before {
+    content: "✓";
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    color: #CE2655;
+  }
 
-imglist {
-  display: inline-block;
-}
+  ul {
+    list-style-type: none;
+  }
 
-.imginfo {
-  padding: 0 10px;
-  font-family: 'Lato', sans-serif;
-}
-
+  .imginfo {
+    padding: 0 10px;
+    font-family: 'Lato', sans-serif;
+  }
 </style>

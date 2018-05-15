@@ -83,6 +83,7 @@ export default {
   width: 60%;
   text-align: center;
 }
+
 .accountList {
   font-family: 'Lato', sans-serif;
   font-size: 18px;
@@ -113,7 +114,6 @@ export default {
   height: 90px;;
   weight: 90px;
   border-radius: 50%;
-  border: solid;
-  border-color: #CE2655;
+  border: solid #CE2655;
 }
 </style>
