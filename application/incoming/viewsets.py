@@ -9,7 +9,6 @@ class IncomingViewSet(viewsets.ViewSet):
 
   def list(self, request):
     """ GET the list of incoming images for the given instagram user. """
-
     if "instagram_username" in request.GET:
       instagram_username = request.GET["instagram_username"]
     else:

@@ -5,5 +5,12 @@
 {% endblock %}
 
 {% block body %}
-<h1>The data is currently not displayable but can be received via api call</h1>
+<h1>This is a demo of a predefined period of three days</h1>
+
+{% if userdata %}
+	{% for data in userdata %}
+		<h1> Profile views {{ data.value }} during {{ data.end_time }}</h1>
+	{% endfor %}
+{% endif %}
+
 {% endblock %}

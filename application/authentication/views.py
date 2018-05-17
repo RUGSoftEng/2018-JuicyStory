@@ -4,7 +4,6 @@ from django.utils.http import urlencode
 from database.models import InstagramUser
 from .utils import *
 
-
 def process_auth_code(request):
   if 'code' in request.GET:
     auth_code = request.GET['code']

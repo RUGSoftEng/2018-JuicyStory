@@ -4,7 +4,7 @@ import json
 
 def request_impressions(access_token,timeframe,fbId,timeStampSince,timeStampUntil):
 
-	userId = getId(fbId,access_token)
+	userId = get_id(fbId,access_token)
 
 	url = "https://graph.facebook.com/" + userId +"/insights"
 	response = requests.get(url,params={"access_token": access_token,"metric":"impressions,reach","period":timeframe,"since":timeStampSince,"until":timeStampUntil})
@@ -13,7 +13,7 @@ def request_impressions(access_token,timeframe,fbId,timeStampSince,timeStampUnti
 
 def request_views_and_followers(access_token,fbId,timeStampSince,timeStampUntil):
 
-	userId = getId(fbId,access_token)
+	userId = get_id(fbId,access_token)
 
 	url = "https://graph.facebook.com/" + userId +"/insights"
 	response = requests.get(url,params={"access_token": access_token,"metric":"follower_count,profile_views","period":"day","since":timeStampSince,"until":timeStampUntil})
@@ -23,7 +23,7 @@ def request_views_and_followers(access_token,fbId,timeStampSince,timeStampUntil)
 
 def request_lifetime_stats(access_token,fbId,timeStampSince,timeStampUntil):
 
-	userId = getId(fbId,access_token)
+	userId = get_id(fbId,access_token)
 
 	url = "https://graph.facebook.com/" + userId +"/insights"
 	response = requests.get(url,params={"access_token": access_token,"metric":"audience_gender_age,audience_locale,audience_country,audience_city,online_followers","period":"lifetime",
