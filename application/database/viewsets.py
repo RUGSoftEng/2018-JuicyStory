@@ -21,7 +21,6 @@ class InstagramUserViewSet(viewsets.ModelViewSet):
 
   def create(self, request):
     """ POST a new instagram user for the current user """
-
     try:
       instagram_user = InstagramUser(
         username=request.data["username"],

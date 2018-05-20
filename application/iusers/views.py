@@ -18,4 +18,3 @@ def list_iusers(request):
 		form = forms.AddIuser()
 	iusers = InstagramUser.objects.filter(owner=request.user)
 	return render(request, 'iusers/iuser-list.html', {'iusers':iusers, 'form':form})
-

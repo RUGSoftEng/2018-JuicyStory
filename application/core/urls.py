@@ -1,5 +1,4 @@
 """core URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
 Examples:
@@ -22,6 +21,7 @@ from . import views
 
 urlpatterns = [
     path('api/', include(router.urls)),
+    path('api/', include('database.urls')),
     path('docs/', include_docs_urls(title='Juicy Story API', public=False)),
     path('admin/', admin.site.urls, name='admins'),
     path('entry/', include('entry.urls')),
