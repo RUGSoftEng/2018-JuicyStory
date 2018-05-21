@@ -14,6 +14,7 @@ Including another URLconf
 """
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from rest_framework.documentation import include_docs_urls
+from rest_framework_jwt.views import obtain_jwt_token, verify_jwt_token
 from django.contrib import admin
 from django.urls import path, include
 from .routers import router
@@ -22,6 +23,8 @@ from . import views
 urlpatterns = [
     path('api/', include(router.urls)),
     path('api/', include('database.urls')),
+    path('api/get-token/', obtain_jwt_token),
+    path('api/verify-token/', verify_jwt_token),
     path('docs/', include_docs_urls(title='Juicy Story API', public=False)),
     path('admin/', admin.site.urls, name='admins'),
     path('entry/', include('entry.urls')),
