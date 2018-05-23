@@ -1,6 +1,5 @@
 <template>
-  <div class="footer">
-    <div class="row">
+  <div id="footer">
       <div class="col-sm-6">
         <label> About us </label>
       </div>
@@ -9,7 +8,6 @@
         <ul>
           <li> <i class="fa fa-facebook-square"></i></li>
         </ul>
-      </div>
   </div>
 
 </div>
@@ -38,19 +36,12 @@ export default {
     text-align: center;
   } */
 
-  .footer {
-      /*clear:both;*/
+  #footer {
+      bottom: 0;
       width: 100%;
+      position: absolute;
+      padding-top: 20px;
       height: 60px;
-      /*height: 60%;*/
-      /*position: relative;*/
-      margin: 0;
-      padding: 0;
-      /*min-height: 60px;*/
-      /*position: relative;*/
-      background-color: rgba(239, 238, 236,1);
-      /*-webkit-box-shadow: 0px -1px 14px 5px rgba(218,229,239,1);
-      -moz-box-shadow: 0px -1px 14px 5px rgba(218,229,239,1);
-      box-shadow: 0px -1px 14px 5px rgba(218,229,239,1);*/
+      background-color: #f5f5f5;
     }
 </style>

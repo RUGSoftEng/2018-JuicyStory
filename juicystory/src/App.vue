@@ -5,7 +5,10 @@
       <navbar class="navbar"></navbar>
     </div>
     <div class="router"><router-view/></div>
-    <div><layout-footer class="footer"></layout-footer></div>
+    <!-- <layout-footer></layout-footer> -->
+    <div class="navbar navbar-default navbar-fixed-bottom">
+      <layout-footer></layout-footer>
+    </div>
   </div>
 </template>
 
@@ -30,14 +33,6 @@ export default {
   margin-bottom: 60px;
   height: 100%;
   position: relative;
-}
-
-.header {
-}
-
-.footer {
-  /*height: 100%;*/
-  position: absolute;
 }
 
 #app {
