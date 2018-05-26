@@ -11,16 +11,16 @@ Note that you might need to use `python3` instead of `python` depending on our i
   * Username "george" password "a1234567"
   * Username "tolga" password "a1234567"
 * The instagram database contains one test account 
-  * Instagram Username "testy8101" password "%3zf(^u7YX" token "7199328359.a81a42f.61b3bb86b8f647cf9c7bf75a42566fee"
+  * Instagram Username "testy8101" password "%3zf(^u7YX" token "r"
 
 ## Dependencies
-* Python3
-* Django
-* django_cron app
-* widget_tweaks app
-* rest_framework
-* rest_framework.authtoken
-* django_filters
+All dependencies can be found in the requirements.txt.
+In order to verify if the dependencies are valid, proceed with the following:
+* Delete the current `requirements.txt` file
+  * CD into the directory that used to contain `requirements.txt`
+* run `pip freeze > requirements.txt`
+* run `pip install -r requirements.txt`
+  * Be patient there are a lot of dependencies to be downloaded
 
 ## Installation Instructions
 * Make sure you have all the dependencies
@@ -29,6 +29,35 @@ Note that you might need to use `python3` instead of `python` depending on our i
   * Add the following line to the file with the correct paths. <ANY PATH> can be anywhere in your computer.
     > \* * * * * python3 <PROJECT PATH>/2018-JuicyStory/application/manage.py runcrons >> <ANY PATH>/.cronlog
 * (Windows) [Schedule a task](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc748993(v=ws.11)) that basically runs `manage.py runcrons` every single minute
+
+## Api-Authentication
+Two urls have been created that retrieve and validate a JWT token that can be used for authentication.
+In order to perform requests the following can be done:
+* run `curl -X POST -d "username=<admin username>&password=<admin password>" http://localhost:8000/api/get-token/` 
+  * If successful it returns the dictionary `{"token" : "<token>"}`.
+* Make a request to a authentication protected uri, ie. `curl -H "Authorization: JWT <token>" http://localhost:8000/api/rud-iusers/<instagram username in the database>/`
+  * if successful it returns the relevant jason data `{"id":1,"username":"<instagram username in the database>","password":"","fbtoken":"","fbid":"","access_token":"","login_session":null,"username_id":null,"owner":2}`
+
+## Api-Endpoints
+The following list contains information about the api end-points of JuicyStory.
+They are written using the following format:
+* <Description> <Url> <CRUD> <?Access Level?>
+
+* Receive a JWT token `http://localhost:8000/api/get-token/` POST ADMIN
+* Verify a JWT token `http://localhost:8000/api/verify-token/` POST ANY
+* Filter Instagram users `http://localhost:8000/api/filter-iusers/` GET JWT
+  * Example `http://localhost:8000/api/filter-iusers/?id=&username=&password=&owner=` GET JWT
+* Create a new instagram user `http://localhost:8000/api/create-iusers/` POST
+* Get an instagram user using their username `http://localhost:8000/api/rud-iusers/<username>/` GET PUT DELETE JWT
+  * Example  `http://localhost:8000/api/rud-iusers/testy8101/`
+* Register a JuicyStory user `http://localhost:8000/entry/register-user/` POST JWT
+* Login a JuicyStory's user credentials `http://localhost:8000/entry/login-user/` POST ANY
+* Get statistics regarding followers and view count `http://localhost:8000/statistics/<username>/<from>/<until>/`
+  * Example `http://localhost:8000/statistics/testy8101/1526109291/1526413193/` GET  JWT
+  * NOTE that the fbtoke expires every three hours.
+* Get the DM's from a specific InstagramUser `http://localhost:8000/api/Incoming/?instagram_username=&get_DM=` GET JWT
+  * Example `http://localhost:8000/api/Incoming/?instagram_username=testy8101&get_DM=True`
+
 
 ## Adding an API-Endpoint
 * First, create the desired model in the app
