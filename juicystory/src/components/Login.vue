@@ -15,7 +15,7 @@
           </span>
 
           <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-            <input class="input100" type="email" name="email" placeholder="Email">
+            <input class="input100" type="email" v-model="username" name="email" placeholder="Email">
             <span class="focus-input100"></span>
             <span class="symbol-input100">
               <i class="fa fa-envelope" aria-hidden="false"></i>
@@ -23,7 +23,7 @@
           </div>
 
           <div class="wrap-input100 validate-input" data-validate = "Password is required">
-            <input class="input100" type="password" name="pass" placeholder="Password">
+            <input class="input100" type="password" v-model="password" name="pass" placeholder="Password">
             <span class="focus-input100"></span>
             <span class="symbol-input100">
               <i class="fa fa-lock" aria-hidden="false"></i>
@@ -32,7 +32,7 @@
 
           <div class="container-login100-form-btn">
             <!-- <button type="submit" class="login100-form-btn">Login</button> -->
-            <a href="./dashboard.html" class="btn btn-default login100-form-btn">Login</a>
+            <a v-on:click="onClick" class="btn btn-default login100-form-btn">Login</a>
           </div>
 
           <div class="text-center p-t-12">
@@ -58,9 +58,32 @@
 </template>
 
 <script>
+/* eslint-disable */ 
+
+import appService from '../app-service.js'
+
 export default {
+  data () {
+    return {
+      username: 'george',
+      password: 'a1234567',
+    }
+  },
+  methods: {
+    logInUser (username, password) {
+      appService.logInUser(username, password)
+      .then(data => {
+        window.localStorage.setItem('token', data.token)
+        console.log('Succeeded')
+      })
+    },
+    onClick () {
+      this.logInUser(this.username, this.password)
+    }
+  }
+
 }
-/* eslint-disable */
+
 
 </script>
 
