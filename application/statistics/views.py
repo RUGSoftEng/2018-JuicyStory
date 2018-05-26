@@ -7,6 +7,8 @@ from .utils import *
 from .serializers import InstagramUserSerializer
 import json
 
+from rest_framework.status import (HTTP_200_OK, HTTP_400_BAD_REQUEST)
+
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -40,11 +42,13 @@ def get_lifetime(request,iusername,timeStampSince,timeStampUntil):
 
 class FilterInstagramUser(APIView):
 	''' Api for setting filters based on the field attributes below '''
+	fields 				= ('iusername', 'timeStampSince', 'timeStampUntil')
 	serializer_class 	= InstagramUserSerializer
 	permission_classes 	= (IsAuthenticated,)
+	lookup_field 		= fields
 
 	def get(self, request, iusername, timeStampSince, timeStampUntil):
-		data = get_views_and_count(request,iusername,timeStampSince,timeStampUntil)
-		return Response(data)
+		data = get_views_and_count(request, iusername, timeStampSince, timeStampUntil)
+		return Response(data, status=HTTP_200_OK)
 
 
