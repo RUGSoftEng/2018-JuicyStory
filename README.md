@@ -41,7 +41,7 @@ In order to perform requests the following can be done:
 ## Api-Endpoints
 The following list contains information about the api end-points of JuicyStory.
 They are written using the following format:
-* <Description> <Url> <CRUD> <?Access Level?>
+* `<Description>` `<Url>` `<CRUD>` `<?Access Level?>`
 
 * Receive a JWT token `http://localhost:8000/api/get-token/` POST ADMIN
 * Verify a JWT token `http://localhost:8000/api/verify-token/` POST ANY
@@ -57,7 +57,6 @@ They are written using the following format:
   * NOTE that the fbtoke expires every three hours.
 * Get the DM's from a specific InstagramUser `http://localhost:8000/api/Incoming/?instagram_username=&get_DM=` GET JWT
   * Example `http://localhost:8000/api/Incoming/?instagram_username=testy8101&get_DM=True`
-
 
 ## Adding an API-Endpoint
 * First, create the desired model in the app
