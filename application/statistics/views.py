@@ -40,6 +40,16 @@ def get_lifetime(request,iusername,timeStampSince,timeStampUntil):
 	context = {'userdata': userData, 'instagram_user':user}
 	return render(request, "statistics/statistics.html",context)
 
+def get_story_metrics(request,iusername):
+	user = get_object_or_404(InstagramUser, username=iusername)
+
+	return request_story_stats(user.fbtoken,user.fbid)
+
+def get_story_urls(request,iusername):
+	user = get_object_or_404(InstagramUser, username=iusername)
+
+	return request_story_urls(user.fbtoken,user.fbid)
+
 class FilterInstagramUser(APIView):
 	''' Api for setting filters based on the field attributes below '''
 	fields 				= ('iusername', 'timeStampSince', 'timeStampUntil')
