@@ -1,3 +1,3 @@
 from django.test import TestCase
 
-# Define the authentication tests
+# Define API test here

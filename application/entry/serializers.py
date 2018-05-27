@@ -29,13 +29,13 @@ class UserSerializer(serializers.ModelSerializer):
 
 class UserLoginSerializer(serializers.ModelSerializer):
 	username 	= serializers.CharField(required=True, allow_blank=False)
-	token 		= serializers.CharField(allow_blank=True, read_only=True)
+	#token 		= serializers.CharField(allow_blank=True, read_only=True)
 	class Meta:
 		model 	= User
 		fields 	= [
 			'username',
 			'password',
-			'token',
+			#'token',
 		]
 		extra_kwargs = {
 			'password': {'write_only': True}
@@ -59,7 +59,7 @@ class UserLoginSerializer(serializers.ModelSerializer):
 			if not validated_user.check_password(password):
 				raise ValidationError("This password is incorrect.")
 
-		data["token"] = "SOME RANDOM TOKEN"
+		#data["token"] = "SOME RANDOM TOKEN"
 		return data
 
 

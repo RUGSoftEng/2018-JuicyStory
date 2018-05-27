@@ -1,6 +1,6 @@
 from rest_framework import routers
-from database.viewsets import InstagramUserViewSet, SelectedImageViewSet
-from incoming.viewsets import IncomingViewSet, LocationQueryViewSet
+from database.viewsets import (InstagramUserViewSet, SelectedImageViewSet)
+from incoming.viewsets import (IncomingViewSet, LocationQueryViewSet)
 
 ''' Registering all the relevant routers to different API endpoints '''
 router = routers.DefaultRouter()

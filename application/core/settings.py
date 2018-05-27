@@ -25,7 +25,9 @@ SECRET_KEY = '@s3_m58yh-4u+%#z5_!(me=3lv@2fxsk6-^j=^z!vn-uf8jc1s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['82.73.235.168','localhost','juicy-story.herokuapp.com','80.114.178.251']
+ALLOWED_HOSTS = ['82.73.235.168','localhost','juicy-story.herokuapp.com','80.114.178.251', 'localhost:8080']
+
+CORS_ORIGIN_ALLOW_ALL=True
 
 # Application definition
 
@@ -49,13 +51,15 @@ INSTALLED_APPS = [
     'upload',
     'django_cron',
     'statistics',
-    'database'
+    'database',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
