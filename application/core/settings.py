@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['82.73.235.168','localhost','juicy-story.herokuapp.com','80.114.178.251', 'localhost:8080']
 
-CORS_ORIGIN_ALLOW_ALL=True
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
