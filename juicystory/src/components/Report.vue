@@ -1,8 +1,9 @@
 <template>
   <div id="statList" v-cloak>
-    <div>
+    <div id="dateSelect">
       <div></div>
-      Filter from dd/mm/yyyy to dd/mm/yyyy
+      Filter from <datepicker style="display: inline-block" v-model="state.date1" name="From"></datepicker> to <datepicker style="display: inline-block" v-model="state.date2" name="To"></datepicker>
+      <button class="btn btn-sm btn-primary">GO!</button>
     </div>
     <br>
     <br>
@@ -29,8 +30,20 @@
 </template>
 
 <script>
+/* eslint-disable */
+  import Datepicker from "vuejs-datepicker/dist/vuejs-datepicker.esm.js";
+  import * as lang from "vuejs-datepicker/src/locale";
+
+const state = {
+  date1: new Date(),
+  date2: new Date()
+};
+
 export default {
   name: 'report',
+  components: {
+    Datepicker
+  },
   data () {
     return {
       stats: [
@@ -40,8 +53,31 @@ export default {
         {type: 'Taps Back', stat: '800', date: '01-01-2017', url: 'http://www.clker.com/cliparts/3/H/q/L/N/5/simple-graph-th.png'},
         {type: 'Replies', stat: '500', date: '01-01-2017', url: 'http://www.clker.com/cliparts/3/H/q/L/N/5/simple-graph-th.png'},
         {type: 'Followers', stat: '200', date: '01-01-2017', url: 'http://www.clker.com/cliparts/3/H/q/L/N/5/simple-graph-th.png'}
-      ]
-    }
+      ],
+      format: "d MMMM yyyy",
+      disabledDates: {},
+      disabledFn: {
+        customPredictor(date) {
+          if (date.getDate() % 3 === 0) {
+            return true;
+          }
+        }
+      },
+      highlightedFn: {
+        customPredictor(date) {
+          if (date.getDate() % 4 === 0) {
+            return true;
+          }
+        }
+      },
+      highlighted: {},
+      placeholder: "Test",
+      eventMsg: null,
+      state: state,
+      language: "en",
+      languages: lang,
+      vModelExample: null
+    };
   }
 }
 </script>
@@ -76,7 +112,15 @@ export default {
 }
 #dateSelect {
   position: absolute;
-  left: 100px;
+  display: inline-block;
+  left: 400px;
+  padding: 4px;
+  font-style: normal;
+}
+#dateSelect2 {
+  position: absolute;
+  display: inline-block;
+  left: 700px;
   padding: 4px;
   font-style: normal;
 }

@@ -22,9 +22,10 @@
     "popper.js": "^1.14.3",
     "vue": "^2.5.2",
     "vue-awesome": "^3.0.0",
+    "vue-datepicker": "^1.3.0",
     "vue-router": "^3.0.1",
     "vue-sticky-directive": "0.0.3",
-    "vuejs-datepicker": "^1.2.0"
+    "vuejs-datepicker": "^1.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
