@@ -9,5 +9,4 @@ install:
 
 script:
   - "cd application"
-  - "python manage.py test"
-  - "cd .."
+  - "python3 manage.py test"

@@ -78,6 +78,10 @@ They are written using the following format:
 	* import `from rest_framework import routers` and set `router = routers.DefaultRouter()`. Now register the router by `router.register(r’<title>’, <name>ViewSet)` where title should be a meaningful name for your Data.
 * Now if you go to `http://127.0.0.1:8000/api/` you should see all the available endpoints along with a link to your included Api. ie `http://127.0.0.1:8000/api/<title>/`
 
+## Heroku
+* perform `heroku login`
+  * pass credentials email: `j.m.de.jong.14@student.rug.nl`, password: `Linnaeusborg 5118`.
+
 ## Running the Application (for testing purposes)
 * Make sure you migrate everytime you start working on a new branch
   * `python3 manage.py migrate`
