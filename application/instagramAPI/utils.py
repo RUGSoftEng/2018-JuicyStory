@@ -69,7 +69,7 @@ class InstagramAPI:
   # device_id           # Device ID
   # username_id         # Username ID
   # token               # _csrftoken
-  # is_logged_in          # Session status
+  # is_logged_in        # Session status
   # rank_token          # Rank token
 
   def __init__(self, instagram_user):

@@ -1,8 +1,9 @@
-from rest_framework import viewsets
-from .models import InstagramUser, SelectedImage
+from .models import (InstagramUser, SelectedImage)
 from .serializers import InstagramUserSerializer
-from rest_framework.response import Response
 from incoming.utils import validate_ownership  #TODO: Maybe move this into this module?
+
+from rest_framework import viewsets
+from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
 
 

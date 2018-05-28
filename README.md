@@ -7,11 +7,17 @@ Note that you might need to use `python3` instead of `python` depending on our i
 * Make a djnago superuser `python manage.py createsuperuser`
 * Run the django server `python manage.py runserver` go to `http://localhost:8000/`
 * If changes were made to the database perform `python manage.py makemigrations` followed by `python manage.py migrate`
-* The admin section can be found on `/admin/` currently there are two superusers
-  * Username "george" password "a1234567"
-  * Username "tolga" password "a1234567"
 * The instagram database contains one test account 
-  * Instagram Username "testy8101" password "%3zf(^u7YX" token "r"
+  * Instagram Username "testy8101" password "%3zf(^u7YX"
+
+## Port routing
+* Find out your local ip address (ipconfig on windows, ifconfig on linux. It's the one that goes 192....)
+* Forward the port to your local ip address through your router interface (google port forwarding, it's easy)
+* Start django server with python3 manage.py runserver 0.0.0.0:[PORT]. Use the port that you have forwarded. 8000 works alright. 0.0.0.0 part is important!!
+* Add your ip adddress (external ip address. google to find) to the allowed hosts in django settings file.
+* Add that ip address also to the redirect urls on instagram api
+* Go to [IP]:[PORT] on your browser, should be working.
+* Voila! Don't forget to stop routing the port after you are done developing.
 
 ## Dependencies
 All dependencies can be found in the requirements.txt.
@@ -42,7 +48,6 @@ In order to perform requests the following can be done:
 The following list contains information about the api end-points of JuicyStory.
 They are written using the following format:
 * `<Description>` `<Url>` `<CRUD>` `<?Access Level?>`
-
 * Receive a JWT token `http://localhost:8000/api/get-token/` POST ADMIN
 * Verify a JWT token `http://localhost:8000/api/verify-token/` POST ANY
 * Filter Instagram users `http://localhost:8000/api/filter-iusers/` GET JWT
@@ -50,11 +55,15 @@ They are written using the following format:
 * Create a new instagram user `http://localhost:8000/api/create-iusers/` POST
 * Get an instagram user using their username `http://localhost:8000/api/rud-iusers/<username>/` GET PUT DELETE JWT
   * Example  `http://localhost:8000/api/rud-iusers/testy8101/`
-* Register a JuicyStory user `http://localhost:8000/entry/register-user/` POST JWT
-* Login a JuicyStory's user credentials `http://localhost:8000/entry/login-user/` POST ANY
-* Get statistics regarding followers and view count `http://localhost:8000/statistics/<username>/<from>/<until>/`
-  * Example `http://localhost:8000/statistics/testy8101/1526109291/1526413193/` GET  JWT
+* Register a JuicyStory user `http://localhost:8000/api/register-user/` POST JWT
+* Login a JuicyStory's user credentials `http://localhost:8000/api/login-user/` POST ANY
+* Get statistics regarding followers and view count `http://localhost:8000/api/stats/<username>/<from>/<until>/`
+  * Example `http://localhost:8000/api/stats/testy8101/1526109291/1526413193/` GET JWT
   * NOTE that the fbtoke expires every three hours.
+* Get the array of images of ones instagram story `http://localhost:8000/api/story/<iusername>/` GET JWT
+  * Example `http://localhost:8000/api/story/testy8101/`
+* Get statistics regarding the story of ones instagram account `http://localhost:8000/api/story/<iusername>/`
+  * Example `http://localhost:8000/api/story/testy8101/`
 * Get the DM's from a specific InstagramUser `http://localhost:8000/api/Incoming/?instagram_username=&get_DM=` GET JWT
   * Example `http://localhost:8000/api/Incoming/?instagram_username=testy8101&get_DM=True`
 

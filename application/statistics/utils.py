@@ -47,7 +47,10 @@ def request_story_urls(access_token,fbId):
 
 	for mediaId in mediaIds:
 		graphUrl = "https://graph.facebook.com/" + mediaId["id"]
-		mediaData = requests.get(graphUrl,params={"access_token": access_token, "fields":"media_url"})
+		mediaData = requests.get(graphUrl,params={
+			"access_token": access_token,
+			 "fields":"media_url"
+		})
 		data = mediaData.json()
 
 		if(next(iter(data)) != "error"):

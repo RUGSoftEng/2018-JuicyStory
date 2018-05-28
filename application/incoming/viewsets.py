@@ -1,13 +1,12 @@
 from rest_framework import viewsets
 from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
-from .utils import list_images, validate_ownership
-
+from .utils import (list_images, validate_ownership)
 
 class IncomingViewSet(viewsets.ViewSet):
   """ Viewset to handle requests made regarding the incoming images of instagram users. """
 
-  def list(self, request):
+  def get(self, request):
     """ GET the list of incoming images for the given instagram user. """
     if "instagram_username" in request.GET:
       instagram_username = request.GET["instagram_username"]

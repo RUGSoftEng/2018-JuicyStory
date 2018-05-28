@@ -10,8 +10,8 @@ def list_iusers(request):
 	if request.method == 'POST':
 		form = forms.AddIuser(request.POST, request.FILES)
 		if form.is_valid():
-			instance = form.save(commit=False)
-			instance.owner = request.user
+			instance 		= form.save(commit=False)
+			instance.owner 	= request.user
 			instance.save()
 			return redirect('iusers:list_iusers')
 	else:

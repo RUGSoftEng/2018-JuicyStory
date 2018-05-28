@@ -1,9 +1,9 @@
 from django.urls import path
-from . import views
+from .views import (select_images, list_images_view)
 
 app_name = 'incoming'
 
 urlpatterns = [
-    path('add/', views.select_images, name='select_images'),
-    path('', views.list_images, name='list_images')
+    path('add/', select_images, name='select_images'),
+    path('', list_images_view, name='list_images')
 ]

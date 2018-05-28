@@ -36,14 +36,14 @@ def parseDateTime(date, time="00:00"):
   """ Parses the given date and time strings into a python datetime object.
     Expected format is YEAR-MONTH-DAY for the year and HOUR:MINUTE for the time.
     """
-  date = date.split('-')
-  year = int(date[0])
-  month = int(date[1])
-  day = int(date[2])
+  date    = date.split('-')
+  year    = int(date[0])
+  month   = int(date[1])
+  day     = int(date[2])
 
-  time = time.split(':')
-  hour = int(time[0])
-  minute = int(time[1])
+  time    = time.split(':')
+  hour    = int(time[0])
+  minute  = int(time[1])
 
   return datetime(year, month, day, hour, minute)
 
