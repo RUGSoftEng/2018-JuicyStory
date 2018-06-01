@@ -1,10 +1,9 @@
-from .models import (InstagramUser, SelectedImage)
-from .serializers import InstagramUserSerializer
-from incoming.utils import validate_ownership  #TODO: Maybe move this into this module?
-
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
+from incoming.utils import validate_ownership
+from .models import (InstagramUser, SelectedImage)
+
 
 class SelectedImageViewSet(viewsets.ViewSet):
   """ Make request to retrieve information about the images selected by an instagram user, 
@@ -53,5 +52,3 @@ class SelectedImageViewSet(viewsets.ViewSet):
 
     else:
       raise ValidationError(detail={"error": "No images specified."})
-
-  #TODO: Define a delete action
