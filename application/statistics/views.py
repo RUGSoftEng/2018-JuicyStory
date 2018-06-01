@@ -43,7 +43,7 @@ def get_story_urls(request, iusername):
 	user = get_object_or_404(InstagramUser, username=iusername)
 	return request_story_urls(user.fbtoken,user.fbid)
 
-class FilterInstagramUser(APIView):
+class FilterInstagramUserStatistics(APIView):
 	''' Api for setting filters based on the field attributes below '''
 	fields 				= ('iusername', 'timeStampSince', 'timeStampUntil')
 	serializer_class 	= InstagramUserSerializer

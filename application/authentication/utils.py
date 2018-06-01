@@ -2,6 +2,7 @@ import requests
 
 # TODO: HIDE THE SECRET!
 def get_client_info():
+  ''' Store the information in the database '''
   return {
       "client_id": "a81a42fcf5eb4194b4905822fc05f56a",
       "redirect_uri": "http://80.114.178.251/auth/receive_code",

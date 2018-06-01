@@ -5,7 +5,7 @@ from rest_framework_jwt.views import (obtain_jwt_token, verify_jwt_token)
 from incoming.views import IncomingDMs
 from database.views import (FilterInstagramUser, RUDInstagramUser, CreateInstagramUser)
 from entry.views import (CreateUser, LoginUser)
-from statistics.views import (FilterInstagramUser, InstagramStoryUrls, InstagramStoryMetrics)
+from statistics.views import (FilterInstagramUserStatistics, InstagramStoryUrls, InstagramStoryMetrics)
 
 app_name = 'api'
 
@@ -24,7 +24,7 @@ urlpatterns = [
 	path('register-user/', CreateUser.as_view(), name='post-register-user'),
 	path('login-user/', LoginUser.as_view(), name='post-login-user'),
 
-	path('stats/<iusername>/<timeStampSince>/<timeStampUntil>/', FilterInstagramUser.as_view(), name='get-account-statistics'),
+	path('stats/<iusername>/<timeStampSince>/<timeStampUntil>/', FilterInstagramUserStatistics.as_view(), name='get-account-statistics'),
 	path('story/<iusername>/', InstagramStoryUrls.as_view(), name='get-story-images'),
 	path('metrics/<iusername>/', InstagramStoryMetrics.as_view(), name='get-story-matrics'),
 ]

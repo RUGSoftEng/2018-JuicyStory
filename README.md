@@ -49,14 +49,37 @@ The following list contains information about the api end-points of JuicyStory.
 They are written using the following format:
 * `<Description>` `<Url>` `<CRUD>` `<?Access Level?>`
 * Receive a JWT token `http://localhost:8000/api/get-token/` POST ADMIN
+  * post `<usernmae>` & `<password>` ie `username=george&password=a1234567`
+  * Data retrived `"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6Imdlb3JnZSIsImV4cCI6MTUyNzgwMjk3NCwiZW1haWwiOiIifQ.FVFhbbeEAS_CC97lZl7mjlNeKBzl3_XMsBtImuvMw4s"`
 * Verify a JWT token `http://localhost:8000/api/verify-token/` POST ANY
+  * post `<token>`
+  * Data retrieved `"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6Imdlb3JnZSIsImV4cCI6MTUyNzgwMjk3NCwiZW1haWwiOiIifQ.FVFhbbeEAS_CC97lZl7mjlNeKBzl3_XMsBtImuvMw4s"
+}`
 * Filter Instagram users `http://localhost:8000/api/filter-iusers/` GET JWT
+  * filter by `<id>`, `<username>`, `<password>`, `<owner>` `id=&username=&password=&owner=`
+  * Note that the filter has the potential to receive the whole database of instagram users
+  * (1) Data retrieved `"id": 7,
+        "username": "testy8101",
+        "password": "MFxH*854&t",
+        "fbtoken": "EAACEdEose0cBAPq7nwF9HUcNqAkty2N8FoyqJo40yBWyiOYB6xq4N3LQsJFjmk92wzN1b5qS3O7FcG0UNfXd18mmFRBohhazvZB5QKuyibd1jDOaxTrJQc1HpCZAASY6Jl2VFeBB8mlhAd068TzGlYFK5QA88OGHHVxCNZAZC6QzqbRACQ9Hs56HaCAZCRAbPvdNjiu5r4fqD6siTVzrGVWZCg6Y8EEZAgZD",
+        "fbid": "160447804650500",
+        "access_token": "7199328359.a81a42f.61b3bb86b8f647cf9c7bf75a42566fee",
+        "login_session": "gAJ9cQAoWAkAAABjc3JmdG9rZW5xAVggAAAAR1BEcGNJcHdQRmVSVTFERzFkT2JyMElvQ2xZNU96M0dxAlgHAAAAZHNfdXNlcnEDWAkAAAB0ZXN0eTgxMDFxBFgKAAAAZHNfdXNlcl9pZHEFWAoAAAA3MTk5MzI4MzU5cQZYBAAAAGlnZmxxB1gJAAAAdGVzdHk4MTAxcQhYEgAAAGlzX3N0YXJyZWRfZW5hYmxlZHEJWAMAAAB5ZXNxClgDAAAAbWNkcQtYAQAAADNxDFgDAAAAbWlkcQ1YHAAAAFd3dlM3Z0FCQUFFMmg1UGdQc2hySFlFZ05BSmJxDlgDAAAAcnVycQ9YAwAAAEZUV3EQWAkAAABzZXNzaW9uaWRxEVjmAQAASUdTQzYzMGVhYzg5MGMwY2Q3YTI4NzE0MzhlMDdkZDIyY2I2MjI3YzQyOTM0MDU1NWNjN2MxOWFiNGMwNDk2ZGEyZWMlM0ExV3Q0SzhwQm0xY0s4QkhMSmgxc09BV0dtcHkzV0pxayUzQSU3QiUyMl9hdXRoX3VzZXJfaWQlMjIlM0E3MTk5MzI4MzU5JTJDJTIyX2F1dGhfdXNlcl9iYWNrZW5kJTIyJTNBJTIyYWNjb3VudHMuYmFja2VuZHMuQ2FzZUluc2Vuc2l0aXZlTW9kZWxCYWNrZW5kJTIyJTJDJTIyX2F1dGhfdXNlcl9oYXNoJTIyJTNBJTIyJTIyJTJDJTIyX3BsYXRmb3JtJTIyJTNBMSUyQyUyMl90b2tlbl92ZXIlMjIlM0EyJTJDJTIyX3Rva2VuJTIyJTNBJTIyNzE5OTMyODM1OSUzQWxVVlVOMzRkSDd5YjhhOGxJbVFhWWZ2cUlnb08waHpyJTNBOGE4YmM2ZjI0NDNlYWY4MGEzM2E1NWM1YTA1OTM2YTBkNTYzZDMyMTk0ZDFhYmNlZWRmMGRhZGFkODcyZTcyZCUyMiUyQyUyMmxhc3RfcmVmcmVzaGVkJTIyJTNBMTUyNzUwMTU1MS4wMDg1NzIxMDE2JTdEcRJYBQAAAHNoYmlkcRNYBQAAADE0NDc1cRRYBQAAAHNoYnRzcRVYEgAAADE1Mjc1MDE1NTQuNTIyMTg5MXEWWAYAAAB1cmxnZW5xF1hQAAAAInt0aW1lOiAxNTI3NTAxNTU0XDA1NCA4MC4xMTQuMTc4LjE3MzogOTE0M306MWZORXZxOnotazFnQ3FnZjgxUTc4eTRwZWo1OXJ1MW0yOCJxGHUu",
+        "username_id": 7199328359,
+        "owner": 1`
   * Example `http://localhost:8000/api/filter-iusers/?id=&username=&password=&owner=` GET JWT
-* Create a new instagram user `http://localhost:8000/api/create-iusers/` POST
+* Create a new instagram user `http://localhost:8000/api/create-iusers/` POST JWT
+  * You can post the same fields as mentioned above in (1).
 * Get an instagram user using their username `http://localhost:8000/api/rud-iusers/<username>/` GET PUT DELETE JWT
+  * You can post, delete and update for that specific instagram account using the fields mentioned in (1)
   * Example  `http://localhost:8000/api/rud-iusers/testy8101/`
 * Register a JuicyStory user `http://localhost:8000/api/register-user/` POST JWT
+  * post `<username>`, `<password>` post `username=test12312&password=a12345678`
+  * Data retrieved `"username": "test12312"`
 * Login a JuicyStory's user credentials `http://localhost:8000/api/login-user/` POST ANY
+  * post `<username>`, `<password>` post `username=george&password=a1234567`
+  * Data retrieved `"username": "george",
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6Imdlb3JnZSIsImV4cCI6MTUyNzgwNDA3OCwiZW1haWwiOiIifQ.BfopKimtO6yCecgBoNGiK7Tva05Oq0_L6vXJTf_hsbc"`
 * Get statistics regarding followers and view count `http://localhost:8000/api/stats/<username>/<from>/<until>/`
   * Example `http://localhost:8000/api/stats/testy8101/1526109291/1526413193/` GET JWT
   * NOTE that the fbtoke expires every three hours.

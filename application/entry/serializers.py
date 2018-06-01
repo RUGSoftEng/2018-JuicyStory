@@ -3,6 +3,7 @@ from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
 from django.db.models import Q	
+from .utils import get_jwt_token
 
 User = get_user_model()
 
@@ -29,13 +30,13 @@ class UserSerializer(serializers.ModelSerializer):
 
 class UserLoginSerializer(serializers.ModelSerializer):
 	username 	= serializers.CharField(required=True, allow_blank=False)
-	#token 		= serializers.CharField(allow_blank=True, read_only=True)
+	token 		= serializers.CharField(allow_blank=True, read_only=True)
 	class Meta:
 		model 	= User
 		fields 	= [
 			'username',
 			'password',
-			#'token',
+			'token',
 		]
 		extra_kwargs = {
 			'password': {'write_only': True}
@@ -58,8 +59,7 @@ class UserLoginSerializer(serializers.ModelSerializer):
 		if validated_user:
 			if not validated_user.check_password(password):
 				raise ValidationError("This password is incorrect.")
-
-		#data["token"] = "SOME RANDOM TOKEN"
+		data["token"] = get_jwt_token(username, password)
 		return data
 
 
