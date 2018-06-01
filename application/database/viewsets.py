@@ -6,39 +6,6 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
 
-
-class InstagramUserViewSet(viewsets.ModelViewSet):
-  ''' Make request to retrieve infromation about the instagram accounts stored.
-  Returns only the accounts owned by the requesting user.
-   '''
-  queryset = InstagramUser.objects.all()
-  serializer_class = InstagramUserSerializer
-
-  def get_queryset(self):
-    """ Filter for accounts owned by the requesting user """
-    queryset = self.queryset
-    query_set = queryset.filter(owner=self.request.user)
-    return query_set
-
-  def create(self, request):
-    """ POST a new instagram user for the current user """
-    try:
-      instagram_user = InstagramUser(
-        username=request.data["username"],
-        password=request.data["password"],
-        fbtoken=request.data["fbtoken"],
-        fbid=request.data["fbid"],
-        access_token=request.data["access_token"],
-        owner=request.user)
-      instagram_user.save()
-      return Response("Success")
-
-    except KeyError:
-      raise ValidationError(detail={"error": "Not all necessary fields provided."})
-    except:
-      raise ValidationError(detail={"error": "Something went wrong."})
-
-
 class SelectedImageViewSet(viewsets.ViewSet):
   """ Make request to retrieve information about the images selected by an instagram user, 
   these would be the images displayed in the story creator tab.
