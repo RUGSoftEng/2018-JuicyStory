@@ -23,7 +23,6 @@ urlpatterns = [
     path('docs/', include_docs_urls(title='Juicy Story API', public=False)),
     path('admin/', admin.site.urls),
     path('entry/', include('entry.urls')),
-    path('iusers/', include('iusers.urls')),
     path('auth/', include('authentication.urls')),
     path('upload/<iusername>/', include('upload.urls')),
     path('incoming/<iusername>/', include('incoming.urls')),
