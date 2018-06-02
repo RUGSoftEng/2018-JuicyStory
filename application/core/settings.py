@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'coreapi',
     'incoming',
     'authentication',
-    'iusers',
     'entry',
     'core',
     'upload',
