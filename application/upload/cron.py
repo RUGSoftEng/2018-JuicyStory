@@ -4,7 +4,9 @@ from .utils import upload_image, upload_story
 import datetime
 from django.conf import settings
 
+
 class ImageUploadCronJob(CronJobBase):
+  """ A cron job to regularly upload images that were scheduled """
   RUN_EVERY_MINS = 1
   RETRY_AFTER_FAILURE_MINS = 1
 

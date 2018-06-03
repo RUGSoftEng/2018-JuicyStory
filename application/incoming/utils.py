@@ -5,7 +5,7 @@ from database.models import InstagramUser
 
 
 def get_self_user_info(access_token):
-  ''' Gets information based on the retrieved access_token such as,
+  ''' Gets information based on the retrieved access_token such as
   username, profile_picture, full_name, bio, is_business etc
   '''
   url = "https://api.instagram.com/v1/users/self/"
@@ -79,12 +79,13 @@ def get_DM_Images(user):
 
 
 def list_images(iusername, tag=None, location_id=None, get_DM=None):
-  """  Returns a dictionary of images with the given tag/location_id 
-    and also images from the DMs if requested. 
+  """
+  Returns a dictionary of images with the given tag/location_id 
+  and also images from the DMs if requested. 
 
-    In return dict, timestamps of posted images are the keys and the 
-    image URLs are the values.
-    """
+  In return dict, timestamps of posted images are the keys and the 
+  image URLs are the values.
+  """
   all_images = {}
 
   try:

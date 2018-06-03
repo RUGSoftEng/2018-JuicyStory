@@ -82,7 +82,7 @@ They are written using the following format:
     "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6Imdlb3JnZSIsImV4cCI6MTUyNzgwNDA3OCwiZW1haWwiOiIifQ.BfopKimtO6yCecgBoNGiK7Tva05Oq0_L6vXJTf_hsbc"`
 * Get statistics regarding followers and view count `http://localhost:8000/api/stats/<username>/<from>/<until>/`
   * Example `http://localhost:8000/api/stats/testy8101/1526109291/1526413193/` GET JWT
-  * NOTE that the fbtoke expires every three hours.
+  * NOTE that the fbtoken expires every three hours.
   * Data retrieve `{
         "name": "follower_count",
         "period": "day",
@@ -111,6 +111,14 @@ They are written using the following format:
     ]`
 * Get statistics regarding the story metrics of ones instagram account `http://localhost:8000/api/metrics/<iusername>/`
   * Example `http://localhost:8000/api/metrics/testy8101/`
+  * Data retrieved `{
+    "exits": 0,
+    "impressions": 0,
+    "reach": 0,
+    "replies": 0,
+    "taps_forward": 0,
+    "taps_back": 0
+}`
   * Currently not operational since further testing needs to be conducted using a 'bigger' instagram account.
 * Get the DM's from a specific InstagramUser `http://localhost:8000/api/get-dms/<iusername>/` GET JWT
   * Example `http://localhost:8000/api/get-dms/testy8101/`

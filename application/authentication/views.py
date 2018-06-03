@@ -16,11 +16,6 @@ def process_auth_code(request):
       user.save()
   return redirect("incoming:list_images", username)
 
-def user_list(request):
-  users   = InstagramUser.objects.values()
-  context = {'users': users}
-  return render(request, 'authentication/user_list.html', context)
-
 def get_code(request):
   client  = get_client_info()
   url     = "https://api.instagram.com/oauth/authorize/"

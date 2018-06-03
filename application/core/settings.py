@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'coreapi',
     'incoming',
     'authentication',
-    'iusers',
     'entry',
     'core',
     'upload',
@@ -65,8 +64,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-#'rest_framework.authentication.SessionAuthentication',
 
 REST_FRAMEWORK = {
   'DEFAULT_AUTHENTICATION_CLASSES': 
@@ -154,8 +151,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets'),
     os.path.join(BASE_DIR, 'static'),
 )
-
-#STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
 MEDIA_URL = '/media/'
 
