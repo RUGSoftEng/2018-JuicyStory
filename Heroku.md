@@ -7,8 +7,8 @@
 * Run `heroku login` and login with given credentials.
 * Run `heroku create juicystory`.
 * Run `git add .`
-* Run `git commit -m yourMessage`
-* Run `git push heroku master`
+* Run `git commit -m <message>`, insert your own message.
+* Run `git push heroku <branch>`, insert the branch you want to push to heroku.
   * If you get the error `fatal: 'heroku' does not appear to be a git repository`, run `heroku git:remote -a juicystory` and try again.
 * Run `heroku config:set PORT=8080`
 * Run `heroku ps:scale web=1`
