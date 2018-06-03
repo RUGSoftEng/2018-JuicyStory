@@ -44,9 +44,7 @@ def request_story_urls(access_token,fbId):
 	for mediaId in mediaIds:
 
 		graphUrl = "https://graph.facebook.com/" + mediaId["id"]
-
 		mediaData = requests.get(graphUrl,params={"access_token": access_token, "fields":"media_url"})
-
 		data = mediaData.json()
 
 		if(next(iter(data)) != "error"):
@@ -62,17 +60,15 @@ def request_story_stats(access_token,fbId):
 
 	storyResponse = requests.get(storyUrl,params={"access_token":access_token})
 	mediaIds = storyResponse.json()["data"]
-
 	result = {"exits":0,"impressions":0,"reach":0,"replies":0,"taps_forward":0,"taps_back":0}
 
 	for mediaId in mediaIds:
 		
 		metricUrl = "https://graph.facebook.com/" + mediaId["id"] + "/insights"
-
 		mediaResponse = requests.get(metricUrl,params={"access_token": access_token,"metric":"exits,impressions,reach,replies,reach,taps_forward,taps_back"})
-
 		getData = mediaResponse.json()
 
+		print(getData)
 		if(next(iter(getData)) != "error"):
 			result["exits"] = result["exits"] + getData["data"][0]["values"][0]["value"]
 			result["impressions"] = result["impressions"] + getData["data"][1]["values"][0]["value"]
