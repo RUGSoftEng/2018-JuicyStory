@@ -114,7 +114,10 @@ They are written using the following format:
   * Currently not operational since further testing needs to be conducted using a 'bigger' instagram account.
 * Get the DM's from a specific InstagramUser `http://localhost:8000/api/get-dms/<iusername>/` GET JWT
   * Example `http://localhost:8000/api/get-dms/testy8101/`
-  * Data retrieved 
+  * Data retrieved `"dms": {
+        "1528045852336149": "https://scontent-ams3-1.cdninstagram.com/vp/36ed9d85f32eaaeeafff3d9a0984bb5c/5BB7270F/t51.2885-15/e35/33210231_271941783549154_471935718063603712_n.jpg?ig_cache_key=MjgxODc0NzA3NzA5MzgzMTcxNzMyNDIwODg4OTgxNjY3ODQ%3D.2"
+    }`
+  * On the above mentioned dictionary each entry has a unix timestamp followed by the url to that image
 
 ## Adding an API-Endpoint
 * First, create the desired model in the app
