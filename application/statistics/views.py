@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404
 from .utils import request_views_and_followers, request_story_stats, request_story_urls
 from .serializers import InstagramUserSerializer
 
-from rest_framework.status import (HTTP_200_OK, HTTP_400_BAD_REQUEST)
+from rest_framework.status import HTTP_200_OK
 from rest_framework.response import Response
 from rest_framework.views import APIView
 

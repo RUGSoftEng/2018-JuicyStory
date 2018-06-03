@@ -67,3 +67,15 @@ def download_and_schedule_image(image_url, iusername, date, time, is_story=False
   image.image_file.save(urlparse(image_url).path.split('/')[-1], image_file, save=True)
 
   SelectedImage.objects.filter(photo=image_url).delete()
+
+def download_image(image_url):
+  """ Downloads the raw image from the given image url and returns it """
+  response = requests.get(image_url, stream=True)
+
+  if response.status_code != requests.codes.ok:
+    return
+
+  result = request.urlretrieve(image_url)
+  image_file = ImageFile(open(result[0], 'rb'))
+
+  return image_file
