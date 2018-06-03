@@ -96,23 +96,20 @@ def list_images(iusername, tag=None, location_id=None, get_DM=None):
   access_token = user.access_token
 
   try:
-    if tag or location_id:
+    if tag:
+      tag_images = request_images_by_tag(tag, access_token)
+      all_images.update(tag_images)
 
-      if tag:
-        tag_images = request_images_by_tag(tag, access_token)
-        all_images.update(tag_images)
-
-      if location_id:
-        location_images = request_images_by_location_id(location_id, access_token)
-        all_images.update(location_images)
+    if location_id:
+      location_images = request_images_by_location_id(location_id, access_token)
+      all_images.update(location_images)
 
     if get_DM:
       DM_images = get_DM_Images(user)
       all_images.update(DM_images)
-
   except Exception as e:
     print(str(e))
-    return {"error": "An undetermined error occured while requesting images."}
+    #return {"error": "An undetermined error occured while requesting images."}
 
   return all_images
 
