@@ -62,7 +62,7 @@ def request_story_urls(access_token,fbId):
 def request_story_stats(access_token,fbId):
 	userId 			= get_id(fbId,access_token)
 	storyUrl 		= "https://graph.facebook.com/" + userId + "/stories"
-	storyResponse 	= requests.get(storyUrl,params={"access_token":access_token})
+	storyResponse 	= requests.get(storyUrl, params={"access_token":access_token})
 	mediaIds 		= storyResponse.json()["data"]
 	result 			= {
 		"exits":0,

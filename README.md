@@ -83,12 +83,38 @@ They are written using the following format:
 * Get statistics regarding followers and view count `http://localhost:8000/api/stats/<username>/<from>/<until>/`
   * Example `http://localhost:8000/api/stats/testy8101/1526109291/1526413193/` GET JWT
   * NOTE that the fbtoke expires every three hours.
+  * Data retrieve `{
+        "name": "follower_count",
+        "period": "day",
+        "values": [
+            {
+                "value": 0,
+                "end_time": "2018-05-13T07:00:00+0000"
+            },
+            {
+                "value": 0,
+                "end_time": "2018-05-14T07:00:00+0000"
+            },
+            {
+                "value": 0,
+                "end_time": "2018-05-15T07:00:00+0000"
+            }
+        ],
+        "title": "Follower Count",
+        "description": "Total number of unique accounts following this profile",
+        "id": "17841406970799916/insights/follower_count/day"
+    }`
 * Get the array of images of ones instagram story `http://localhost:8000/api/story/<iusername>/` GET JWT
   * Example `http://localhost:8000/api/story/testy8101/`
-* Get statistics regarding the story of ones instagram account `http://localhost:8000/api/story/<iusername>/`
-  * Example `http://localhost:8000/api/story/testy8101/`
-* Get the DM's from a specific InstagramUser `http://localhost:8000/api/Incoming/?instagram_username=&get_DM=` GET JWT
-  * Example `http://localhost:8000/api/Incoming/?instagram_username=testy8101&get_DM=True`
+  * Data retrieved `"images": [
+        "https://scontent.xx.fbcdn.net/v/t51.12442-15/33630403_205477556844157_8497524797213769728_n.jpg?_nc_cat=0&oh=0dfd616fc02d400c5bb5f0c88fc49fa0&oe=5B8603A0"
+    ]`
+* Get statistics regarding the story metrics of ones instagram account `http://localhost:8000/api/metrics/<iusername>/`
+  * Example `http://localhost:8000/api/metrics/testy8101/`
+  * Currently not operational since further testing needs to be conducted using a 'bigger' instagram account.
+* Get the DM's from a specific InstagramUser `http://localhost:8000/api/get-dms/<iusername>/` GET JWT
+  * Example `http://localhost:8000/api/get-dms/testy8101/`
+  * Data retrieved 
 
 ## Adding an API-Endpoint
 * First, create the desired model in the app

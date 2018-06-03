@@ -73,7 +73,7 @@ class IncomingDMs(APIView):
 
   def get(self, request, iusername):
     data = list_images(iusername, None, None, True)
-    data = {'dm' : data}
+    data = {'dms' : data}
     return Response(data, status=HTTP_200_OK)
 
 
