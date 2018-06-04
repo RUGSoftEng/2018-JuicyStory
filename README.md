@@ -106,8 +106,13 @@ They are written using the following format:
     }`
 * Get the array of images of ones instagram story `http://localhost:8000/api/story/<iusername>/` GET JWT
   * Example `http://localhost:8000/api/story/testy8101/`
-  * Data retrieved `"images": [
-        "https://scontent.xx.fbcdn.net/v/t51.12442-15/33630403_205477556844157_8497524797213769728_n.jpg?_nc_cat=0&oh=0dfd616fc02d400c5bb5f0c88fc49fa0&oe=5B8603A0"
+  * Data retrieved `"timestamps": [
+        1528135114126087,
+        1528045852336149
+    ],
+    "images": [
+        "https://scontent-ams3-1.cdninstagram.com/vp/a49ff02fff9d3a1975106799ae368048/5BAB85C2/t51.2885-15/e15/p640x640/33142838_364459740625567_7756273949423435776_n.jpg?ig_cache_key=MjgxODkxMTczNjAzMzI4NjQ2ODE2MjY4NjA0NTg2MDY1OTI%3D.2",
+        "https://scontent-ams3-1.cdninstagram.com/vp/36ed9d85f32eaaeeafff3d9a0984bb5c/5BB7270F/t51.2885-15/e35/33210231_271941783549154_471935718063603712_n.jpg?ig_cache_key=MjgxODc0NzA3NzA5MzgzMTcxNzMyNDIwODg4OTgxNjY3ODQ%3D.2"
     ]`
 * Get statistics regarding the story metrics of ones instagram account `http://localhost:8000/api/metrics/<iusername>/`
   * Example `http://localhost:8000/api/metrics/testy8101/`
@@ -126,6 +131,7 @@ They are written using the following format:
         "1528045852336149": "https://scontent-ams3-1.cdninstagram.com/vp/36ed9d85f32eaaeeafff3d9a0984bb5c/5BB7270F/t51.2885-15/e35/33210231_271941783549154_471935718063603712_n.jpg?ig_cache_key=MjgxODc0NzA3NzA5MzgzMTcxNzMyNDIwODg4OTgxNjY3ODQ%3D.2"
     }`
   * On the above mentioned dictionary each entry has a unix timestamp followed by the url to that image
+*
 
 ## Adding an API-Endpoint
 * First, create the desired model in the app

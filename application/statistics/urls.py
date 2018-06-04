@@ -5,4 +5,5 @@ app_name = 'statistics'
 
 urlpatterns = [
 	path('get-fbtoken/', views.get_token, name='somename'),
+	path('redirect/', views.fbtoken_redirect),
 ]	

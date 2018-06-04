@@ -60,7 +60,8 @@ def get_DM_Images(user):
   """ Acquires the inbox for the user and strips the images.
     The output is formatted as a dict that is {timestamp: image url}
   """
-  DM_images = {}
+  DM_images     = []
+  DM_timestamps = []
 
   instagram_api = InstagramAPI(user)
   instagram_api.login()
@@ -71,10 +72,12 @@ def get_DM_Images(user):
     return DMResponse
 
   for messageThread in DMResponse['inbox']['threads']:
-    for item in messageThread['items']:
+    print(messageThread)
+    for i, item in enumerate(messageThread['items']):
       if 'media' in item:
-        DM_images[item['timestamp']] = item['media']['image_versions2']['candidates'][0]['url']
-
+        DM_images.append(item['media']['image_versions2']['candidates'][0]['url'])
+        DM_timestamps.append(item['timestamp'])
+  DM_images = {'timestamps': DM_timestamps, 'images' : DM_images}
   return DM_images
 
 

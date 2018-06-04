@@ -8,7 +8,8 @@ from .serializers import InstagramUserSerializer
 
 
 class CreateInstagramUser(CreateAPIView):
-  ''' Api for Create InstagramUser only '''
+  ''' Api that allows for the creation of an instagram account object
+  that is going to be stored in the database. '''
   queryset = InstagramUser.objects.all()
   serializer_class = InstagramUserSerializer
   permission_classes = (IsAuthenticated,)

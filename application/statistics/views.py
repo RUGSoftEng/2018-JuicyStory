@@ -2,7 +2,7 @@ from database.models import InstagramUser
 from urllib.parse import urlparse
 from django.shortcuts import get_object_or_404, redirect
 from .serializers import InstagramUserSerializer
-from .utils import (request_views_and_followers, request_story_stats)
+from .utils import (request_views_and_followers, request_story_stats, request_story_urls)
 
 from rest_framework.status import HTTP_200_OK
 from rest_framework.response import Response
@@ -20,6 +20,10 @@ def get_views_and_count(request,iusername,timeStampSince,timeStampUntil):
   userData = request_views_and_followers(user.fbtoken,user.fbid,timeStampSince,timeStampUntil)
   userData = userData['data']
   return userData
+
+def get_story_urls(request,iusername):
+  user = get_object_or_404(InstagramUser, username=iusername)
+  return request_story_urls(user.fbtoken,user.fbid)
 
 def fbtoken_redirect(request, iusername):
   '''We set up the redirect url that is going to call the next function attached to it.'''
@@ -67,7 +71,7 @@ class InstagramStoryUrls(APIView):
   lookup_field = fields
 
   def get(self, request, iusername):
-    data = get_story_metrics(request, iusername)
+    data = get_story_urls(request, iusername)
     return Response(data, status=HTTP_200_OK)
 
 
@@ -77,7 +81,7 @@ class InstagramStoryMetrics(APIView):
   lookup_field = fields
 
   def get(self, request, iusername):
-    fbtoken_redirect(request, iusername)
+    #fbtoken_redirect(request, iusername)
     user = get_object_or_404(InstagramUser, username=iusername)
     data = request_story_stats(user.fbtoken, user.fbid)
     return Response(data, status=HTTP_200_OK)
