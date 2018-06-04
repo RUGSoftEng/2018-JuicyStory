@@ -161,6 +161,8 @@ class InstagramAPI:
     self.send_request('accounts/logout/')
 
   def upload_photo(self, photo, caption=None, upload_id=None, is_sidecar=None, is_story=None):
+    self.USER_AGENT = 'Instagram 10.26.0 Android (18/4.3; 320dpi; 720x1280; Xiaomi; HM 1SW; armani; qcom; en_US)'
+
     if upload_id is None:
       upload_id = str(int(time.time() * 1000))
     data = {
@@ -404,6 +406,7 @@ class InstagramAPI:
     return activity
 
   def get_v2_inbox(self):
+    self.USER_AGENT = 'Instagram 39.0.0.19.93 Android (18/4.3; 320dpi; 720x1280; Xiaomi; HM 1SW; armani; qcom; en_US)'
     inbox = self.send_request('direct_v2/inbox/?')
     return inbox
 
