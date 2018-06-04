@@ -71,6 +71,7 @@ export default {
       .then(data => {
         window.localStorage.setItem('token', data.token)
         console.log('Succeeded')
+        this.$router.push('Dashboard')
       })
     },
     onClick () {

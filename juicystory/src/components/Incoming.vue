@@ -23,6 +23,8 @@
 </template>
 
 <script>
+import appService from '../app-service.js'
+
 export default {
   name: 'incoming',
   data () {
@@ -43,10 +45,21 @@ export default {
     }
   },
   methods: {
+    getIncomingImages(username, token) {
+      appService.getIncoming(username, token)
+      .then(data => {
+        console.log(data)
+        this.stories = data.images
+      })
+    },
     select: function (image, event) {
       image.selected = !image.selected
       this.selectedImg.push(image)
     }
+  },
+  created() {
+    this.token = window.localStorage.getItem('token')
+    this.getIncomingImages('testy8101', this.token)
   }
 }
 </script>

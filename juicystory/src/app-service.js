@@ -15,10 +15,10 @@ axios.interceptors.response.use(response => {
 const appService = {
 	logInUser (username, password) {
 		return new Promise((resolve) => {
-			axios.post('http://localhost:8000/entry/login-user/',
+			axios.post('http://localhost:8000/api/login-user/',
 			{	
-				'username': [`${username}`],
-				'password': [`${password}`]
+				'username': `${username}`,
+				'password': `${password}`
 			})
 			.then(response => {
 				resolve(response.data)
