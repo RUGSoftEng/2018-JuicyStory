@@ -1,15 +1,15 @@
 <template>
   <div id="navigation" v-bind:class="navigationStyle" v-cloak>
       <ul>
-        <li><router-link class="link" :to="{ name: 'Dashboard'}">Dashboard</router-link></li>
+        <li><router-link v-bind:class="" :to="{ name: 'Dashboard'}">Dashboard</router-link></li>
         <li>|</li>
-        <li><router-link class="link" :to="{ name: 'Incoming'}">Incoming</router-link></li>
+        <li><router-link class="" :to="{ name: 'Incoming'}">Incoming</router-link></li>
         <li>|</li>
-        <li><router-link class="link" :to="{ name: 'Stories'}">Stories</router-link></li>
+        <li><router-link class="" :to="{ name: 'Stories'}">Stories</router-link></li>
         <li>|</li>
-        <li><router-link class="link" :to="{ name: 'Report'}">Report</router-link></li>
+        <li><router-link class="" :to="{ name: 'Report'}">Report</router-link></li>
         <li>|</li>
-        <li><router-link class="link" :to="{ name: 'StoryCreator'}">Story Creator</router-link></li>
+        <li><router-link class="" :to="{ name: 'StoryCreator'}">Story Creator</router-link></li>
       </ul>
     </div>
 </template>
@@ -19,7 +19,9 @@ export default {
   name: 'navigation',
   data () {
     return {
-      navigationStyle: 'navigation'
+      navigationStyle: 'navigation',
+      currentPage: 'bold',
+      link: 'link'
     }
   }
 }
@@ -27,15 +29,9 @@ export default {
 
 <style>
 
-/*.link {
-  color: #CE2655;
-  text-decoration: none;
+.bold {
+  color: pink;
 }
-
-.router-link-exact-active {
-  color: #CE2655;
-  text-decoration: none;
-}*/
 
 .navigation {
   font-family: 'Lato', sans-serif;

@@ -1,12 +1,7 @@
 <template>
   <div id="statList" v-cloak>
-    <div id="dateSelect">
-      <div></div>
-      Filter from <datepicker style="display: inline-block" v-model="state.date1" name="From"></datepicker> to <datepicker style="display: inline-block" v-model="state.date2" name="To"></datepicker>
+      <label>Filter from <datepicker class="datepicker" v-model="state.date1" name="From"></datepicker> to <datepicker class="datepicker" v-model="state.date2" name="To"></datepicker></label>
       <button class="btn btn-sm btn-primary">GO!</button>
-    </div>
-    <br>
-    <br>
     <ul>
       <li v-for="stat in stats" :key="stat.type">
         <div id="statContainer">
@@ -26,6 +21,7 @@
         </div>
       </li>
     </ul>
+
   </div>
 </template>
 
@@ -83,8 +79,25 @@ export default {
 </script>
 
 <style>
+ul {
+  margin-top: 2%;
+  color: #CE2655;
+}
+
+label {
+  font-size: 18px;
+}
+
+.datepicker {
+  text-align: center;
+  display: inline-block;
+  color: DarkGray;
+}
 #statList {
     display: inline-block;
+    margin-top: 4%;
+    font-family: 'Lato' sans-serif;
+    color: Gray;
 }
 .box {
   padding: 10px;

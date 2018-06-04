@@ -1,17 +1,17 @@
 <template>
   <div class="container">
     <div class="row">
-      <div id="left" class="col-6 col-md-4"><ul><li style="color: #CE2655">Account Name</li></ul></div>
+      <div id="left" class="col-6 col-md-4"><ul><li style="color: #CE2655" v-if="$route.name != 'Login'">Account Name</li></ul></div>
       <div id="middle" class="col-6 col-md-4">
-        <router-link :to="{ name: 'Login' }"><img id="logo-pic" src="../assets/logo1.png" v-bind:alt="alt"></router-link>
+        <img id="logo-pic" src="../assets/logo1.png" v-bind:alt="alt">
         </div>
       <div id="right" class="col-6 col-md-4">
         <ul>
-          <li><router-link :to="{ name: 'Dashboard'}"><i class="glyphicon glyphicon-home"></i></router-link></li>
-          <li>|</li>
-          <li><router-link :to="{ name: 'MyAccount'}">My Account</router-link></li>
-          <li>|</li>
-          <li><router-link :to="{ name: '', params: {} }">Log Out</router-link></li>
+          <li v-if="$route.name != 'Login'"><router-link :to="{ name: 'Dashboard'}"><i class="glyphicon glyphicon-home"></i></router-link></li>
+          <li v-if="$route.name != 'Login'">|</li>
+          <li v-if="$route.name != 'Login'"><router-link :to="{ name: 'MyAccount'}">My Account</router-link></li>
+          <li v-if="$route.name != 'Login'">|</li>
+          <li><router-link :to="{ name: '', params: {} }" v-if="$route.name != 'Login'">Log Out</router-link></li>
         </ul>
         </div>
     </div>

@@ -1,68 +1,64 @@
 /* eslint-disable *//* eslint-disable */
 <template>
+<div class="row">
+  <div class="col-6 col-md-4"></div>
+  <div class="col-6 col-md-4">
+    <form>
+      <span class="login100-form-title">
+        Login
+      </span>
+        <!-- <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+          <input class="input100" type="email" v-model="username" name="email" placeholder="Email">
+        </div>
+        <div class="wrap-input100 validate-input" data-validate = "Password is required">
+          <input class="input100" type="password" v-model="password" name="pass" placeholder="Password">
+        </div> -->
 
-  <div class="login">
-    <div class="limiter">
-    <div class="container-login100">
-      <div class="wrap-login100">
-        <div class="login100-pic">
-          <img src="../assets/logo1.png" alt="Juicy Story Logo">
+        <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+          <input class="input100" type="email" v-model="username" name="email" placeholder="Email">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+            <i class="glyphicon glyphicon-envelope" aria-hidden="false"></i>
+          </span>
         </div>
 
-        <form class="login100-form validate-form" action="#" method="post">
-          <span class="login100-form-title">
-            Login
+        <div class="wrap-input100 validate-input" data-validate = "Password is required">
+          <input class="input100" type="password" v-model="password" name="pass" placeholder="Password">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+            <i class="glyphicon glyphicon-lock" aria-hidden="false"></i>
           </span>
+        </div>
 
-          <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-            <input class="input100" type="email" v-model="username" name="email" placeholder="Email">
-            <span class="focus-input100"></span>
-            <span class="symbol-input100">
-              <i class="fa fa-envelope" aria-hidden="false"></i>
-            </span>
-          </div>
+        <div class="container-login100-form-btn">
 
-          <div class="wrap-input100 validate-input" data-validate = "Password is required">
-            <input class="input100" type="password" v-model="password" name="pass" placeholder="Password">
-            <span class="focus-input100"></span>
-            <span class="symbol-input100">
-              <i class="fa fa-lock" aria-hidden="false"></i>
-            </span>
-          </div>
+          <a v-on:click="onClick" class="btn btn-default login100-form-btn">Login</a>
+        </div>
 
-          <div class="container-login100-form-btn">
-            <!-- <button type="submit" class="login100-form-btn">Login</button> -->
-            <a v-on:click="onClick" class="btn btn-default login100-form-btn">Login</a>
-          </div>
+        <div class="text-center p-t-12">
+          <span class="txt1">
+            Forgot
+          </span>
+          <a href="./passRecov.html" target="_blank">
+            Password?
+          </a>
+        </div>
 
-          <div class="text-center p-t-12">
-            <span class="txt1">
-              Forgot
-            </span>
-            <a class="txt2" href="./passRecov.html" target="_blank">
-              Password?
-            </a>
-          </div>
-
-          <div class="text-center">
-            <a class="txt2" href="./signup.html" target="_blank">
-              Create your Account
-            </a>
-          </div>
-        </form>
-      </div>
-    </div>
+    </form>
+  </div>
+  <div class="col-6 col-md-4"></div>
+  </div>
   </div>
 
-  </div>
 </template>
 
 <script>
-/* eslint-disable */ 
+/* eslint-disable */
 
 import appService from '../app-service.js'
 
 export default {
+
   data () {
     return {
       username: 'george',
@@ -89,6 +85,14 @@ export default {
 
 <style>
 /* eslint-disable */
+
+  form {
+    margin-top: 20%;
+  }
+
+  .txt1 {
+    color: DarkGray;
+  }
 
   .limiter {
     width: 100%;
@@ -149,7 +153,7 @@ export default {
   }
 
   .login100-form-title {
-    font-family: 'Heebo' sans-serif;
+    font-family: 'Lato', sans-serif;
     font-size: 24px;
     font-weight: bold;
     color: #CE2655;
@@ -158,19 +162,7 @@ export default {
 
     width: 100%;
     display: block;
-    padding-bottom: 54px;
-  }
-
-  .login100-form-subtitle {
-    font-family: 'Lato' sans-serif;
-    font-size: 18px;
-    color: #333333;
-    line-height: 1.2;
-    text-align: center;
-
-    width: 100%;
-    display: block;
-    padding-bottom: 54px;
+    padding-bottom: 7%;
   }
 
 
@@ -183,7 +175,7 @@ export default {
   }
 
   .input100 {
-    font-family: 'Lato';
+    font-family: 'Lato' sans-serif;
     font-size: 15px;
     line-height: 1.5;
     color: #CE2655;
@@ -301,7 +293,7 @@ export default {
   }
 
   .login100-form-btn {
-    font-family: 'Heebo';
+    font-family: 'Lato', sans-serif;
     font-weight: bold;
     font-size: 15px;
     line-height: 1.5;
@@ -397,8 +389,9 @@ export default {
     right: 8px;
     pointer-events: none;
 
-    font-family: Poppins-Medium;
-    color: #c80000;
+    font-family: 'Lato', sans-serif;
+    /*color: #c80000;*/
+    color: #f2f2f2;
     font-size: 13px;
     line-height: 1.4;
     text-align: left;
@@ -414,7 +407,7 @@ export default {
 
   .alert-validate::after {
     content: "\f06a";
-    font-family: FontAwesome;
+    font-family: 'Lato', sans-serif;
     display: block;
     position: absolute;
     color: #c80000;

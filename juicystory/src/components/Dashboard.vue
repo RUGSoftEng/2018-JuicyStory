@@ -88,14 +88,21 @@ export default {
         {date: '01-01-2017', time: '15:00', url: 'https://all-images.net/wp-content/uploads/2017/04/iphone-glitter-background-285.jpg', selected: false},
         {date: '01-01-2017', time: '15:00', url: 'https://i.pinimg.com/236x/30/e1/d2/30e1d275c2bd60b80ed576ea3c4b46e6.jpg', selected: false},
         {date: '01-01-2017', time: '15:00', url: 'http://www.iclarified.com/images/news/33642/138964/138964-640.png', selected: false}
-      ],
-      selectedStory: []
+      ]
     }
   },
+
   methods: {
     select: function (story, event) {
-      story.selected = !story.selected
-      this.selectedImg.push(story)
+      for (var i = this.stories.length - 1; i >= 0; i--) {
+        if (this.stories[i].selected === true) {
+          this.stories[i].selected = false
+        }
+
+        if (this.stories[i] === story) {
+          this.stories[i].selected = true
+        }
+      }
     }
   }
 }
@@ -115,8 +122,8 @@ export default {
   }
 
   #rightcol {
-    overflow-x: scroll;
-    white-space: nowrap;
+  /*  overflow-y: scroll;*/
+    /*white-space: nowrap; */
   }
 
   .card {
@@ -172,7 +179,7 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 5px;
+    font-size: 50px;
   }
 
   .checkmark:before {

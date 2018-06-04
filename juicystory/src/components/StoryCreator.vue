@@ -11,8 +11,8 @@
         </ul>
 
         <ul v-else>
-          <li v-for="item in items" :key="item.url">
-            <img v-bind:src="item" v-on:click="addToStory(item)" height="288" width="162">
+          <li v-for="item in items">
+            <img v-bind:src="item.url" v-on:click="addToStory(item)" height="288" width="162">
           </li>
         </ul>
 
@@ -29,8 +29,8 @@
           </ul>
 
           <ul v-else>
-            <li v-for="pic in storyItems" :key="pic.url">
-              <img v-bind:src="pic" v-on:click="removeFromStory(pic)" v-bind:class="aspect">
+            <li v-for="pic in storyItems">
+              <img v-bind:src="pic.url" v-on:click="removeFromStory(pic)" v-bind:class="aspect">
             </li>
           </ul>
         </div>

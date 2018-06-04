@@ -2,7 +2,7 @@
   <div id="app">
     <div class="header">
       <layout-header></layout-header>
-      <navbar class="navbar"></navbar>
+      <navbar class="navbar" v-if="$route.name != 'Login'"></navbar>
     </div>
     <div class="router"><router-view/></div>
     <!-- <layout-footer></layout-footer> -->
@@ -67,6 +67,12 @@ a {
 }
 
 a:focus {
+  color: #CE2655;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+a:active {
   color: #CE2655;
   font-weight: bolder;
   text-decoration: none;

@@ -1,22 +1,21 @@
 <template>
   <div id="footer">
-    <div class="col-sm-4">
-      <label> About us </label>
-    </div>
-    <div class="col-sm-4">
-      <label>&copy; Copyright 2018 JuicyStory </label>
-    </div>
-    <div class="col-sm-4">
-      <label> Follow us</label>
-      <ul>
-        <li><i class="fa fa-facebook-square"></i></li>
-      </ul>
-    </div>
+      <div class="col-sm-6">
+        <label> About us </label>
+      </div>
+      <div class="col-sm-6">
+        <label> Follow us</label>
+        <ul>
+          <li> <i class="fa fa-facebook-square"></i></li>
+        </ul>
   </div>
+
+</div>
 </template>
 
 <script>
-export default {}
+export default {
+}
 </script>
 
 <style>
@@ -38,19 +37,12 @@ export default {}
   } */
 
   #footer {
-    bottom: 0px;
-    width: 100%;
-    position: absolute;
-    padding-top: 20px;
-    height: 60px;
-    background-color: #f5f5f5;
-  }
-  .footer2 {
-    bottom: 0px;
-    width: 100%;
-    position: absolute;
-    padding-top: 20px;
-    height: 60px;
-    background-color: #f5f5f5;
-  }
+      bottom: 0;
+      width: 100%;
+      position: absolute;
+      padding-top: 20px;
+      height: 60px;
+      background-color: #f2f2f2;
+      color: #CE2655;
+    }
 </style>
