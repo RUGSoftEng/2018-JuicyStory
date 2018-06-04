@@ -7,6 +7,7 @@ from .utils import (request_views_and_followers, request_story_stats)
 from rest_framework.status import HTTP_200_OK
 from rest_framework.response import Response
 from rest_framework.views import APIView
+import requests
 
 def get_story_metrics(request,iusername):
   user = get_object_or_404(InstagramUser, username=iusername)
@@ -20,8 +21,9 @@ def get_views_and_count(request,iusername,timeStampSince,timeStampUntil):
   userData = userData['data']
   return userData
 
-def url_redirect(request, iusername):
-  testy = "http://localhost:8000/api/metrics/" + iusername + "/"  #"/get-fb-token/"
+def fbtoken_redirect(request, iusername):
+  '''We set up the redirect url that is going to call the next function attached to it.'''
+  testy = "http://localhost:8000/statistics/testy8101/get-fbtoken/"
   client_id = "687645918026028"
   scope = "ads_management,business_management,manage_pages,pages_show_list,instagram_basic,instagram_manage_insights,read_insights"
   test_url = "https://www.facebook.com/v3.0/dialog/oauth?client_id=" + client_id + "&redirect_uri=" + testy + "&scope=" + scope
@@ -29,13 +31,13 @@ def url_redirect(request, iusername):
 
 
 def get_token(request, iusername):
+  print("CAME THUS FAR")
   user = get_object_or_404(InstagramUser, username=iusername)
   code = urlparse(request.get_full_path()).query[5:]
-  testy = "http://localhost:8000/api/metrics/" + iusername + "/"  #"/get-fb-token/"
+  testy = "http://localhost:8000/statistics/testy8101/get-fbtoken/"
 
   token_url = "https://graph.facebook.com/v3.0/oauth/access_token"
-  token_data = requests.get(
-    token_url,
+  token_data = requests.get(token_url,
     params={
       "client_id": "687645918026028",
       "redirect_uri": testy,
@@ -43,13 +45,7 @@ def get_token(request, iusername):
       "code": code
     }).json()
   user.fbtoken = token_data["access_token"]
-
-  #return redirect("http://localhost:8000/" + iusername)
-
-
-def retrieve_token(request, iusername):
-  url_redirect(request, iusername)
-  get_token(request, iusername)
+  return redirect("http://localhost:8000/api/metrics/testy8101/")
 
 
 class FilterInstagramUserStatistics(APIView):
@@ -70,7 +66,6 @@ class InstagramStoryUrls(APIView):
   lookup_field = fields
 
   def get(self, request, iusername):
-    #retrieve_token(request, iusername)
     data = get_story_metrics(request, iusername)
     return Response(data, status=HTTP_200_OK)
 
@@ -81,6 +76,7 @@ class InstagramStoryMetrics(APIView):
   lookup_field = fields
 
   def get(self, request, iusername):
+    fbtoken_redirect(request, iusername)
     user = get_object_or_404(InstagramUser, username=iusername)
     data = request_story_stats(user.fbtoken, user.fbid)
     return Response(data, status=HTTP_200_OK)

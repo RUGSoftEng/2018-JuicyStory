@@ -3,4 +3,6 @@ from django.urls import path
 
 app_name = 'statistics'
 
-urlpatterns = []
+urlpatterns = [
+	path('get-fbtoken/', views.get_token, name='somename'),
+]	
