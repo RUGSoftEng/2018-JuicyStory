@@ -24,8 +24,49 @@ const appService = {
 				resolve(response.data)
 			})
 		})
+	},
+	getArrayOfImages(username, token) {
+		return new Promise((resolve) => {
+			axios.get(`http://localhost:8000/api/story/${username}/`,
+				{
+					headers: {
+						'Authorization': `JWT ${token}`
+					}
+				}
+			)
+				.then(response => {
+					resolve(response.data)
+				})
+		})
+	},
+	getStoryStats(username, token) {
+		return new Promise((resolve) => {
+			axios.get(`http://localhost:8000/api/metrics/${username}/`,
+				{
+					headers: {
+						'Authorization': `JWT ${token}`
+					}
+				}
+			)
+				.then(response => {
+					resolve(response.data)
+				})
+		})
+	},
+	getIncoming(username, token) {
+		return new Promise((resolve) => {
+			axios.get(`http://localhost:8000/api/get-dms/${username}/`,
+				{
+					headers: {
+						'Authorization': `JWT ${token}`
+					}
+				}
+			)
+				.then(response => {
+					resolve(response.data)
+				})
+		})
 	}
-
 }
 
 export default appService
