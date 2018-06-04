@@ -106,13 +106,8 @@ They are written using the following format:
     }`
 * Get the array of images of ones instagram story `http://localhost:8000/api/story/<iusername>/` GET JWT
   * Example `http://localhost:8000/api/story/testy8101/`
-  * Data retrieved `"timestamps": [
-        1528135114126087,
-        1528045852336149
-    ],
-    "images": [
-        "https://scontent-ams3-1.cdninstagram.com/vp/a49ff02fff9d3a1975106799ae368048/5BAB85C2/t51.2885-15/e15/p640x640/33142838_364459740625567_7756273949423435776_n.jpg?ig_cache_key=MjgxODkxMTczNjAzMzI4NjQ2ODE2MjY4NjA0NTg2MDY1OTI%3D.2",
-        "https://scontent-ams3-1.cdninstagram.com/vp/36ed9d85f32eaaeeafff3d9a0984bb5c/5BB7270F/t51.2885-15/e35/33210231_271941783549154_471935718063603712_n.jpg?ig_cache_key=MjgxODc0NzA3NzA5MzgzMTcxNzMyNDIwODg4OTgxNjY3ODQ%3D.2"
+  * Data retrieved `"images": [
+        "https://scontent.xx.fbcdn.net/v/t51.12442-15/33569528_435768076867132_2532335115976048640_n.jpg?_nc_cat=0&oh=dd754c0fbd7a60c260555c4f61105f83&oe=5B7EE5CD"
     ]`
 * Get statistics regarding the story metrics of ones instagram account `http://localhost:8000/api/metrics/<iusername>/`
   * Example `http://localhost:8000/api/metrics/testy8101/`
@@ -127,9 +122,14 @@ They are written using the following format:
   * Currently not operational since further testing needs to be conducted using a 'bigger' instagram account.
 * Get the DM's from a specific InstagramUser `http://localhost:8000/api/get-dms/<iusername>/` GET JWT
   * Example `http://localhost:8000/api/get-dms/testy8101/`
-  * Data retrieved `"dms": {
-        "1528045852336149": "https://scontent-ams3-1.cdninstagram.com/vp/36ed9d85f32eaaeeafff3d9a0984bb5c/5BB7270F/t51.2885-15/e35/33210231_271941783549154_471935718063603712_n.jpg?ig_cache_key=MjgxODc0NzA3NzA5MzgzMTcxNzMyNDIwODg4OTgxNjY3ODQ%3D.2"
-    }`
+  * Data retrieved `"timestamps": [
+        1528135114126087,
+        1528045852336149
+    ],
+    "images": [
+        "https://scontent-ams3-1.cdninstagram.com/vp/a49ff02fff9d3a1975106799ae368048/5BAB85C2/t51.2885-15/e15/p640x640/33142838_364459740625567_7756273949423435776_n.jpg?ig_cache_key=MjgxODkxMTczNjAzMzI4NjQ2ODE2MjY4NjA0NTg2MDY1OTI%3D.2",
+        "https://scontent-ams3-1.cdninstagram.com/vp/36ed9d85f32eaaeeafff3d9a0984bb5c/5BB7270F/t51.2885-15/e35/33210231_271941783549154_471935718063603712_n.jpg?ig_cache_key=MjgxODc0NzA3NzA5MzgzMTcxNzMyNDIwODg4OTgxNjY3ODQ%3D.2"
+    ]`
   * On the above mentioned dictionary each entry has a unix timestamp followed by the url to that image
 *
 
