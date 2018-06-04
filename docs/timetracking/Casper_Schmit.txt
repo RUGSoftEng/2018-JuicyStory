@@ -1,0 +1,136 @@
+01/03/2018
+        11.00 - Meeting with the client.
+        11.30 - Meeting with the client.
+        12.00 - Meeting with the client.
+07/03/2018
+        7.30 - Researching VUEjs
+        8.00 - Researching VUEjs
+        8.30 - Researching VUEjs
+        9.00 - Researching VUEjs
+        17.00 - Learning JavaScript syntax
+        17.30 - Learning JavaScript syntax
+        18.00 - Learning JavaScript syntax
+08/03/2018
+        8.30 - Researching VUEjs
+        17.00 - Learning JavaScript syntax
+        17.30 - Learning HTML & CSS
+        18.00 - Learning HTML & CSS
+09/03/2018
+        8.30 - Learning HTML & CSS
+        ..until..
+        10.30 - Learning HTML & CSS
+12/03/2018
+        15.00 - Meeting with group
+        15.30 - Meeting with group
+        16.00 - Meeting with group
+	16.30 - Meeting with group (Updating requirements document)
+        17.00 - Meeting with group (Updating requirements document)
+        17.30 - Meeting with group (Updating requirements document)
+14/03/2018
+        15.00 - Meeting with group
+15/03/2018
+        13.00 - Researching VUEjs & Bootstrap 4
+16/03/2018
+        16.00 - Researching VUEjs
+        16.30 - Researching VUEjs
+17/03/2018
+        17.00 - Researching VUEjs
+        17.30 - Researching VUEjs
+18/03/2018
+	16.00 - Researching VUEjs
+	16.30 - Researching VUEjs
+        17.00 - Researching VUEjs
+22/03/2018
+        13.00 - Getting up-to-date with new github pushes
+        13.30 - Getting up-to-date with new github pushes
+23/03/2018
+        13.45 - Meeting with Client
+        14.00 - Meeting with Front-End
+        14.30 - Meeting with Front-End
+26/03/2018
+        19.00 - Figuring out how to get existing html in Vuejs webpack components
+	19.30 - Figuring out how to get existing html in Vuejs webpack components
+	20.00 - Figuring out how to get existing html in Vuejs webpack components
+	20.30 - Figuring out how to get existing html in Vuejs webpack components
+	21.00 - Figuring out how to get existing html in Vuejs webpack components
+	21.30 - Experimenting with login page and navbar with Vuetify in Vue project
+	22.00 - Experimenting with login page and navbar with Vuetify in Vue project
+	22.30 - Experimenting with login page and navbar with Vuetify in Vue project
+	23.00 - Experimenting with login page and navbar with Vuetify in Vue project
+27/03/2018
+        17.00 - Fitting existing html, css and javascript in Vue project
+	17.30 - Fitting existing html, css and javascript in Vue project
+	18.00 - Fitting existing html, css and javascript in Vue project
+	18.30 - Fitting existing html, css and javascript in Vue project
+	19.00 - Fitting existing html, css and javascript in Vue project
+	19.30 - Fitting existing html, css and javascript in Vue project
+	20.00 - Fitting existing html, css and javascript in Vue project
+28/03/2018
+	15.00 - Figuring out how to fit existing html, css and javascript in Vue project 	in such a way that it remains the same look and feeling.
+	..until..
+	17.30 - Figuring out how to fit existing html, css and javascript in Vue project 	in such a way that it remains the same look and feeling.
+1/04/2018
+        15.00 - Checking out new github pushes of newly merged front and back end.
+2/04/2018
+        11.00 - Meeting with group.
+        11.30 - Meeting with group.
+        12.00 - Meeting with group.
+        12.30 - Meeting with group.
+        13.00 - Meeting with group.
+3/04/2018
+        12.00 - Presentation rehearsal with group
+        12.30 - Presentation rehearsal with group
+17/04/2018
+        13.00 - Preparing architecture and product requirements documents for sprint 2
+        ...until..
+        15.00 - Preparing architecture and product requirements documents for sprint 2
+25/04/2018
+        10.00 - Meeting with front-end
+        10.30 - Meeting with front-end
+        13.00 - Re-Installing NodeJs and NPM
+26/04/2018
+        15.00 - Meeting with whole group
+3/05/2018
+        13.00 - TA meeting
+        13.30 - Meeting with Front-End
+        14.00 - Meeting with Front-End
+        17.00 - Creating header and footer in the VUEjs project
+        ..until..
+        18.30 - Creating header and footer in the VUEjs project
+15/05/2018
+        11:00 - Working on report page
+        11.30 - Working on report page
+        12.00 - Working on report page
+        12.30 - Working on report page
+        16.00 - Working on report page
+        ..until..     
+        18.00 - Working on report page
+17/05/2018
+        14.00 TA meeting
+        14.30 Meeting with group
+        15.00 Meeting with group
+        17.00 Researching hosting services and heroku
+        17.30 Researching hosting services and heroku
+24/05/2018
+        14.00 TA meeting
+        14.30 Meeting with group
+        16.00 Heroku
+        16.30 Heroku
+        17.00 Heroku
+        17.30 Heroku
+        18.00 Heroku
+25/05/2018
+        10.00 Figuring out error with Heroku
+        10.30 Figuring out error with Heroku
+        11.00 Figuring out error with Heroku
+01/06/2018
+        15.30 Working on Footer copyright + merge
+        ..until..
+        17.00 Working on Footer copyright + merge
+2/06/2018
+        12.00 Updating Architecture and Requirements docs
+        12.30 Updating Architecture and Requirements docs
+        13.00 Updating Architecture and Requirements docs
+4/06/2018
+        14.30 Updating Architecture and Requirements docs
+        15.00 Updating Architecture and Requirements docs
