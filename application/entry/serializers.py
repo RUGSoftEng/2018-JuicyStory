@@ -7,7 +7,6 @@ from .utils import get_jwt_token
 
 User = get_user_model()
 
-
 class UserSerializer(serializers.ModelSerializer):
 
   class Meta:
@@ -31,7 +30,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 class UserLoginSerializer(serializers.ModelSerializer):
   username = serializers.CharField(required=True, allow_blank=False)
-  token = serializers.CharField(allow_blank=True, read_only=True)
+  token    = serializers.CharField(allow_blank=True, read_only=True)
 
   class Meta:
     model = User
@@ -43,9 +42,9 @@ class UserLoginSerializer(serializers.ModelSerializer):
     extra_kwargs = {'password': {'write_only': True}}
 
   def validate(self, data):
-    validated_user = None
-    username = data["username"]
-    password = data["password"]
+    validated_user  = None
+    username        = data["username"]
+    password        = data["password"]
 
     if not username:
       raise ValidationError("A username is required to login.")

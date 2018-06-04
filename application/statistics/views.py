@@ -27,6 +27,7 @@ def fbtoken_redirect(request, iusername):
   client_id = "687645918026028"
   scope = "ads_management,business_management,manage_pages,pages_show_list,instagram_basic,instagram_manage_insights,read_insights"
   test_url = "https://www.facebook.com/v3.0/dialog/oauth?client_id=" + client_id + "&redirect_uri=" + testy + "&scope=" + scope
+  print(test_url)
   return redirect(test_url)
 
 

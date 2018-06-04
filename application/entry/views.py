@@ -22,8 +22,8 @@ class LoginUser(APIView):
   permission_classes = [AllowAny]
 
   def post(self, request, *args, **kwargs):
-    data = request.data
-    serializer = UserLoginSerializer(data=data)
+    data        = request.data
+    serializer  = UserLoginSerializer(data=data)
 
     if serializer.is_valid(raise_exception=True):
       valid_data = serializer.data
@@ -32,7 +32,7 @@ class LoginUser(APIView):
     else:
       return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
 
-  def to_QuetDictionary(data):
+  def to_QueryDictionary(data):
     if not isinstance(data, QueryDict):
       query_dict = QueryDict('', mutable=True)
       query_dict.update(data)
