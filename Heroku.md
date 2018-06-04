@@ -5,7 +5,6 @@
   * Run `sudo apt-get update`.
   * Run `sudo apt-get install heroku`.
 * Run `heroku login` and login with given credentials.
-* Run `heroku create juicystory`.
 * Run `git add .`
 * Run `git commit -m <message>`, insert your own message.
 * Run `git push heroku <branch>`, insert the branch you want to push to heroku.
