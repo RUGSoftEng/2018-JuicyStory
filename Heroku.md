@@ -11,4 +11,4 @@
   * If you get the error `fatal: 'heroku' does not appear to be a git repository`, run `heroku git:remote -a juicystory` and try again.
 * Run `heroku config:set PORT=8080`.
 * Run `heroku open` to open your webbrowser with the heroku server.
-* Run `heroku logs --tail` if you want to see the logs.f
+* Run `heroku logs --tail` if you want to see the logs
