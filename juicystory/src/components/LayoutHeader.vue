@@ -3,7 +3,7 @@
     <div class="row">
       <div id="left" class="col-6 col-md-4"><ul><li style="color: #CE2655">Account Name</li></ul></div>
       <div id="middle" class="col-6 col-md-4">
-        <img id="logo-pic" src="../assets/logo1.png" v-bind:alt="alt">
+        <router-link :to="{ name: 'Login' }"><img id="logo-pic" src="../assets/logo1.png" v-bind:alt="alt"></router-link>
         </div>
       <div id="right" class="col-6 col-md-4">
         <ul>
