@@ -411,6 +411,7 @@ class InstagramAPI:
     return inbox
 
   def get_v2_threads(self, thread, cursor=None):
+    self.USER_AGENT = 'Instagram 39.0.0.19.93 Android (18/4.3; 320dpi; 720x1280; Xiaomi; HM 1SW; armani; qcom; en_US)'
     endpoint = 'direct_v2/threads/{0}'.format(thread)
     if cursor is not None:
       endpoint += '?cursor={0}'.format(cursor)

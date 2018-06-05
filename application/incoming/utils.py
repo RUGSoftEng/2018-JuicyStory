@@ -66,17 +66,24 @@ def get_DM_Images(user):
   instagram_api = InstagramAPI(user)
   instagram_api.login()
   instagram_api.get_v2_inbox()
-  DMResponse = instagram_api.last_json
+  DM_response = instagram_api.last_json
 
-  if ("error" in DMResponse):
-    return DMResponse
+  if ("error" in DM_response):
+    return DM_response
 
-  for messageThread in DMResponse['inbox']['threads']:
-    print(messageThread)
-    for i, item in enumerate(messageThread['items']):
-      if 'media' in item:
+  for messageThread in DM_response['inbox']['threads']:
+    thread_id = messageThread['thread_id']
+    instagram_api.get_v2_threads(thread_id)
+    thread_response = instagram_api.last_json
+
+    if("error" in thread_response):
+      return thread_response
+
+    for item in thread_response['thread']['items']:
+      if item['item_type'] == 'media':
         DM_images.append(item['media']['image_versions2']['candidates'][0]['url'])
         DM_timestamps.append(item['timestamp'])
+
   DM_images = {'timestamps': DM_timestamps, 'images' : DM_images}
   return DM_images
 
