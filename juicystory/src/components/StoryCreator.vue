@@ -36,7 +36,7 @@
         </div>
 
         <div>
-          <button class="btn btn-primary">Schedule Story</button>
+          <button v-on:click="postStory" class="btn btn-primary">Schedule Story</button>
         </div>
         <br>
       </div>
@@ -46,6 +46,8 @@
 </template>
 
 <script>
+import appService from '../app-service.js'
+
 export default {
   name: 'story',
   data () {
@@ -84,6 +86,10 @@ export default {
     removeFromStory: function (picture) {
       this.items.push(picture)
       this.removeElem(picture, this.storyItems)
+    },
+
+    postStory: function (username, token){
+      appService.postStory(username, token)
     }
   }
 }
@@ -141,3 +147,7 @@ img {
   align-self: center;
 }
 </style>
+
+
+
+
