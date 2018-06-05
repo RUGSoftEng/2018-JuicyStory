@@ -69,6 +69,11 @@ export default {
     }
   },
 
+  created() {
+    this.token = window.localStorage.getItem('token')
+    //this.postStory('testy8101', this.token)
+  },
+
   methods: {
     removeElem: function (input, list) {
       for (var i = list.length - 1; i >= 0; i--) {
@@ -88,8 +93,10 @@ export default {
       this.removeElem(picture, this.storyItems)
     },
 
-    postStory: function (username, token){
-      appService.postStory(username, token)
+    postStory: function (){
+      appService.postStory('testy8101', this.token)
+      //this.postStory('testy8101', this.token)
+
     }
   }
 }
@@ -147,7 +154,6 @@ img {
   align-self: center;
 }
 </style>
-
 
 
 

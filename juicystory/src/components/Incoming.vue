@@ -52,18 +52,18 @@ export default {
         console.log(data)
         for(var i = 0; i <= data.images.length; i++) {
           var obj = {}
-          obj[user] = 'testy8101'
-          var a = new Date(data.timestamps[i] * 1000)
+          obj.user = 'testy8101.' + i
+          var a = new Date(data.timestamps[i] / 1000)
           var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
           var year = a.getFullYear()
           var month = months[a.getMonth()]
           var date = a.getDate()
           var hour = a.getHours()
           var min = a.getMinutes()
-          obj[date] = date + '-' + month + '-' + year
-          obj[time] = hour + ':' + min
-          obj[url] = data.images[i]
-          obj[selected] = false
+          obj.date = date + '-' + month + '-' + year
+          obj.time = hour + ':' + min
+          obj.url = data.images[i]
+          obj.selected = false
           this.images.push(obj)
         }
       })

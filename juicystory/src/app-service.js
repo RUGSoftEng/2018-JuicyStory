@@ -72,16 +72,15 @@ const appService = {
     return new Promise((resolve) => {
       axios.post(`http://localhost:8000/api/post-story/`,
         {
-          headers: {
-            'Authorization': `JWT ${token}`
-          },
-          iusername: '${username}',
-          photo_url: "http://www.personal.psu.edu/jyc5774/jpg.html"
+          iusername: username,
+          photo_url: "http://www.personal.psu.edu/jyc5774/jpg.jpg"
+        },
+        { headers:{
+                  Authorization: `JWT ${token}`}
         }
-      )
-        .then(response => {
-          resolve(response.data)
-        })
+      ).then(response => {
+        resolve(response.data)
+      })
     })
   }
 }
