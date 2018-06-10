@@ -31,3 +31,5 @@ class FilterInstagramUser(ListAPIView):
   permission_classes = (IsAuthenticated,)
   filter_backends = (filters.DjangoFilterBackend, OrderingFilter)
   filter_fields = fields
+
+

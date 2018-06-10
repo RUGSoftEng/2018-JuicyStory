@@ -6,6 +6,7 @@ from datetime import datetime
 from django.core.files.images import ImageFile
 from instagramAPI.utils import InstagramAPI
 from django.core.exceptions import ObjectDoesNotExist
+from django.conf import settings
 
 
 def upload_image(iusername, photo):
@@ -65,7 +66,7 @@ def download_and_schedule_image(image_url, iusername, date, time, is_story=False
   image.is_story = is_story
   image.upload_date = parseDateTime(date, time)
   image.image_file.save(urlparse(image_url).path.split('/')[-1], image_file, save=True)
-
+  upload_story(iusername, settings.BASE_DIR + '/' + image.image_file.url)
   SelectedImage.objects.filter(photo=image_url).delete()
 
 def download_image(image_url):
