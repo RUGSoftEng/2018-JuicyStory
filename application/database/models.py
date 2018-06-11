@@ -38,6 +38,6 @@ class ImageUrl(models.Model):
   upload_time = models.CharField(max_length=100)
 
 class InstagramStory(models.Model):
-  instagram_user  = models.ForeignKey(InstagramUser, default=None, on_delete=models.CASCADE)
+  username        = models.CharField(max_length=30)
   image_urls      = models.ManyToManyField(ImageUrl)
   upload_date     = models.CharField(max_length=100)

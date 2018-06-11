@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework_jwt.views import (obtain_jwt_token, verify_jwt_token)
 from incoming.views import IncomingDMs
-from database.views import (FilterInstagramUser, RUDInstagramUser, CreateInstagramUser)
+from database.views import (FilterInstagramUser, RUDInstagramUser, CreateInstagramUser, FilterInstagramStories, RUDInstagramStories, CreateInstagramStories, CreateInstagramStoryUrl)
 from entry.views import (CreateUser, LoginUser)
 from statistics.views import (FilterInstagramUserStatistics, InstagramStoryUrls, InstagramStoryMetrics)
 from upload.views import PostImageToStory
@@ -21,6 +21,11 @@ urlpatterns = [
   path('filter-iusers/', FilterInstagramUser.as_view(), name='get-iuser'),
   path('create-iusers/', CreateInstagramUser.as_view(), name='post-iuser'),
   path('rud-iusers/<username>/', RUDInstagramUser.as_view(), name='get-put-delete-iuser'),
+
+  path('filter-instagram-stories/', FilterInstagramStories.as_view(), name='get-instagram-stories'),
+  path('create-instagram-stories/', CreateInstagramStories.as_view(), name='post-instagram-stories'),
+  path('rud-instagram-stories/<username>/', RUDInstagramStories.as_view(), name='get-put-delete-instagram-stories'),
+  path('create-instagram-url/', CreateInstagramStoryUrl.as_view(), name='create-instagram-url'),
 
   path('register-user/', CreateUser.as_view(), name='post-register-user'),
   path('login-user/', LoginUser.as_view(), name='post-login-user'),
