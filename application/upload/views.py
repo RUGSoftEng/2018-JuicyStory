@@ -7,7 +7,7 @@ from .utils import upload_image, download_and_schedule_image
 
 
 class PostImageToStory(APIView):
-  ''' def post(self, request, iuser, photo_url): '''
+  ''' Post and image url directrly to instagram '''
   serializer_class = PostImageToStorySerializer
   permission_classes = (IsAuthenticated,)
 
@@ -19,8 +19,6 @@ class PostImageToStory(APIView):
       valid_data = serializer.data
       iusername = valid_data["iusername"]
       photo_url = valid_data["photo_url"]
-      # photo = download_image(photo_url)
-      # upload_image(iusername, photo)
       download_and_schedule_image(photo_url, iusername, "2000-10-10", "00:00", is_story=True)
       return Response(valid_data, status=HTTP_200_OK)
     else:
