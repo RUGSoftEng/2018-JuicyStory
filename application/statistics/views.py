@@ -11,13 +11,13 @@ import requests
 
 def get_story_metrics(request,iusername):
   user = get_object_or_404(InstagramUser, username=iusername)
-  return request_story_stats(user.fbtoken,user.fbid)
+  return request_story_stats(user.fbtoken,user.Fbpageid)
 
 def get_views_and_count(request,iusername,timeStampSince,timeStampUntil):
   user = get_object_or_404(InstagramUser, username=iusername)
   #timeStampSince = 1526109291
   #timeStampUntil = 1526413193
-  userData = request_views_and_followers(user.fbtoken,user.fbid,timeStampSince,timeStampUntil)
+  userData = request_views_and_followers(user.fbtoken,user.Fbpageid,timeStampSince,timeStampUntil)
   userData = userData['data']
   return userData
 
@@ -31,16 +31,14 @@ def fbtoken_redirect(request, iusername):
   client_id = "687645918026028"
   scope = "ads_management,business_management,manage_pages,pages_show_list,instagram_basic,instagram_manage_insights,read_insights"
   test_url = "https://www.facebook.com/v3.0/dialog/oauth?client_id=" + client_id + "&redirect_uri=" + testy + "&scope=" + scope
-  print(test_url)
   return redirect(test_url)
 
 
 def get_token(request, iusername):
-  print("CAME THUS FAR")
   user = get_object_or_404(InstagramUser, username=iusername)
   code = urlparse(request.get_full_path()).query[5:]
   testy = "http://localhost:8000/statistics/testy8101/get-fbtoken/"
-
+  print(request.get_full_path())
   token_url = "https://graph.facebook.com/v3.0/oauth/access_token"
   token_data = requests.get(token_url,
     params={
@@ -50,7 +48,23 @@ def get_token(request, iusername):
       "code": code
     }).json()
   user.fbtoken = token_data["access_token"]
-  return redirect("http://localhost:8000/api/metrics/testy8101/")
+
+  id_url = "https://graph.facebook.com/me"
+
+  id_data = requests.get(id_url,params={"access_token":user.fbtoken}).json()
+  user.fbid = id_data["id"]
+  user.save()
+
+
+
+def getPageId(request, iusername, page_name):
+  user = get_object_or_404(InstagramUser, username=iusername)
+  get_url = "https://graph.facebook.com/" + user.fbid + "/accounts"
+
+  page_data = requests.get(get_url,params={"access_token":user.fbtoken}).json()
+  user.fbpageid = page_data['data'][0]['id']
+  user.save()
+
 
 
 class FilterInstagramUserStatistics(APIView):
@@ -81,7 +95,6 @@ class InstagramStoryMetrics(APIView):
   lookup_field = fields
 
   def get(self, request, iusername):
-    #fbtoken_redirect(request, iusername)
     user = get_object_or_404(InstagramUser, username=iusername)
-    data = request_story_stats(user.fbtoken, user.fbid)
+    data = request_story_stats(user.fbtoken, user.fbpageid)
     return Response(data, status=HTTP_200_OK)
