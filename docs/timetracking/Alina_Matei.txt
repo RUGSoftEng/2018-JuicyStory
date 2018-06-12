@@ -1,0 +1,147 @@
+February 23rd 2018
+13:00 - Meeting with the group; 
+14:00 - First meeting with the client
+14:30 - System requirements
+15:00 - System requirements
+
+
+March 2nd 2018
+13:00 - TA meeting
+13:30 - Deciding on tech stack
+14:00 - Discussion about the user's app
+
+
+March 7th 2018
+3:00 - Meeting with the group(dividing work etc)
+3:30 - Meeting Conclusions
+
+March 8th 2018
+12:30 - 19:00 - Tutorials html/css/javascript (small breaks, max 1h in total)
+
+March 9th 2018
+13:00 - Meeting with the TA
+13:30 - Meeting Conclusions
+14:00 - Decision upon rushing a prototype
+14:30 - 19:30 - Working for second sprint(login page mainly)
+
+March 10th 2018
+12:00 - 17:00 - Working for second sprint(finalizing login page + sign up + pass recovery)
+
+March 11th 2018
+23:00 - 00:30 - minor changes to dashboard
+
+
+March 12th 2018
+15:00 - Meeting with the group
+15:30 - Demo
+16:00 - Dividing work; Writing front-end architecture
+16:30 - Finalising on architecture file
+17:00 - finalizing system requirements, architecture
+
+
+March 14th 2018
+15:00 - Showing the demo to the client
+15:30 - General expectations and pace
+16:00 - Meeting conclusions
+
+
+March 21st 2018
+14:00 - Meeting with the group 
+14:30 - Setting new goals
+
+March 22nd 2018
+13:00 - start vue tutorial
+13:30 - start experimenting with vue
+
+March 23rd 2018
+13:00 - Meeting with the TA
+13:30 - Meeting with the group, discussion
+14:00 - Meeting with the client
+14:30 - Meeting with front-end, splitting work
+
+March 25th 2018
+13:00 - 15:00 - vue tutorials
+17:00 - 18:00 - vue tutorials
+
+March 26th 2018
+13:00 - 17:00 - vue tutorials + start working on new sprint
+
+March 27th 2018
+12:00 - 13:30 - working on accountList
+15:00 - Urgent meeting with the group
+16:00 - 19:30 - working on accountList
+
+March 28th 2018
+11:30 - 19:30 - working on accountList + storyCreator(with small pauses, max 1h in total)
+
+March 29th 2018
+13:00 - 18:30 - finalizing storyCreator
+18:30 - updating time track
+19:00 - commiting time track (1st time) on git
+
+April 2nd 2018
+13:00 - 14:00 - meeting before presentation
+
+April 3rd 2018
+11:00 - 12:30 - presentations
+12:30 - 13:00 - preparing for presentation
+13:30 - 13:00 - presentation juicy story and discussion
+
+April 20th 2018
+13:00 - 14:00 - TA meeting and small group meeting
+
+April 25th 2018
+10:00 - 13:00 - front end meeting
+
+April 26th 2018
+15:00 - 16:00 - team meeting
+
+May 3rd 2018
+15:00 - 16:00 - TA meeting
+16:00 - 17:00 - front end meeting
+22:00 - 24:00 - setting up the new vue project 
+
+May 4th 2018
+13:00 - 18:00 - integrating old front end in the new project
+
+May 5th 2018
+16:00 - 18:00 - finishing integrating & fixing problems
+
+May 6th 2018
+16:00 - 17:00 - fixing problems
+17:00 - 18:00 - brainstorming for new design & documenting about possible improvements
+
+May 8th 2018
+14:00 - 15:00 - small meeting with Razvan 
+
+May 9th 2018
+16:00 - 17:00 - working on the footer & fixing the footer problems
+
+May 13th 2018
+15:00 - 16:30 - fixed the footer problem
+
+May 24th 2018
+15:00 - 16:00 - group meeting
+
+May 31st 2018
+15:00 - 16:00 - group meeting
+16:00 - 17:00 - discussion and final task splitting
+
+
+June 1st 2018
+12:00 - 15:00 - research about sending data through Vue
+
+
+June 2nd 2018
+15:00 - 17:30 - working on final changes
+
+June 4th 2018
+14:00 - 20:00 - fixing front end, final changes
+22:00 - 23:00 - writing presentation 
+
+June 5th 2018
+12:00 - 13:00 - final touches
+13:00 - 17:00 - presentation
+
+June 7th 2018
+15:00 - 16:00 - final meeting
