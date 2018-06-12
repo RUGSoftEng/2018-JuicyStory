@@ -152,4 +152,99 @@
 12:30 - committing changes
 15:30 - redirect loved in users
 
+## April 11th 2018
+17:00 - Investigating Django REST
+17:30 - Django REST included & working
+18:00 - Writing a tutorial on README.md
+18:30 - Including all the endpoints for every model
 
+## April 16th 2018
+13:00 - Meeting with the team
+13:30 - Updating the architecture
+14:00 - architecture components added
+
+## April 19th 2018
+11:00 - Scrumifying Trello
+11:30 - Making new tasks & responsibilities
+12:00 - Trello looking good!
+
+## April 28th 2018
+12:00 - Commenting code and renaming
+12:30 - renaming 'users'
+13:00 - renamed 'users' to 'entry'
+14:30 - renamed 'authcode' to 'authentication'
+15:00 - renamed 'authdemo' to 'core'
+
+## May 28th 2018
+09:00 - Login Api
+09:30 - Serialisers ready
+10:00 - Register Api
+10:30 - DOES NOT WORK...
+11:00 - Different Serialisers per api for the entry
+11:30 - Testing 
+12:00 - Making curl request
+12:30 - Setting up proper JWT aUTH
+13:00 - Api's ready
+13:30 - Adding Instagram api point
+15:00 - Meeting with Sid for merge
+15:30 - Starting merge
+16:00 - Running front-end on my computer
+16:30 - Issue making request from the front end
+17:00 - New module installed
+17:30 - Api calls broken
+18:00 - Finally fixed the request
+18:30 - Problem of sending indented brackets
+19:00 - Back-end fixed!
+
+## May 27th 2018
+09:00 - Formatting issues
+09:30 - Making an api app
+10:00 - Handling errors from the front-end
+10:30 - Send queryDicts instead of regular dicts
+11:00 - Trying to have browsable api root tree
+11:30 - No tree unfortunately 
+12:00 - Cleaning up the core app
+12:30 - Adding all url to api app
+13:00 - Talking with George R about redirects/statistics
+15:00 - Adding API for instagram story images
+15:30 - Adding API for instagram story stats
+16:00 - refactoring statistics utils
+16:00 - finalising changes
+
+## May 28th 2018
+12:00 - Meeting with George R to merge statistics
+14:30 - Added the views with the new statistics functionality
+15:00 - Modifying the urls to receive unit timestamps
+15:30 - Added the APIViews for the statistics
+16:00 - Testing the API.
+
+## May 29th 2018
+15:00 - Meeting with Sid
+15:30 - Making calls to the api
+16:00 - Fixed vue
+16:30 - We receive dicts instead of querydicts???
+17:00 - Formating function.
+17:30 - Merge done, api - vue seems to work 
+18:00 - Updating the rest of the api points
+18:30 - Minor travis ci update
+
+## June 1st 2018
+14:00 - Found problems with the api
+14:30 - Rerouting the api to work, ups.
+15:00 - Complete documentation of the api.
+15:30 - Minor fixes to the api.
+16:00 - Why does the token expire so fast?
+
+## June 3rd 2018
+12:00 - Adding examples to the documented api
+12:30 - Merging new version of statistics
+13:00 - Can't make it to work...
+
+## June 4th 2018
+13:00 - Updated the dms to the relevant api call
+14:00 - Updated android version.
+
+## June 7th 2018
+MASSIVE CHANGES LOOK AT COMMITS.
+--------------
+--------------
