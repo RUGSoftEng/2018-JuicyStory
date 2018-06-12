@@ -90,11 +90,141 @@
 18:30 - Look into stats api
 19:00 - Look into stats api
 
+## April 16th 2018
+13:00 - Meeting with the team
+
 # April 19th 2018
 13:00 - Meeting with group
 13:30 - meeting with group
 14:00 - Meeting with group
 18:30 - start on stats module
 19:00 - start on stats module
+
+# April 21st 2018
+13:30 - Working on user stats
+15:00 - Working on user stats
+15:30 - Working on user stats
+16:00 - Working on user stats
+16:30 - Working on user stats
+17:00 - Working on user stats
+
+# April 22nd 2018
+17:00 - Final touches to basic stats
+17:30 - Final touches to basic stats
+18:00 - Adding more features to stats
+18:30 - Adding more features to stats
+
+# April 26th 2018
+15:00 - Meeting with group
+18:00 - Bug Fixing/Time propagation
+18:30 - Bug Fixing/Time propagation
+19:00 - Bug Fixing/Time propagation
+19:30 - Bug Fixing/Time propagation
+20:00 - Bug Fixing/Time propagation
+20:30 - Bug Fixing/Time propagation
+
+
+# April 30th 2018
+16:00 - Minor Tweaks to stats
+16:30 - Minor Tweaks to stats
+17:00 - Minor Tweaks to stats
+
+# May 3rd 2018
+15:00 - TA meeting
+16:00 - Figuring out how to work with REST and my stats app
+16:30 - Figuring out how to work with REST and my stats app
+17:00 - Figuring out how to work with REST and my stats app
+
+# May 5th 2018
+15:00 - Time propagation done
+15:30 - Looking into automating token retrieval and ids
+16:00 - Looking into automating token retrieval and ids
+
+# May 10th 2018
+19:00 - Working on story stats
+19:30 - Working on story stats
+20:00 - Working on story stats
+20:30 - Working on story stats
+21:00 - Working on story stats
+
+# May 17th 2018
+14:00 - TA meeting
+15:00 - Look into how facebook signup works
+15:30 - story stats coding
+16:00 - story stats coding
+16:30 - story stats coding
+17:00 - story stats coding
+
+# May 20th 2018
+22:00 - working on redirect to fb
+22:30 - working on redirect to fb
+23:00 - working on redirect to fb
+
+# May 21st 2018
+01:00 - working on redirect to fb
+01:30 - working on redirect to fb
+02:00 - working on redirect to fb
+
+# May 22nd 2018
+12:00 - Changing redirect flow
+12:30 - Changing redirect flow
+13:00 - Changing redirect flow
+13:30 - Changing redirect flow
+14:00 - Changing redirect flow
+
+#May 23rd 2018
+17:00 - working on story stats
+17:00 - working on story stats
+17:00 - working on story stats
+17:00 - working on story stats
+
+
+# May 28th 2018
+12:00-15:00 - Meeting with George A to merge statistics
+
+
+#May 30th 2018
+16:00 - story stats
+16:30 - story stats 
+17:00 - story stats
+
+# May 31st 2018
+15:00 - Meeting with group
+
+
+# June 1st 2018
+17:00 - polishing up the redirect
+17:30 - polishing up the redirect
+18:00 - polishing up the redirect
+
+#June 4th 2018
+17:00 - writing script for presentation
+17:30 - writing script for presentation
+18:00 - writing script for presentation
+22:00 - making powerpoint
+22:30 - making powerpoint
+23:00 - making powerpoint
+
+# June 5th 2018
+13:00 - 17:00 - Presentations
+
+# June 8th 2018
+15:00 - Automate facebook id retrieval
+15:30 - Automate facebook id retrieval
+16:00 - Automate facebook id retrieval
+
+# June 10th 2018
+19:00 - Automate facebook id retrieval
+19:30 - Automate facebook id retrieval
+20:00 - Automate facebook id retrieval
+20:30 - Automate facebook id retrieval
+
+#June 11th 2018
+14:00 - Finial touches on automation
+14:30 - Finial touches on automation
+
+#June 12th 2018
+18:00 - Fix bugs with George A
+18:30 - Fix bugs with George A
 
 
