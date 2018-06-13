@@ -8,6 +8,6 @@ install:
   - "pip install -q -r requirements.txt"
 
 script:
+  - "cd back-end"
   - "cd application"
   - "python manage.py test"
-  - "cd .."

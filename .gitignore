@@ -1,4 +1,5 @@
 *.sublime-workspace
 **/__pycache__
-core/media/*
-core/db.sqlite3
+application/db.sqlite3
+**/.vscode/*
+application/media/*
