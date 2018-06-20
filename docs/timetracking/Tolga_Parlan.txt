@@ -1,0 +1,113 @@
+01.03.2018
+  11.00 - Meeting with the client
+  11.30 - Meeting with the client
+  14.00 - Creating a test instagram account and reading API Docs
+  14.30 - Registered for Instagram API, reading docs
+  15.00 - Build a demo connecting to the instagram API
+  15.30 - Build a demo connecting to the instagram API
+  19.00 - Investigate how to download images through instagram api
+  19.30 - Building the image download demo
+  20.00 - Building the image download demo
+  20.30 - Building the image download demo
+  21.00 - Building the image download demo
+  21.30 - Building the image download demo
+
+07.03.2018
+  15.00 - Group meeting
+  17.00 - Learn django
+  17.30 - Learn django
+  18.00 - Learn django
+  18.30 - Learn django
+  19.00 - Learn django
+
+08.03.2018
+  20.00 - Learn django
+  20.30 - learn django
+  21.00 - Investigate django-apache integration
+  21.00 - Investigate django-apache integration
+  21.30 - Configured opening django server to internet via port forwarding
+
+09.03.2018
+  10.00 - Porting previously built demos to django
+  10.30 - Making an api endpoint to receive the authentication key
+  11.00 - Making an api endpoint to receive the authentication key
+  11.30 - Make a user_list page and create the model for it
+  12.00 - Add authentication key acquisition functionality to the userlist page
+  13.00 - Meeting
+  14.00 - Working on the prototype
+  .. until ..
+  20.00 - Working on the prototype
+
+11.03.2018
+  12.00 - Improve prototype with location based image search
+  .. until ..
+  15.00 - Improve prototype with location based image search
+
+16.03.2018
+  13.00 - Figuring out how to upload images to Instagram
+  .. until ..
+  16.30 - Figuring out how to upload images to Instagram
+
+18.03.2018
+  15.00 - Setting up upload functionality to the website and a cron job
+  .. until ..
+  17.30 - Setting up upload functionality to the website and a cron job
+
+  20.00 - Finishing the upload functionality and the cron job
+  20.30 - Finishing the upload functionality and the cron job
+
+23.03.2018
+  13.00 - Meeting with TA and client
+  13.30 - Meeting with TA and client
+
+  19.30 - Investigating and implementing story uploading functionality
+  .. until ..
+  21.30 - Investigating and implementing story uploading functionality
+
+26.03.2018
+  14.00 - Merging George's image listing into image uploading branch
+  .. until ..
+  16.30 - Merging George's image listing into image uploading branch
+
+  22.00 - Merging George's image listing into image uploading branch
+  22.30 - Merging George's image listing into image uploading branch
+
+01.04.2018
+  13.00 - Fix small bug with uploading
+  13.30 - Create a README
+
+01.05.2018
+  18.30 - Researching and implementing getting images from DMs
+  .. until .. 
+  21.00 - Researching and implementing getting images from DMs
+
+11.05.2018
+  16.00 - Researching model-less Django api endpoints
+  16.30 - Researching model-less Django api endpoints
+  17.00 - Creating a mock api endpoint for incoming app
+
+  19.30 - Creating a mock api endpoint for incoming app, migrating all the possible code to InstagramAPI module
+  .. until ..
+  22.00 - Creating a mock api endpoint for incoming app, migrating all the possible code to InstagramAPI module
+
+12.05.2018
+  12.30 - Creating a real api endpoint for incoming app
+  .. until ..
+  17.30 - Creating a real api endpoint for incoming app
+
+13.05.2018
+  14.00 - Moving InstagramAPI module into a new app
+  14.00 - Moving InstagramAPI module into a new app
+
+  19.00 - Implementing persistent logins on instagram while using the InstagramAPI
+  .. until ..
+  21.30 - Implementing persistent logins on instagram while using the InstagramAPI
+
+14.05.2018
+  9.30 - Fixing the bugs related to persistent login and merging the branch into v0.5
+  .. until ..
+  12.30 - Fixing the bugs related to persistent login and merging the branch into v0.5
+
+  13.00 - Adding authentication to the whole api
+  .. until ..
+  15.30 - Adding authentication to the whole api

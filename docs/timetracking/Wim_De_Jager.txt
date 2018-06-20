@@ -1,0 +1,158 @@
+07.03.2018
+  - 15.00-15.30 Group Meeting
+  - 15.30-16.00 Group Meeting
+  - 17.00-17.30 Learn HTML
+  - 17.30-18.00 Learn HTML
+
+08.03.2018
+  - 11.00-11.30 Learn HTML
+  - 11.30-12.00 Learn CSS
+  - 13.00-13.30 Learn CSS
+  - 14.15-14.45 Learn CSS
+ - 14.45-15.15 Learn CSS
+  - 15.15-15.45 Learn CSS
+  - 15.45-16.15 Learn CSS
+  - 16.15-16.45 Learn JQuery
+
+09.03.2018
+  - 13.00-13.30 TA Meeting/building login page
+  - 13.30-14.00 Build sign up page
+
+10.03.2018
+  - 15.00-15.30 Build dashboard
+  - 15.30-16.00 Build dashboard
+  - 16.00-16.30 Build dashboard
+  - 16.30-17.00 Build dashboard
+  - 17.00-17.30 Build dashboard
+
+11.03.2018
+	- 11.00-11.30 Learn CSS
+	- 11.30-12.00 Learn CSS
+	- 12.30-13.00 Build dashboard
+	- 13.30-13.30 Build dashboard
+
+12.03.2018
+	- 15.00-15.30 Group Meeting
+	- 15.30-16.00 Group Meeting
+	- 16.00-16.30 Group Meeting
+	- 16.30-17.00 Group Meeting
+
+13.03.2018
+	- 09.00-09.30 Install Django
+	- 09.30-10.00 Install Django/Test server
+
+14.03.2018
+  - 15.00-15.30 Client meeting
+  - 15.30-16.00 Group meeting
+
+21.03.2018
+  - 13.30-14.00 Group Meeting
+
+22.03.2018
+  - 14.00-14.30 Learn Vue.js
+  - 14.30-15.00 Learn Vue.js
+  - 16.00-16.30 Learn Vue.js
+  - 16.30-17.00 Learn Vue.js
+  - 17.30-18.00 Learn Vue.js
+  - 18.00-18.30 Learn Vue.js
+
+23.03.2018
+  - 13.00-13.30 TA Meeting
+  - 13.30-14.00 Group Meeting/Client Meeting
+
+27.03.2018
+  - 10.00-10.30 Learn Vue.js
+
+28.03.2018
+  - 13.00-13.30 Build incoming page
+  - 13.30-14.00 Build incoming page
+  - 14.30-15.00 Build incoming page
+  - 16.00-16.30 Build incoming page
+  - 16.30-17.00 Build incoming page
+  - 20.00-20.30 Build incoming page
+
+29.03.2018
+  - 10.00-10.30 Build incoming page
+  - 10.30-11.00 Build incoming page
+  - 11.00-11.30 Build incoming page
+  - 11.30-12.00 Build incoming page
+  - 15.00-15.30 Build incoming page
+  - 15.30-16.00 Build incoming page
+  - 16.00-16.30 Build incoming page
+  - 16.30-17.00 Build incoming page
+  - 17.00-17.30 Build incoming page
+  - 19.30-20.00 Build incoming page, merge Alina's work into github
+  - 20.00-20.30 Merge Alina's work into github
+
+03.04.2018
+  - 12.00-12.30 Group Meeting
+  - 12.30-13.00 Group Meeting
+  - 13.00-13.30 Group Meeting
+  - 13.30-14.00 Group Meeting
+  - 14.00-14.30 Group Meeting
+  - 14.30-15.00 Group Meeting
+
+16.04.2018 
+  - 13.00-13.30 Group Meeting
+  - 13.30-14.00 Group Meeting
+  - 14.00-14.30 Group Meeting
+  - 14.30-15.00 Group Meeting
+
+19.04.2018
+  - 13.00-13.30 Group Meeting
+  - 13.30-14.00 Group Meeting
+
+20.04.2018
+  - 13.00-13.30 TA Meeting
+
+25.04.2018
+  - 10.00-10.30 Front end meeting
+  - 10.30-11.00 Front end meeting
+
+26.04.2018
+  - 15.00-15.30 Group Meeting
+
+01.05.2018
+  - 10.00-10.30 Set up PC to work with webpack-server
+  - 10.30-11.00 Install/set up Webstorm
+  - 11.00-11.30 Install/set up Webstorm
+
+12.05.2018
+  - 16.00-16.30 Build dashboard page
+  - 16.30-17.00 Build dashboard page
+  - 17.00-17.30 Build dashboard page
+  - 17.30-18.00 Build dashboard page
+  - 18.00-18.30 Build dashboard page
+
+14.05.2018
+  - 12.00-12.30 Fixed Vue.js errors
+  - 12.30-13.00 Fixed Vue.js errors
+  - 16.00-16.30 Build dashboard page
+  - 16.30-17.00 Build dashboard page
+  - 17.00-17.30 Build dashboard page
+
+15.05.2018
+  - 16.00-16.30 Build dashboard page
+  - 16.30-17.00 Build dashboard page
+
+16.05.2018
+  - 10.30-11.00 Group meeting
+  - 11.00-11.30 Usability Testing
+  - 11.30-12.00 Usability Testing
+  - 12.00-12.30 Usability Testing
+  - 12.30-13.00 Usability Testing
+
+25.05.2018
+  - 19.30-20.00 Set up Heroku
+  - 20.00-20.30 Set up Heroku
+  - 20.30-21.00 Set up Heroku
+
+31.05.2018
+  - 15.00-15.30 TA meeting/Group meeting
+  - 15.30-16.00 Group meeting
+
+03.06.2018
+  - 19.30-20.00 Set up Heroku
+  - 20.00-20.30 Set up Heroku
+  - 20.30-21.00 Set up Heroku
+  - 21.00-21.30 Set up Heroku
